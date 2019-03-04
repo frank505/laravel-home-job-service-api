@@ -1,0 +1,4 @@
+all admin related routes are prefixed with admin and all user related routes are prefixed with user that isto say to visit admin
+you have to go api/admin/targeted_route and the same goes to user to api/user/targeted_route
+         ADMIN ROUTES ARE AS FOLLOWS
+         
