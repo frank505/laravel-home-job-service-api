@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 
 Route::group(['prefix' => 'admin',
+'namespace'=>'Administrator',
 'middleware' => ['CORS']],function ()
 {
     Route::post('/login', 'AdminAuthController@login');
@@ -15,7 +16,7 @@ Route::group(['prefix' => 'admin',
     //this is to display all the available roles
     Route::post("/logout","AdminAuthController@logout");
     //display admin profile
-    Route::get("/profile","AdminAuthController@getAuthadmin");
+    Route::post("/profile","AdminAuthController@getAuthadmin");
     Route::get('role/all-content/{pagination?}', 'roleController@index');
     //this is to display individual roles
     Route::get('role/show/{id}', 'roleController@show');
@@ -32,9 +33,24 @@ Route::group(['prefix' => 'admin',
     Route::post('/user/remove-ban/{id}','AdminAuthController@removeBan');   
     Route::get('user/all/{pagination?}','AdminAuthController@ViewUsers');
     Route::get('user/single/{id}','AdminAuthController@showUserProfile');
+    //this routes are for the categories section 
+    Route::get('categories/all-content/{pagination?}', 'CategoriesController@index');
+    Route::post('categories/create', 'CategoriesController@store');
+    //this is to update roles
+    Route::post('categories/update/{id}', 'CategoriesController@update');
+    //this is to set default roles
+    Route::delete('categories/delete/{id}', 'CategoriesController@delete');
+    //services creation
+    Route::post('services/create', 'ServicesController@store');
+    //this is to update roles
+    Route::post('services/update/{id}', 'ServicesController@update');
+    //this is to set default roles
+    Route::delete('services/delete/{id}', 'ServicesController@delete');
+    Route::get('services/all-content/{pagination?}', 'ServicesController@index');
+    Route::get('services/single-category/{id}/{pagination?}','ServicesController@GetServiceByCategory');
 });
 
-Route::group(["prefix"=>"user","middleware"=>["CORS"]],function(){
+Route::group(["prefix"=>"user","namespace"=>"User","middleware"=>["CORS"]],function(){
     Route::post('register', 'UserAuthController@register');    
     Route::post('login', 'UserAuthController@login');
     Route::post("edit/{id}","UserAuthController@editProfile");

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Administrator;
 
 use App\Http\Controllers\Controller;
 use App\admin;
@@ -10,16 +10,19 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Http\Requests\RegisterAuthRequest;
 use Illuminate\Support\Facades\Hash;
 use App\ManageUser;
+use Illuminate\Routing\UrlGenerator;
 
 class AdminAuthController extends Controller
 {
     //
+    protected $base_url;
     public $loginAfterSignUp = true;
    protected $admin;
-    public function __construct(){
+    public function __construct(UrlGenerator $url){
        $this->middleware("auth:admins",['except'=>['login']]);
        $this->admin = new admin();
        $this->user = new ManageUser();
+       $this->base_url = $url->to("/");  //this is to make the baseurl available in this controller
    }
     public function register(Request $request)
     {
@@ -161,11 +164,14 @@ class AdminAuthController extends Controller
                 return response()->json([
                     'success' => false,
                     'message' => 'Sorry, user with id ' . $id . ' cannot be found',
-                    'img_path'=>'images/user'
                 ], 400);
             }
-         
-            return $users;
+        
+            return response()->json([
+                "success"=>true,
+                "data"=>$users,
+                'image_directory'=>$this->base_url."/images/users",
+            ],200);
         }
         
         

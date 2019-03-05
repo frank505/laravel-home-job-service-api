@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Administrator;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -24,9 +24,9 @@ public function index($pagination=null,Request $request)
 //laravel automatically converts it to json and sends a response text too
 //$auth = auth("admins")->authenticate($request->token);
 if($pagination==null || $pagination==""){
-    return $this->role->get(['id', 'rolename', 'isdefault'])->toArray();
+    return $this->role->get(['id', 'rolename', 'isdefault','created_at'])->toArray();
 }
-    $paginated_roles =  $this->role->paginate($pagination,["id","rolename","isdefault"]);
+    $paginated_roles =  $this->role->paginate($pagination,["id","rolename","isdefault","created_at"]);
     return response()->json([
         'success' => true,
          'data'=>$paginated_roles
@@ -108,7 +108,8 @@ public function delete(Request $request,$id)
  
     if ($role->delete()) {
         return response()->json([
-            'success' => true
+            'success' => true,
+            'message'=>'delete successful'
         ]);
     } else {
         return response()->json([
@@ -132,7 +133,8 @@ public function default(Request $request,$id)
    if($set_default)
    {
     return response()->json([
-        'success' => true
+        'success' => true,
+        'message'=>'this role has been set as default successfully'
     ]);
 } else {
     return response()->json([
