@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\categories;
 use Illuminate\Routing\UrlGenerator;
 use App\Http\Controllers\SanitizeController;
+use Validator;
 
 class CategoriesController extends Controller
 {
@@ -45,12 +46,24 @@ if($pagination==null || $pagination==""){
 public function store(Request $request)
 {
 
-    $this->validate($request, [
+    $validator = Validator::make($request->all(), 
+    [
         'category' => 'required|string',
-        'image.*' => 'image|mimes:jpeg,bmp,png|max:8000',
-    ]);
- 
+        'image.*' => 'required|image|mimes:jpeg,bmp,png|max:8000',
+    ]
+     );
+     
+    if($validator->fails()){
+        return $validator->messages()->toArray();
+      }  
+
     $image = $request->file("image");
+    if($image==NULL){
+        return response()->json([
+            'success' => false,
+            'message' => 'please select an image'
+        ], 500);    
+    }
     // var_dump($image);
    //  return;
      $image_extension = $image->getClientOriginalExtension();
@@ -85,11 +98,24 @@ public function update(Request $request,$id)
         ], 400);
     }
 
-    $this->validate($request,
-    ['category'=>'required|string',
-    'image.*' => 'image|mimes:jpeg,bmp,png|max:8000']);
+    $validator = Validator::make($request->all(), 
+    [
+        'category' => 'required|string',
+        'image.*' => 'required|image|mimes:jpeg,bmp,png|max:8000',
+    ]
+     );
+     
+    if($validator->fails()){
+        return $validator->messages()->toArray();
+      }  
 
     $image = $request->file("image");
+    if($image==NULL){
+        return response()->json([
+            'success' => false,
+            'message' => 'please select an image'
+        ], 500);    
+    }
     $image_extension = $image->getClientOriginalExtension();
  if(SanitizeController::CheckFileExtensions($image_extension,array("png","jpg","jpeg","PNG","JPG","JPEG"))==FALSE){
     return response()->json([
@@ -109,7 +135,8 @@ $update = $this->categories::where(["id"=>$id])->update(
 
 if ($update) {
 return response()->json([
-    'success' => true
+    'success' => true,
+    'message'=>"category updated successfully"
 ]);
 } else {
 return response()->json([
@@ -130,8 +157,8 @@ public function delete(Request $request,$id)
         ], 400);
     }
  
+    $categories_prev_image = $categories->image;
     if ($categories->delete()) {
-        $categories_prev_image = $categories->image;
         unlink(public_path('images/cat_icon/'.$categories_prev_image));
         return response()->json([
             'success' => true,
@@ -145,9 +172,5 @@ public function delete(Request $request,$id)
     }
 }
 
-public function GetServiceByCategory(Request $request)
-{
-
-}
 //end of this class
 }

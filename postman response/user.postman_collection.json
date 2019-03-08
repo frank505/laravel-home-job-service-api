@@ -1,131 +1,169 @@
 {
-	"id": "83e51094-ddce-e228-4768-92a63c41846b",
-	"name": "user",
-	"description": "",
-	"order": [
-		"9add55d5-c4aa-9e90-4140-eb5aa15b7190",
-		"592c9292-30f2-ef08-9bd0-39c5e2857f6e",
-		"f9f45fae-7388-05ce-41ae-105428e3b393",
-		"a018d97c-9317-4b60-9303-81144275cff2",
-		"076dbc05-ed80-d55e-51aa-8051a7c4f97a"
-	],
-	"folders": [],
-	"folders_order": [],
-	"timestamp": 1551752538734,
-	"owner": "6821000",
-	"public": false,
-	"requests": [
+	"variables": [],
+	"info": {
+		"name": "user",
+		"_postman_id": "83e51094-ddce-e228-4768-92a63c41846b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "076dbc05-ed80-d55e-51aa-8051a7c4f97a",
-			"headers": "",
-			"headerData": [],
-			"url": "",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1551753105319,
-			"name": "api/user/profile",
-			"description": "this is to view user profile:\n     \n     the header must also carry Authorization: Bearer <token>\nthe parameters passed to the body...\n       'token'=>required\n     \n     \n          on success:\n            'user'=>user details ,\n            'image_directory'=>file directory,\n           ",
-			"collectionId": "83e51094-ddce-e228-4768-92a63c41846b",
-			"responses": []
+			"name": "user registration",
+			"request": {
+				"url": "http://localhost:8000/api/user/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"firstname\":\"bask\",\n\"lastname\":\"costa\",\n\"email\":\"mailsser@gmail.com\",\n\"password\":\"password\",\n\"phone\":\"3344\",\n\"cityid\":\"dhfj34\",\n\"roleid\":\"dfgg\"\n}"
+				},
+				"description": "this is to register a new user:\nthe parameters passed to the body...\n   'firstname' => 'required|string',\n            'lastname'=>'required|string',\n            'email' => 'required|email|unique:users',\n            'password' => 'required|string|min:6|max:10',\n            'phone'=>'required|string',\n            'cityid'=>'required|string',\n            'occupationid'=>'required|string',\n            'rating'=>'required|integer',\n            'profilephoto.*' => 'image|mimes:jpeg,bmp,png|max:8000',\n           \n          on success:\n            'success' => true,\n            'data' => token\n           "
+			},
+			"response": []
 		},
 		{
-			"id": "592c9292-30f2-ef08-9bd0-39c5e2857f6e",
-			"headers": "",
-			"headerData": [],
-			"url": "",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1551753105319,
-			"name": "api/user/login",
-			"description": "this is to login a user:\nthe parameters passed to the body...\n     \n     'email' => 'required|email|unique:users',\n            'password' => 'required|string|min:6|max:10',\n            \n          on success:\n            'success' => true,\n            'data' => token\n           ",
-			"collectionId": "83e51094-ddce-e228-4768-92a63c41846b",
-			"responses": []
+			"name": "user login",
+			"request": {
+				"url": "http://localhost:8000/api/user/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"mailer@gmail.com\",\n\t\"password\":\"password\"\n}"
+				},
+				"description": "this is to login a user:\nthe parameters passed to the body...\n     \n     'email' => 'required|email|unique:users',\n            'password' => 'required|string|min:6|max:10',\n            \n          on success:\n            'success' => true,\n            'data' => token\n           "
+			},
+			"response": []
 		},
 		{
-			"id": "9add55d5-c4aa-9e90-4140-eb5aa15b7190",
-			"headers": "",
-			"headerData": [],
-			"url": "",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1551753105319,
-			"name": "api/user/register",
-			"description": "this is to register a new user:\nthe parameters passed to the body...\n   'firstname' => 'required|string',\n            'lastname'=>'required|string',\n            'email' => 'required|email|unique:users',\n            'password' => 'required|string|min:6|max:10',\n            'phone'=>'required|string',\n            'cityid'=>'required|string',\n            'occupationid'=>'required|string',\n            'rating'=>'required|integer',\n            'profilephoto.*' => 'image|mimes:jpeg,bmp,png|max:8000',\n           \n          on success:\n            'success' => true,\n            'data' => token\n           ",
-			"collectionId": "83e51094-ddce-e228-4768-92a63c41846b",
-			"responses": []
+			"name": "logout a user",
+			"request": {
+				"url": "http://localhost:8000/api/user/logout",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU1MjA1NDE4NiwiZXhwIjoxNTUyMDU3Nzg2LCJuYmYiOjE1NTIwNTQxODYsImp0aSI6Im5wWDFoejlSeUZzbDhqaHYiLCJzdWIiOjE1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.L-iijV5OFlH2aZMEfHRMljPuzXyVQyuIs28pt7G4ehE",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU1MjA1NDE4NiwiZXhwIjoxNTUyMDU3Nzg2LCJuYmYiOjE1NTIwNTQxODYsImp0aSI6Im5wWDFoejlSeUZzbDhqaHYiLCJzdWIiOjE1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.L-iijV5OFlH2aZMEfHRMljPuzXyVQyuIs28pt7G4ehE\"\n}"
+				},
+				"description": "this is to logout a user:\nthe parameters passed to the body...\n     \n     'token'=>required\n            \n          on success:\n            'success' => true,\n            'data' => 'user logged out successfully'\n           "
+			},
+			"response": []
 		},
 		{
-			"id": "a018d97c-9317-4b60-9303-81144275cff2",
-			"headers": "",
-			"headerData": [],
-			"url": "",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1551753105319,
-			"name": "api/user/edit/:id",
-			"description": "this is to update a user only the users email is not added during edit:\nthe parameters passed to the body...\n     \n     the header must also carry Authorization: Bearer <token>\n     \n     'firstname' => 'required|string',\n            'lastname'=>'required|string',\n            'password' => 'required|string|min:6|max:10',\n            'phone'=>'required|string',\n            'cityid'=>'required|string',\n            'occupationid'=>'required|string',\n            'rating'=>'required|integer',\n            'roleid'=>'required|string',\n            'profilephoto.*' => 'image|mimes:jpeg,bmp,png|max:8000',\n     \n          on success:\n            'success' => true,\n            'data' => token\n           ",
-			"collectionId": "83e51094-ddce-e228-4768-92a63c41846b",
-			"responses": []
+			"name": "edit your profile",
+			"request": {
+				"url": "http://localhost:8000/api/user/edit/10",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU1MjA1NDQ3NywiZXhwIjoxNTUyMDU4MDc3LCJuYmYiOjE1NTIwNTQ0NzcsImp0aSI6IlBVRU56VXhaZ2FmT21ycXkiLCJzdWIiOjE1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.-r-Sm51tsxUzLWDzNAIUMOvs3DHIxuNgQ9MbjBu72yI",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"firstname\":\"basdeedde\",\n\"lastname\":\"costanino\",\n\"password\":\"password\",\n\"phone\":\"3344\",\n\"cityid\":\"dhfj34\",\n\"roleid\":\"dfgg\"\n}"
+				},
+				"description": "this is to update a user only the users email is not added during edit:\nthe parameters passed to the body...\n     \n     the header must also carry Authorization: Bearer <token>\n     \n     'firstname' => 'required|string',\n            'lastname'=>'required|string',\n            'password' => 'required|string|min:6|max:10',\n            'phone'=>'required|string',\n            'cityid'=>'required|string',\n            'occupationid'=>'required|string',\n            'rating'=>'required|integer',\n            'roleid'=>'required|string',\n          \n          on success:\n            'success' => true,\n            'data' => token\n           "
+			},
+			"response": []
 		},
 		{
-			"id": "f9f45fae-7388-05ce-41ae-105428e3b393",
-			"headers": "",
-			"headerData": [],
-			"url": "",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1551753105319,
-			"name": "api/user/logout",
-			"description": "this is to logout a user:\nthe parameters passed to the body...\n     \n     'token'=>required\n            \n          on success:\n            'success' => true,\n            'data' => 'user logged out successfully'\n           ",
-			"collectionId": "83e51094-ddce-e228-4768-92a63c41846b",
-			"responses": [],
-			"isFromCollection": true,
-			"collectionRequestId": "592c9292-30f2-ef08-9bd0-39c5e2857f6e"
+			"name": "user edits his profile",
+			"request": {
+				"url": "http://localhost:8000/api/user/profile",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU1MjA1NDQ3NywiZXhwIjoxNTUyMDU4MDc3LCJuYmYiOjE1NTIwNTQ0NzcsImp0aSI6IlBVRU56VXhaZ2FmT21ycXkiLCJzdWIiOjE1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.-r-Sm51tsxUzLWDzNAIUMOvs3DHIxuNgQ9MbjBu72yI",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU1MjA1NDQ3NywiZXhwIjoxNTUyMDU4MDc3LCJuYmYiOjE1NTIwNTQ0NzcsImp0aSI6IlBVRU56VXhaZ2FmT21ycXkiLCJzdWIiOjE1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.-r-Sm51tsxUzLWDzNAIUMOvs3DHIxuNgQ9MbjBu72yI\"\n}"
+				},
+				"description": "this is to view user profile:\n     \n     the header must also carry Authorization: Bearer <token>\nthe parameters passed to the body...\n       'token'=>required\n     \n     \n          on success:\n            'user'=>user details ,\n            'image_directory'=>file directory,\n           "
+			},
+			"response": []
+		},
+		{
+			"name": "user uploads profile photo",
+			"request": {
+				"url": "http://localhost:8000/api/user/profilephoto/add",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU1MjA1NDQ3NywiZXhwIjoxNTUyMDU4MDc3LCJuYmYiOjE1NTIwNTQ0NzcsImp0aSI6IlBVRU56VXhaZ2FmT21ycXkiLCJzdWIiOjE1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.-r-Sm51tsxUzLWDzNAIUMOvs3DHIxuNgQ9MbjBu72yI",
+						"description": ""
+					},
+					{
+						"key": "",
+						"value": "",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU1MjA1NDQ3NywiZXhwIjoxNTUyMDU4MDc3LCJuYmYiOjE1NTIwNTQ0NzcsImp0aSI6IlBVRU56VXhaZ2FmT21ycXkiLCJzdWIiOjE1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.-r-Sm51tsxUzLWDzNAIUMOvs3DHIxuNgQ9MbjBu72yI",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "profilephoto",
+							"description": "",
+							"type": "file",
+							"src": "IMG_20171119_110828.jpg"
+						}
+					]
+				},
+				"description": "user uploads his profile photo"
+			},
+			"response": []
 		}
 	]
 }

@@ -1,0 +1,136 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Bookings",
+		"_postman_id": "2569a680-96a2-5097-cd0f-2d930badffac",
+		"description": "CRUD operation for bookings\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create a new booking",
+			"request": {
+				"url": "http://localhost:8000/api/admin/bookings/create",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNTU5NjksImV4cCI6MTU1MjA1OTU2OSwibmJmIjoxNTUyMDU1OTY5LCJqdGkiOiJCY0QydVgxRjliZlk1c3ZwIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.7ZB7DFb6irRETo1N-CphKFp1UCA0tAKzW6egkrG4Fmw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user_id\":\"12\",\n\t\"service_id\":\"21\",\n\t\"location\":\"ansu uli\",\n\t\"artisan_id\":\"21\",\n\t\"time\":\"2019-03-03 22:44:11\",\n\t\"address\":\"uli\",\n\t\"total_cost\":\"221\",\n\t\"status\":\"0\",\n\t\"scheduledate\":\"2019-03-03 22:44:11\",\n\t\"completedate\":\"2019-03-03 22:44:11\"\n\t\n}"
+				},
+				"description": "this is to create a new booking"
+			},
+			"response": []
+		},
+		{
+			"name": "edit booking",
+			"request": {
+				"url": "http://localhost:8000/api/admin/bookings/update/1",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNTU5NjksImV4cCI6MTU1MjA1OTU2OSwibmJmIjoxNTUyMDU1OTY5LCJqdGkiOiJCY0QydVgxRjliZlk1c3ZwIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.7ZB7DFb6irRETo1N-CphKFp1UCA0tAKzW6egkrG4Fmw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user_id\":\"12\",\n\t\"service_id\":\"21\",\n\t\"location\":\"ansu uli abiiiii oooooh\",\n\t\"artisan_id\":\"21\",\n\t\"time\":\"2019-03-03 22:44:11\",\n\t\"address\":\"what joker\",\n\t\"total_cost\":\"221\",\n\t\"status\":\"0\",\n\t\"scheduledate\":\"2019-03-03 22:44:11\",\n\t\"completedate\":\"2019-03-03 22:44:11\"\n\t\n}"
+				},
+				"description": "this is to edit a  booking"
+			},
+			"response": []
+		},
+		{
+			"name": "get a single booking",
+			"request": {
+				"url": "http://localhost:8000/api/admin/bookings/single-bookings/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNTU5NjksImV4cCI6MTU1MjA1OTU2OSwibmJmIjoxNTUyMDU1OTY5LCJqdGkiOiJCY0QydVgxRjliZlk1c3ZwIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.7ZB7DFb6irRETo1N-CphKFp1UCA0tAKzW6egkrG4Fmw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "get a single booking using its id as the last parameter in url"
+			},
+			"response": []
+		},
+		{
+			"name": "get booking for user",
+			"request": {
+				"url": "http://localhost:8000/api/admin/bookings/user/12/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNTU5NjksImV4cCI6MTU1MjA1OTU2OSwibmJmIjoxNTUyMDU1OTY5LCJqdGkiOiJCY0QydVgxRjliZlk1c3ZwIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.7ZB7DFb6irRETo1N-CphKFp1UCA0tAKzW6egkrG4Fmw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "get all bookings for a user using the user_id and the last parameter is the pagination variable asking of the number of pages you want per page"
+			},
+			"response": []
+		},
+		{
+			"name": "get booking for particular artisan",
+			"request": {
+				"url": "http://localhost:8000/api/admin/bookings/artisan/21/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNTU5NjksImV4cCI6MTU1MjA1OTU2OSwibmJmIjoxNTUyMDU1OTY5LCJqdGkiOiJCY0QydVgxRjliZlk1c3ZwIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.7ZB7DFb6irRETo1N-CphKFp1UCA0tAKzW6egkrG4Fmw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "get all bookings for an artisan using the artisan_id and the last parameter is the pagination variable asking of the number of pages you want per page"
+			},
+			"response": []
+		}
+	]
+}

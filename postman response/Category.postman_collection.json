@@ -1,106 +1,126 @@
 {
-	"id": "389db4d9-5fdc-59e8-115e-7e4aeccf7883",
-	"name": "Category",
-	"description": "this is for the categories crud functionality",
-	"order": [
-		"51e36523-b834-cf93-91ca-707efd927393",
-		"d4d44dbb-9fe7-c17c-7951-a1a612347fbe",
-		"17dae4a6-3d7e-8388-0e13-2ff9853d710f",
-		"5bd2378c-ae51-071e-e1cd-6f0832e6069c"
-	],
-	"folders": [],
-	"folders_order": [],
-	"timestamp": 1551764283293,
-	"owner": "6821000",
-	"public": false,
-	"requests": [
+	"variables": [],
+	"info": {
+		"name": "Category",
+		"_postman_id": "389db4d9-5fdc-59e8-115e-7e4aeccf7883",
+		"description": "this is for the categories crud functionality",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "17dae4a6-3d7e-8388-0e13-2ff9853d710f",
-			"headers": "",
-			"headerData": [],
-			"url": "",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1551764576785,
-			"name": "api/admin/categories/update/:id",
-			"description": "this is to update categories...\nrequired are the following\n'id'=>required\n'category'=>'required|string',\n    'image.*' => 'image|mimes:jpeg,bmp,png|max:8000'\n    \nthe header must also carry Authorization: Bearer <token>\n",
-			"collectionId": "389db4d9-5fdc-59e8-115e-7e4aeccf7883",
-			"responses": []
+			"name": "admin adds a new category",
+			"request": {
+				"url": "http://localhost:8000/api/admin/categories/create",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNDY4MjMsImV4cCI6MTU1MjA1MDQyMywibmJmIjoxNTUyMDQ2ODIzLCJqdGkiOiJ6OUZGTjZhUFVSd2FZSWV0Iiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.7ze6fWIoE04hnUM67PL0MpoiG78W5D1hGRpxILayPzQ",
+						"description": ""
+					},
+					{
+						"key": "",
+						"value": "",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "category",
+							"value": "waste",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"description": "",
+							"type": "file",
+							"src": "IMG_20180106_140316.jpg"
+						}
+					]
+				},
+				"description": "this parameters are required on the body and it creates a new category:\n\n'category' => 'required|string',\n  'image.*' => 'image|mimes:jpeg,bmp,png|max:8000',\n\nthe header must also carry Authorization: Bearer <token>\n"
+			},
+			"response": []
 		},
 		{
-			"id": "51e36523-b834-cf93-91ca-707efd927393",
-			"headers": "",
-			"headerData": [],
-			"url": "",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1551764576785,
-			"name": "api/admin/categories/create",
-			"description": "this parameters are required on the body and it creates a new category:\n\n'category' => 'required|string',\n  'image.*' => 'image|mimes:jpeg,bmp,png|max:8000',\n\nthe header must also carry Authorization: Bearer <token>\n",
-			"collectionId": "389db4d9-5fdc-59e8-115e-7e4aeccf7883",
-			"responses": []
+			"name": "admin sees all categories",
+			"request": {
+				"url": "http://localhost:8000/api/admin/categories/all-content/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNDY4MjMsImV4cCI6MTU1MjA1MDQyMywibmJmIjoxNTUyMDQ2ODIzLCJqdGkiOiJ6OUZGTjZhUFVSd2FZSWV0Iiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.7ze6fWIoE04hnUM67PL0MpoiG78W5D1hGRpxILayPzQ",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "this is to get all the categories pagination is optional and can be done by passing another parameter after all-content in the url\n\nthe header must also carry admin Authorization: Bearer <token>"
+			},
+			"response": []
 		},
 		{
-			"id": "5bd2378c-ae51-071e-e1cd-6f0832e6069c",
-			"headers": "",
-			"headerData": [],
-			"url": "",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "DELETE",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1551765346695,
-			"name": "api/admin/categories/delete/:id",
-			"description": "this is to delete a category as well as its image...\nrequired are the following\n'id'=>required\n\nthe header must also carry Authorization: Bearer <token>\n",
-			"collectionId": "389db4d9-5fdc-59e8-115e-7e4aeccf7883",
-			"responses": []
+			"name": "admin updates a category ",
+			"request": {
+				"url": "http://localhost:8000/api/admin/categories/update/1",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNDY4MjMsImV4cCI6MTU1MjA1MDQyMywibmJmIjoxNTUyMDQ2ODIzLCJqdGkiOiJ6OUZGTjZhUFVSd2FZSWV0Iiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.7ze6fWIoE04hnUM67PL0MpoiG78W5D1hGRpxILayPzQ",
+						"description": ""
+					},
+					{
+						"key": "",
+						"value": "",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "category",
+							"value": "hello world",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"description": "",
+							"type": "file",
+							"src": "IMG_20171029_105324.jpg"
+						}
+					]
+				},
+				"description": "this is to update categories...\nrequired are the following\n'id'=>required\n'category'=>'required|string',\n    'image.*' => 'image|mimes:jpeg,bmp,png|max:8000'\n    \nthe header must also carry Authorization: Bearer <token>\n"
+			},
+			"response": []
 		},
 		{
-			"id": "d4d44dbb-9fe7-c17c-7951-a1a612347fbe",
-			"headers": "",
-			"headerData": [],
-			"url": "",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1551765152431,
-			"name": "api/admin/categories/all-content/:pagination?",
-			"description": "this is to get all the categories pagination is optional and can be done by passing another parameter after all-content in the url\nthe header must also carry Authorization: Bearer <token>\n",
-			"collectionId": "389db4d9-5fdc-59e8-115e-7e4aeccf7883",
-			"responses": []
+			"name": "deletes a category ",
+			"request": {
+				"url": "http://localhost:8000/api/admin/categories/delete/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNDY4MjMsImV4cCI6MTU1MjA1MDQyMywibmJmIjoxNTUyMDQ2ODIzLCJqdGkiOiJ6OUZGTjZhUFVSd2FZSWV0Iiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.7ze6fWIoE04hnUM67PL0MpoiG78W5D1hGRpxILayPzQ",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "this is to delete a category as well as its image...\nrequired are the following\n'id'=>required\n\nthe header must also carry Authorization: Bearer <token>\n"
+			},
+			"response": []
 		}
 	]
 }

@@ -1,0 +1,117 @@
+{
+	"variables": [],
+	"info": {
+		"name": "service_form_options",
+		"_postman_id": "bff3229d-60f7-3f92-7e76-f668a5a4dec7",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "admin creates service form options",
+			"request": {
+				"url": "http://localhost:8000/api/admin/service-options/create",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNTA4MTUsImV4cCI6MTU1MjA1NDQxNSwibmJmIjoxNTUyMDUwODE1LCJqdGkiOiJBc0x2YzJvb2NUcjdLVk1zIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.fWhwqrEkkRYIzB7L7NG6GTz0w8hPlnKeSusfdavl4Hs",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"service_id\":\"15\",\n\t\"type\":\"sdg\",\n\t\"name\":\"castro\",\n\t\"display\":\"displaying\",\n\t\"required\":\"freaking required\",\n\t\"order\":\"reorder\",\n\t\"ispublic\":0,\n\t\"price\":\"123\",\n\t\"options\":{\n\t\t\"first\":\"test\",\n\t\t\"second\":\"basking\"\n\t},\n\t\"selected\":\"i was\"\n}"
+				},
+				"description": "this function adds a new service with the following parameters required:\n'service_id' => 'required|integer',\n    'type'=>'required|string',\n    'name'=>'required|string',\n    'display' => 'required|string',\n    'required'=>'required|string',\n    'order'=>'required|string',\n    'ispublic'=>'required|boolean',\n    'price'=>'required|integer',\n    'options'=>'required',\n    'selected'=>'required|string'... this can be a json_encoded_array\n    \n    Bearer <token> is required in the header too"
+			},
+			"response": []
+		},
+		{
+			"name": "admin get options for single service",
+			"request": {
+				"url": "http://localhost:8000/api/admin/service-options/single-service/15",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNTA4MTUsImV4cCI6MTU1MjA1NDQxNSwibmJmIjoxNTUyMDUwODE1LCJqdGkiOiJBc0x2YzJvb2NUcjdLVk1zIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.fWhwqrEkkRYIzB7L7NG6GTz0w8hPlnKeSusfdavl4Hs",
+						"description": ""
+					},
+					{
+						"key": "",
+						"value": "",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "gets a single service option\n    \n    Bearer <token> is required in the header too"
+			},
+			"response": []
+		},
+		{
+			"name": "get all service options",
+			"request": {
+				"url": "http://localhost:8000/api/admin/service-options/all-content/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNTA4MTUsImV4cCI6MTU1MjA1NDQxNSwibmJmIjoxNTUyMDUwODE1LCJqdGkiOiJBc0x2YzJvb2NUcjdLVk1zIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.fWhwqrEkkRYIzB7L7NG6GTz0w8hPlnKeSusfdavl4Hs",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "loads all service-options in the db with optional pagination\n    \n    Bearer <token> is required in the header too"
+			},
+			"response": []
+		},
+		{
+			"name": "update service_form_options",
+			"request": {
+				"url": "http://localhost:8000/api/admin/service-options/update/15",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNTA4MTUsImV4cCI6MTU1MjA1NDQxNSwibmJmIjoxNTUyMDUwODE1LCJqdGkiOiJBc0x2YzJvb2NUcjdLVk1zIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.fWhwqrEkkRYIzB7L7NG6GTz0w8hPlnKeSusfdavl4Hs",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\":\"sdg\",\n\t\"name\":\"castro\",\n\t\"display\":\"displaying\",\n\t\"required\":\"freaking required\",\n\t\"order\":\"reorder\",\n\t\"ispublic\":0,\n\t\"price\":\"123\",\n\t\"options\":{\n\t\t\"first\":\"test\",\n\t\t\"second\":\"basking\",\n\t\t\"third\":\"test and see\"\n\t},\n\t\"selected\":\"i was cooool\"\n}"
+				},
+				"description": "this function updates a  service form options with the following parameters required:\n    'type'=>'required|string',\n    'name'=>'required|string',\n    'display' => 'required|string',\n    'required'=>'required|string',\n    'order'=>'required|string',\n    'ispublic'=>'required|boolean',\n    'price'=>'required|integer',\n    'options'=>'required'...this is a json_encoded_array\n    'selected'=>'required|string'... \n    \n    where id parameter equals to the service_id\n   admin Bearer <token> is required in the header too"
+			},
+			"response": []
+		},
+		{
+			"name": "delete a service_form_option",
+			"request": {
+				"url": "http://localhost:8000/api/admin/service-options/delete/15",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNTA4MTUsImV4cCI6MTU1MjA1NDQxNSwibmJmIjoxNTUyMDUwODE1LCJqdGkiOiJBc0x2YzJvb2NUcjdLVk1zIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.fWhwqrEkkRYIzB7L7NG6GTz0w8hPlnKeSusfdavl4Hs",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "this function deletes all content with the service_id \nas the parameter\n service_id=>'required'\n    \n    where id parameter equals to the service_id\n   admin Bearer <token> is required in the header too"
+			},
+			"response": []
+		}
+	]
+}

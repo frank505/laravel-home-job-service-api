@@ -1,0 +1,136 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Booking service",
+		"_postman_id": "eb9c44a6-5e53-9379-1db4-acb7181e31fd",
+		"description": "this performs CRUD operation on the booking service content",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ceate a new booking service option",
+			"request": {
+				"url": "http://localhost:8000/api/admin/bookings-service/create",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNTU5NjksImV4cCI6MTU1MjA1OTU2OSwibmJmIjoxNTUyMDU1OTY5LCJqdGkiOiJCY0QydVgxRjliZlk1c3ZwIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.7ZB7DFb6irRETo1N-CphKFp1UCA0tAKzW6egkrG4Fmw",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"service_id\":\"12\",\n\t\"description\":\"how are you doing\",\n\t\"name\":\"kosisochukwu\",\n\t\"type\":\"type A\",\n\t\"required\":\"this is required\",\n\t\"selected\":\"i am selected\",\n\t\"display\":\"this is displaying\",\n\t\"order\":\"first order derivative\",\n\t\"options\":{\n\t\t\"first\":\"test\",\n\t\t\"second\":\"cost\",\n\t\t\"third\":\"men of old\"\n\t},\n\t\"price\":\"1000\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "edit a booking service form option",
+			"request": {
+				"url": "http://localhost:8000/api/admin/bookings-service/update/12",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNTk4MzIsImV4cCI6MTU1MjA2MzQzMiwibmJmIjoxNTUyMDU5ODMyLCJqdGkiOiJjdEFwbXYzMmoxeW84S25KIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.zw2YyzGGcXXzPkLJhG-l_gqk3zu4ITdHfMUHRYB9nT0",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"service_id\":\"12\",\n\t\"description\":\"how are you doing\",\n\t\"name\":\"kosisochukwu\",\n\t\"type\":\"type A\",\n\t\"required\":\"this is required\",\n\t\"selected\":\"i am selected\",\n\t\"display\":\"this is displaying\",\n\t\"order\":\"first order derivative\",\n\t\"options\":{\n\t\t\"first\":\"test\",\n\t\t\"second\":\"cost\",\n\t\t\"third\":\"men of old\",\n\t\t\"fourth\":\"this is the fourth of them all\"\n\t},\n\t\"price\":\"1000\"\n}"
+				},
+				"description": "this edit is done by using the service_id as the last paramter in the url more like the url"
+			},
+			"response": []
+		},
+		{
+			"name": "get boking service",
+			"request": {
+				"url": "http://localhost:8000/api/admin/bookings-service/12/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNTk4MzIsImV4cCI6MTU1MjA2MzQzMiwibmJmIjoxNTUyMDU5ODMyLCJqdGkiOiJjdEFwbXYzMmoxeW84S25KIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.zw2YyzGGcXXzPkLJhG-l_gqk3zu4ITdHfMUHRYB9nT0",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "get  boking service by passing paramter to the url the last parameter which is the service_id "
+			},
+			"response": []
+		},
+		{
+			"name": "get all booking service options ",
+			"request": {
+				"url": "http://localhost:8000/api/admin/bookings-service/all-content/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNTk4MzIsImV4cCI6MTU1MjA2MzQzMiwibmJmIjoxNTUyMDU5ODMyLCJqdGkiOiJjdEFwbXYzMmoxeW84S25KIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.zw2YyzGGcXXzPkLJhG-l_gqk3zu4ITdHfMUHRYB9nT0",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "this fetches all the booking service options with pagination which is also optional removing pagination will return the content without pagination"
+			},
+			"response": []
+		},
+		{
+			"name": "delete booking service",
+			"request": {
+				"url": "http://localhost:8000/api/admin/bookings-service/delete/12",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNTk4MzIsImV4cCI6MTU1MjA2MzQzMiwibmJmIjoxNTUyMDU5ODMyLCJqdGkiOiJjdEFwbXYzMmoxeW84S25KIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.zw2YyzGGcXXzPkLJhG-l_gqk3zu4ITdHfMUHRYB9nT0",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "this deletes all bookings service with a particular id"
+			},
+			"response": []
+		}
+	]
+}

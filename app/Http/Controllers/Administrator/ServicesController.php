@@ -15,7 +15,7 @@ class ServicesController extends Controller
     protected $services;
     public function __construct(UrlGenerator $url)
     {
-        $this->middleware("auth:admins");
+        $this->middleware("auth:admins",['except'=>['index','GetServiceByCategory']]);
         $this->services = new Services();
         $this->base_url = $url->to("/");  //this is to make the baseurl available in this controller
     }

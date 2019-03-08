@@ -1,122 +1,101 @@
 {
-	"id": "1f4e13c0-c3f5-cd0a-aa59-7e20233d6699",
-	"name": "admin",
-	"description": "",
-	"order": [
-		"f057ab1b-5bb5-5158-34aa-89a1e7767e5d",
-		"277a1b05-835d-67be-49b7-6bccee437f27",
-		"421b8e16-3bea-7035-328d-b9b3be948f4e",
-		"a6ffb0bf-cb47-ec45-64ca-3f4d28e43f14",
-		"08d53d65-dbf8-fefd-a2e6-8f782da103ca",
-		"fe69bbb9-b50a-0938-79a6-711475a68a10",
-		"f8b485ed-fc28-645e-ae61-1615cc3d6c4e",
-		"f7c2ced2-e8a7-b0a7-fb7d-5e7c48811986",
-		"5a6ca74e-5029-9ef5-10b9-3cbc4bea693b",
-		"c2c63de8-169f-b81f-f096-e1c39e5f4e5f",
-		"ccc63811-e3aa-b87f-4283-5b1ea9273c7a",
-		"284a427c-5046-881e-80f7-58c99ae176ab",
-		"4b85ae06-81f8-a5b8-4e40-b339b0d41784"
-	],
-	"folders": [],
-	"folders_order": [],
-	"timestamp": 1551745959817,
-	"owner": "6821000",
-	"public": false,
-	"requests": [
+	"variables": [],
+	"info": {
+		"name": "admin",
+		"_postman_id": "1f4e13c0-c3f5-cd0a-aa59-7e20233d6699",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "08d53d65-dbf8-fefd-a2e6-8f782da103ca",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:8000/api/admin/profile",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1551748723638,
-			"name": "api/admin/role/show/:id",
-			"description": "this displays a specific role with the id passed as the paramater...if the\nthe header must also carry Authorization: Bearer <token>\n",
-			"collectionId": "1f4e13c0-c3f5-cd0a-aa59-7e20233d6699",
-			"responses": [
-				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK"
+			"name": "admin sets a role as default",
+			"request": {
+				"url": "http://localhost:8000/api/admin/role/default/1",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
 					},
-					"time": 0,
-					"headers": [],
-					"cookies": [],
-					"mime": "",
-					"text": "",
-					"language": "",
-					"rawDataType": "",
-					"previewType": "parsed",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNDUwOTMsImV4cCI6MTU1MjA0ODY5MywibmJmIjoxNTUyMDQ1MDkzLCJqdGkiOiIxT2c3MDdiR3ZNUnNSdWNYIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.LZ9EA4C62ni0gfOGtQ31MubXXNGVgrNTuaHzSfTWVxY",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "this is to set a role as default\nrequired body content:\n        'id'=>requried\nthe header must also carry Authorization: Bearer <token>\nresponse=>{\non success...'success' => true,\n            'message'=>'role set as default successfully'\non failure...'success' => false,\n            'message' => 'Sorry, role could not be added'\n}"
+			},
+			"response": [
+				{
+					"id": "c926c836-189e-4e2d-8d17-fa7680581c8c",
 					"name": "api/admin/login",
-					"id": "a9e7b530-3eb9-0c49-623e-46c519633816",
-					"request": "08d53d65-dbf8-fefd-a2e6-8f782da103ca",
-					"requestObject": {
+					"originalRequest": {
 						"url": "",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
+						"method": "POST",
+						"header": [
 							{
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": "",
-								"enabled": true,
 								"warning": ""
 							}
 						],
-						"headers": "Content-Type: application/json\n",
-						"data": [
-							{
-								"key": "email",
-								"value": "francesco@gmail.com",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							},
-							{
-								"key": "password",
-								"value": "password",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							}
-						],
-						"method": "POST",
-						"dataMode": "params"
-					}
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "francesco@gmail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"description": "",
+									"type": "text"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"_postman_previewtype": "parsed",
+					"header": [],
+					"cookie": [],
+					"responseTime": 0,
+					"body": ""
 				},
 				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK",
-						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					"id": "a5042ee2-1ce9-4cd4-a096-c4be427e162b",
+					"name": "api/admin/login",
+					"originalRequest": {
+						"url": "http://localhost:8000/api/admin/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"warning": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+						}
 					},
-					"time": 1228,
-					"headers": [
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
 						{
 							"name": "access-control-allow-credentials",
 							"key": "access-control-allow-credentials",
@@ -190,137 +169,101 @@
 							"description": "Custom header"
 						}
 					],
-					"cookies": [],
-					"mime": "",
-					"text": "{\"success\":true,\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTE3NDY4MDcsImV4cCI6MTU1MTc1MDQwNywibmJmIjoxNTUxNzQ2ODA3LCJqdGkiOiIyenZGdGNvcVpVSlpaR0FuIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.gylOBRekwB7QFzIwibInfnLGIQhyeZGM900G1vWePdE\"}",
-					"language": "json",
-					"rawDataType": "text",
-					"previewType": "text",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
-					"name": "api/admin/login",
-					"id": "18c980c1-f321-781b-1d22-3c26077055c3",
-					"request": "08d53d65-dbf8-fefd-a2e6-8f782da103ca",
-					"requestObject": {
-						"url": "http://localhost:8000/api/admin/login",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"enabled": true,
-								"warning": ""
-							}
-						],
-						"headers": "Content-Type: application/json\n",
-						"data": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}",
-						"method": "POST",
-						"dataMode": "raw"
-					}
+					"cookie": [],
+					"responseTime": 1228,
+					"body": "{\"success\":true,\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTE3NDY4MDcsImV4cCI6MTU1MTc1MDQwNywibmJmIjoxNTUxNzQ2ODA3LCJqdGkiOiIyenZGdGNvcVpVSlpaR0FuIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.gylOBRekwB7QFzIwibInfnLGIQhyeZGM900G1vWePdE\"}"
 				}
-			],
-			"rawModeData": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+			]
 		},
 		{
-			"id": "277a1b05-835d-67be-49b7-6bccee437f27",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:8000/api/admin/login",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1551746821871,
-			"name": "api/admin/logout",
-			"description": "to logout an admin the token is required to be passed as a post parameter as well as the token is to be added on the header of the request with the parameter:\nAuthorization..example:\n      'token' => $jwtoken on the body and on the header of the request..\n      Authorization=>Bearer <token>\n      ",
-			"collectionId": "1f4e13c0-c3f5-cd0a-aa59-7e20233d6699",
-			"responses": [
-				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK"
+			"name": "admin deletes role",
+			"request": {
+				"url": "http://localhost:8000/api/admin/role/delete/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
 					},
-					"time": 0,
-					"headers": [],
-					"cookies": [],
-					"mime": "",
-					"text": "",
-					"language": "",
-					"rawDataType": "",
-					"previewType": "parsed",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNDUwOTMsImV4cCI6MTU1MjA0ODY5MywibmJmIjoxNTUyMDQ1MDkzLCJqdGkiOiIxT2c3MDdiR3ZNUnNSdWNYIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.LZ9EA4C62ni0gfOGtQ31MubXXNGVgrNTuaHzSfTWVxY",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "this is to delete a role \nrequired body content:\n        'id'=>requried\nthe header must also carry Authorization: Bearer <token>\nresponse=>{\non success...'success' => true,\n            'message'=>'role set as default successfully'\non failure...'success' => false,\n            'message' => 'Sorry, role could not be added'\n}"
+			},
+			"response": [
+				{
+					"id": "d9b65b99-8540-42e6-8489-5057f512349b",
 					"name": "api/admin/login",
-					"id": "d2f25ce0-0297-1766-ed60-ede4190c1661",
-					"request": "277a1b05-835d-67be-49b7-6bccee437f27",
-					"requestObject": {
+					"originalRequest": {
 						"url": "",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
+						"method": "POST",
+						"header": [
 							{
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": "",
-								"enabled": true,
 								"warning": ""
 							}
 						],
-						"headers": "Content-Type: application/json\n",
-						"data": [
-							{
-								"key": "email",
-								"value": "francesco@gmail.com",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							},
-							{
-								"key": "password",
-								"value": "password",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							}
-						],
-						"method": "POST",
-						"dataMode": "params"
-					}
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "francesco@gmail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"description": "",
+									"type": "text"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"_postman_previewtype": "parsed",
+					"header": [],
+					"cookie": [],
+					"responseTime": 0,
+					"body": ""
 				},
 				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK",
-						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					"id": "31d15395-8746-417f-a449-15bb9ae7bc2c",
+					"name": "api/admin/login",
+					"originalRequest": {
+						"url": "http://localhost:8000/api/admin/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"warning": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+						}
 					},
-					"time": 1228,
-					"headers": [
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
 						{
 							"name": "access-control-allow-credentials",
 							"key": "access-control-allow-credentials",
@@ -394,137 +337,101 @@
 							"description": "Custom header"
 						}
 					],
-					"cookies": [],
-					"mime": "",
-					"text": "{\"success\":true,\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTE3NDY4MDcsImV4cCI6MTU1MTc1MDQwNywibmJmIjoxNTUxNzQ2ODA3LCJqdGkiOiIyenZGdGNvcVpVSlpaR0FuIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.gylOBRekwB7QFzIwibInfnLGIQhyeZGM900G1vWePdE\"}",
-					"language": "json",
-					"rawDataType": "text",
-					"previewType": "text",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
-					"name": "api/admin/login",
-					"id": "ec128603-932f-9ac1-dc9d-fe11dc2b2e92",
-					"request": "277a1b05-835d-67be-49b7-6bccee437f27",
-					"requestObject": {
-						"url": "http://localhost:8000/api/admin/login",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"enabled": true,
-								"warning": ""
-							}
-						],
-						"headers": "Content-Type: application/json\n",
-						"data": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}",
-						"method": "POST",
-						"dataMode": "raw"
-					}
+					"cookie": [],
+					"responseTime": 1228,
+					"body": "{\"success\":true,\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTE3NDY4MDcsImV4cCI6MTU1MTc1MDQwNywibmJmIjoxNTUxNzQ2ODA3LCJqdGkiOiIyenZGdGNvcVpVSlpaR0FuIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.gylOBRekwB7QFzIwibInfnLGIQhyeZGM900G1vWePdE\"}"
 				}
-			],
-			"rawModeData": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+			]
 		},
 		{
-			"id": "284a427c-5046-881e-80f7-58c99ae176ab",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:8000/api/admin/profile",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1551752399442,
-			"name": "api/admin/user/ban/:id",
-			"description": "this is to ban a user  \nrequired body content:\n        'id'=>requried\nthe header must also carry Authorization: Bearer <token>\nresponse=>{\non success...\"success\"=>true,\nmessage=>'user banned successfully'\n               \non failure...'success' => false,\n            'message' => 'user ban was not successfully'\n}",
-			"collectionId": "1f4e13c0-c3f5-cd0a-aa59-7e20233d6699",
-			"responses": [
-				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK"
+			"name": "admin views all users",
+			"request": {
+				"url": "http://localhost:8000/api/admin/user/all/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
 					},
-					"time": 0,
-					"headers": [],
-					"cookies": [],
-					"mime": "",
-					"text": "",
-					"language": "",
-					"rawDataType": "",
-					"previewType": "parsed",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNDY4MjMsImV4cCI6MTU1MjA1MDQyMywibmJmIjoxNTUyMDQ2ODIzLCJqdGkiOiJ6OUZGTjZhUFVSd2FZSWV0Iiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.7ze6fWIoE04hnUM67PL0MpoiG78W5D1hGRpxILayPzQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+				},
+				"description": "this is to get all users with or without pagination if pager parameter is passed then it will paginate it if its not passed then no pagination \nrequired body content:\n        'id'=>requried\n\nresponse=>{\non success...'success' => true,\n            'message'=>'role set as default successfully'\non failure...'success' => false,\n            'message' => 'Sorry, role could not be added'\n}\nthe header must also carry admin Authorization: Bearer <token>"
+			},
+			"response": [
+				{
+					"id": "def627cf-ac07-4fd3-a067-ffef8afa57be",
 					"name": "api/admin/login",
-					"id": "528cacaf-7be5-e0a4-ed8b-7d18b51d74ab",
-					"request": "284a427c-5046-881e-80f7-58c99ae176ab",
-					"requestObject": {
+					"originalRequest": {
 						"url": "",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
+						"method": "POST",
+						"header": [
 							{
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": "",
-								"enabled": true,
 								"warning": ""
 							}
 						],
-						"headers": "Content-Type: application/json\n",
-						"data": [
-							{
-								"key": "email",
-								"value": "francesco@gmail.com",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							},
-							{
-								"key": "password",
-								"value": "password",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							}
-						],
-						"method": "POST",
-						"dataMode": "params"
-					}
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "francesco@gmail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"description": "",
+									"type": "text"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"_postman_previewtype": "parsed",
+					"header": [],
+					"cookie": [],
+					"responseTime": 0,
+					"body": ""
 				},
 				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK",
-						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					"id": "6ac1f9c1-cfc2-4cff-a520-ec506e2240a7",
+					"name": "api/admin/login",
+					"originalRequest": {
+						"url": "http://localhost:8000/api/admin/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"warning": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+						}
 					},
-					"time": 1228,
-					"headers": [
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
 						{
 							"name": "access-control-allow-credentials",
 							"key": "access-control-allow-credentials",
@@ -598,137 +505,101 @@
 							"description": "Custom header"
 						}
 					],
-					"cookies": [],
-					"mime": "",
-					"text": "{\"success\":true,\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTE3NDY4MDcsImV4cCI6MTU1MTc1MDQwNywibmJmIjoxNTUxNzQ2ODA3LCJqdGkiOiIyenZGdGNvcVpVSlpaR0FuIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.gylOBRekwB7QFzIwibInfnLGIQhyeZGM900G1vWePdE\"}",
-					"language": "json",
-					"rawDataType": "text",
-					"previewType": "text",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
-					"name": "api/admin/login",
-					"id": "33e87be2-c6cd-5c34-26f7-1b1a5e71ecb3",
-					"request": "284a427c-5046-881e-80f7-58c99ae176ab",
-					"requestObject": {
-						"url": "http://localhost:8000/api/admin/login",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"enabled": true,
-								"warning": ""
-							}
-						],
-						"headers": "Content-Type: application/json\n",
-						"data": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}",
-						"method": "POST",
-						"dataMode": "raw"
-					}
+					"cookie": [],
+					"responseTime": 1228,
+					"body": "{\"success\":true,\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTE3NDY4MDcsImV4cCI6MTU1MTc1MDQwNywibmJmIjoxNTUxNzQ2ODA3LCJqdGkiOiIyenZGdGNvcVpVSlpaR0FuIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.gylOBRekwB7QFzIwibInfnLGIQhyeZGM900G1vWePdE\"}"
 				}
-			],
-			"rawModeData": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+			]
 		},
 		{
-			"id": "421b8e16-3bea-7035-328d-b9b3be948f4e",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:8000/api/admin/profile",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1551753841695,
-			"name": "api/admin/profile",
-			"description": "to display profile, token on the body is required and the authorization on the header with the bearer and the token\n      'token' => $jwtoken on the body and on the header of the request..\n      Authorization=>Bearer <token>\nresponse: admin details\n      ",
-			"collectionId": "1f4e13c0-c3f5-cd0a-aa59-7e20233d6699",
-			"responses": [
-				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK"
+			"name": "admin views a single user profile details",
+			"request": {
+				"url": "http://localhost:8000/api/admin/user/single/9",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
 					},
-					"time": 0,
-					"headers": [],
-					"cookies": [],
-					"mime": "",
-					"text": "",
-					"language": "",
-					"rawDataType": "",
-					"previewType": "parsed",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNDY4MjMsImV4cCI6MTU1MjA1MDQyMywibmJmIjoxNTUyMDQ2ODIzLCJqdGkiOiJ6OUZGTjZhUFVSd2FZSWV0Iiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.7ze6fWIoE04hnUM67PL0MpoiG78W5D1hGRpxILayPzQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+				},
+				"description": "this is to get single users  \nrequired body content:\n        'id'=>requried\n\nresponse=>{\non success...\"success\"=>true,\n                \"data\"=>$users,\n                'image_directory'=>\"image directory\",\non failure...'success' => false,\n            'message' => 'Sorry, user with id could not be found'\n}\n\nthe header must also carry admin Authorization: Bearer <token>"
+			},
+			"response": [
+				{
+					"id": "7fc0bf45-a985-4ec6-8712-19bf00f94449",
 					"name": "api/admin/login",
-					"id": "c5759978-a44d-a427-eaf3-2c985390653e",
-					"request": "421b8e16-3bea-7035-328d-b9b3be948f4e",
-					"requestObject": {
+					"originalRequest": {
 						"url": "",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
+						"method": "POST",
+						"header": [
 							{
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": "",
-								"enabled": true,
 								"warning": ""
 							}
 						],
-						"headers": "Content-Type: application/json\n",
-						"data": [
-							{
-								"key": "email",
-								"value": "francesco@gmail.com",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							},
-							{
-								"key": "password",
-								"value": "password",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							}
-						],
-						"method": "POST",
-						"dataMode": "params"
-					}
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "francesco@gmail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"description": "",
+									"type": "text"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"_postman_previewtype": "parsed",
+					"header": [],
+					"cookie": [],
+					"responseTime": 0,
+					"body": ""
 				},
 				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK",
-						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					"id": "0657260b-cbf0-496d-9313-194d049f88b3",
+					"name": "api/admin/login",
+					"originalRequest": {
+						"url": "http://localhost:8000/api/admin/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"warning": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+						}
 					},
-					"time": 1228,
-					"headers": [
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
 						{
 							"name": "access-control-allow-credentials",
 							"key": "access-control-allow-credentials",
@@ -802,137 +673,101 @@
 							"description": "Custom header"
 						}
 					],
-					"cookies": [],
-					"mime": "",
-					"text": "{\"success\":true,\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTE3NDY4MDcsImV4cCI6MTU1MTc1MDQwNywibmJmIjoxNTUxNzQ2ODA3LCJqdGkiOiIyenZGdGNvcVpVSlpaR0FuIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.gylOBRekwB7QFzIwibInfnLGIQhyeZGM900G1vWePdE\"}",
-					"language": "json",
-					"rawDataType": "text",
-					"previewType": "text",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
-					"name": "api/admin/login",
-					"id": "1fdf02c4-c70b-4124-f6a3-b366bc12be17",
-					"request": "421b8e16-3bea-7035-328d-b9b3be948f4e",
-					"requestObject": {
-						"url": "http://localhost:8000/api/admin/login",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"enabled": true,
-								"warning": ""
-							}
-						],
-						"headers": "Content-Type: application/json\n",
-						"data": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}",
-						"method": "POST",
-						"dataMode": "raw"
-					}
+					"cookie": [],
+					"responseTime": 1228,
+					"body": "{\"success\":true,\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTE3NDY4MDcsImV4cCI6MTU1MTc1MDQwNywibmJmIjoxNTUxNzQ2ODA3LCJqdGkiOiIyenZGdGNvcVpVSlpaR0FuIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.gylOBRekwB7QFzIwibInfnLGIQhyeZGM900G1vWePdE\"}"
 				}
-			],
-			"rawModeData": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+			]
 		},
 		{
-			"id": "4b85ae06-81f8-a5b8-4e40-b339b0d41784",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:8000/api/admin/profile",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1551752399442,
-			"name": "api/admin/user/remove-ban/:id ",
-			"description": "this is to remove ban from user  \nrequired body content:\n        'id'=>requried\nthe header must also carry Authorization: Bearer <token>\nresponse=>{\non success...\"success\"=>true,\nmessage=>'user ban was removed successfully'\n               \non failure...'success' => false,\n            'message' => 'user ban was not successfully'\n}",
-			"collectionId": "1f4e13c0-c3f5-cd0a-aa59-7e20233d6699",
-			"responses": [
-				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK"
+			"name": "admin bans user",
+			"request": {
+				"url": "http://localhost:8000/api/admin/user/ban/9",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
 					},
-					"time": 0,
-					"headers": [],
-					"cookies": [],
-					"mime": "",
-					"text": "",
-					"language": "",
-					"rawDataType": "",
-					"previewType": "parsed",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNDY4MjMsImV4cCI6MTU1MjA1MDQyMywibmJmIjoxNTUyMDQ2ODIzLCJqdGkiOiJ6OUZGTjZhUFVSd2FZSWV0Iiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.7ze6fWIoE04hnUM67PL0MpoiG78W5D1hGRpxILayPzQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "this is to ban a user it simply changes user status from zero to one \nrequired body content:\n        'id'=>requried\nthe header must also carry Authorization: Bearer <token>\nresponse=>{\non success...\"success\"=>true,\nmessage=>'user banned successfully'\n               \non failure...'success' => false,\n            'message' => 'user ban was not successfully'\n}"
+			},
+			"response": [
+				{
+					"id": "be9c803a-0ee5-44b6-893d-981250fd1fe1",
 					"name": "api/admin/login",
-					"id": "2f789f37-3ff9-9ee3-93b8-c707b9121029",
-					"request": "4b85ae06-81f8-a5b8-4e40-b339b0d41784",
-					"requestObject": {
+					"originalRequest": {
 						"url": "",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
+						"method": "POST",
+						"header": [
 							{
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": "",
-								"enabled": true,
 								"warning": ""
 							}
 						],
-						"headers": "Content-Type: application/json\n",
-						"data": [
-							{
-								"key": "email",
-								"value": "francesco@gmail.com",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							},
-							{
-								"key": "password",
-								"value": "password",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							}
-						],
-						"method": "POST",
-						"dataMode": "params"
-					}
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "francesco@gmail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"description": "",
+									"type": "text"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"_postman_previewtype": "parsed",
+					"header": [],
+					"cookie": [],
+					"responseTime": 0,
+					"body": ""
 				},
 				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK",
-						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					"id": "6de17589-da73-405a-b761-06a81d504d57",
+					"name": "api/admin/login",
+					"originalRequest": {
+						"url": "http://localhost:8000/api/admin/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"warning": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+						}
 					},
-					"time": 1228,
-					"headers": [
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
 						{
 							"name": "access-control-allow-credentials",
 							"key": "access-control-allow-credentials",
@@ -1006,137 +841,101 @@
 							"description": "Custom header"
 						}
 					],
-					"cookies": [],
-					"mime": "",
-					"text": "{\"success\":true,\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTE3NDY4MDcsImV4cCI6MTU1MTc1MDQwNywibmJmIjoxNTUxNzQ2ODA3LCJqdGkiOiIyenZGdGNvcVpVSlpaR0FuIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.gylOBRekwB7QFzIwibInfnLGIQhyeZGM900G1vWePdE\"}",
-					"language": "json",
-					"rawDataType": "text",
-					"previewType": "text",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
-					"name": "api/admin/login",
-					"id": "b6ef8ea0-bec5-bdd0-772a-eba3e3e58a06",
-					"request": "4b85ae06-81f8-a5b8-4e40-b339b0d41784",
-					"requestObject": {
-						"url": "http://localhost:8000/api/admin/login",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"enabled": true,
-								"warning": ""
-							}
-						],
-						"headers": "Content-Type: application/json\n",
-						"data": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}",
-						"method": "POST",
-						"dataMode": "raw"
-					}
+					"cookie": [],
+					"responseTime": 1228,
+					"body": "{\"success\":true,\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTE3NDY4MDcsImV4cCI6MTU1MTc1MDQwNywibmJmIjoxNTUxNzQ2ODA3LCJqdGkiOiIyenZGdGNvcVpVSlpaR0FuIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.gylOBRekwB7QFzIwibInfnLGIQhyeZGM900G1vWePdE\"}"
 				}
-			],
-			"rawModeData": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+			]
 		},
 		{
-			"id": "5a6ca74e-5029-9ef5-10b9-3cbc4bea693b",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:8000/api/admin/profile",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "DELETE",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1551750971958,
-			"name": "api/admin/role/delete/:id",
-			"description": "this is to delete a role \nrequired body content:\n        'id'=>requried\nthe header must also carry Authorization: Bearer <token>\nresponse=>{\non success...'success' => true,\n            'message'=>'role set as default successfully'\non failure...'success' => false,\n            'message' => 'Sorry, role could not be added'\n}",
-			"collectionId": "1f4e13c0-c3f5-cd0a-aa59-7e20233d6699",
-			"responses": [
-				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK"
+			"name": "admin removes user ban",
+			"request": {
+				"url": "http://localhost:8000/api/admin/user/remove-ban/9",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
 					},
-					"time": 0,
-					"headers": [],
-					"cookies": [],
-					"mime": "",
-					"text": "",
-					"language": "",
-					"rawDataType": "",
-					"previewType": "parsed",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNDY4MjMsImV4cCI6MTU1MjA1MDQyMywibmJmIjoxNTUyMDQ2ODIzLCJqdGkiOiJ6OUZGTjZhUFVSd2FZSWV0Iiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.7ze6fWIoE04hnUM67PL0MpoiG78W5D1hGRpxILayPzQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "this is to remove ban from user  \nrequired body content:\n        'id'=>requried\nthe header must also carry Authorization: Bearer <token>\nresponse=>{\non success...\"success\"=>true,\nmessage=>'user ban was removed successfully'\n               \non failure...'success' => false,\n            'message' => 'user ban was not successfully'\n}"
+			},
+			"response": [
+				{
+					"id": "c155e0d8-040e-4f15-99aa-f9af1a282020",
 					"name": "api/admin/login",
-					"id": "69fa3d7d-02a8-a2e7-1aef-7e1163f8ce96",
-					"request": "5a6ca74e-5029-9ef5-10b9-3cbc4bea693b",
-					"requestObject": {
+					"originalRequest": {
 						"url": "",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
+						"method": "POST",
+						"header": [
 							{
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": "",
-								"enabled": true,
 								"warning": ""
 							}
 						],
-						"headers": "Content-Type: application/json\n",
-						"data": [
-							{
-								"key": "email",
-								"value": "francesco@gmail.com",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							},
-							{
-								"key": "password",
-								"value": "password",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							}
-						],
-						"method": "POST",
-						"dataMode": "params"
-					}
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "francesco@gmail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"description": "",
+									"type": "text"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"_postman_previewtype": "parsed",
+					"header": [],
+					"cookie": [],
+					"responseTime": 0,
+					"body": ""
 				},
 				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK",
-						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					"id": "6ebdaf83-2c69-465e-9d0d-5aa073e24832",
+					"name": "api/admin/login",
+					"originalRequest": {
+						"url": "http://localhost:8000/api/admin/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"warning": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+						}
 					},
-					"time": 1228,
-					"headers": [
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
 						{
 							"name": "access-control-allow-credentials",
 							"key": "access-control-allow-credentials",
@@ -1210,137 +1009,54 @@
 							"description": "Custom header"
 						}
 					],
-					"cookies": [],
-					"mime": "",
-					"text": "{\"success\":true,\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTE3NDY4MDcsImV4cCI6MTU1MTc1MDQwNywibmJmIjoxNTUxNzQ2ODA3LCJqdGkiOiIyenZGdGNvcVpVSlpaR0FuIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.gylOBRekwB7QFzIwibInfnLGIQhyeZGM900G1vWePdE\"}",
-					"language": "json",
-					"rawDataType": "text",
-					"previewType": "text",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
-					"name": "api/admin/login",
-					"id": "6250a084-d49c-fb78-428a-899323c777b1",
-					"request": "5a6ca74e-5029-9ef5-10b9-3cbc4bea693b",
-					"requestObject": {
-						"url": "http://localhost:8000/api/admin/login",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"enabled": true,
-								"warning": ""
-							}
-						],
-						"headers": "Content-Type: application/json\n",
-						"data": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}",
-						"method": "POST",
-						"dataMode": "raw"
-					}
+					"cookie": [],
+					"responseTime": 1228,
+					"body": "{\"success\":true,\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTE3NDY4MDcsImV4cCI6MTU1MTc1MDQwNywibmJmIjoxNTUxNzQ2ODA3LCJqdGkiOiIyenZGdGNvcVpVSlpaR0FuIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.gylOBRekwB7QFzIwibInfnLGIQhyeZGM900G1vWePdE\"}"
 				}
-			],
-			"rawModeData": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+			]
 		},
 		{
-			"id": "a6ffb0bf-cb47-ec45-64ca-3f4d28e43f14",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
+			"name": "login administrator",
+			"request": {
+				"url": "http://localhost:8000/api/admin/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+				},
+				"description": "this is to login an administrator"
+			},
+			"response": [
 				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:8000/api/admin/profile",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1551748723638,
-			"name": "api/admin/role/all-content/:pagination?",
-			"description": "this displays all the roles with or without pagination...if the\nlast parameter which is the pagination is not added it fetches all the roles without pagination and if it is added it paginates all contents dependent on the pagination details..\nthe header must also carry Authorization: Bearer <token>\n",
-			"collectionId": "1f4e13c0-c3f5-cd0a-aa59-7e20233d6699",
-			"responses": [
-				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK"
-					},
-					"time": 0,
-					"headers": [],
-					"cookies": [],
-					"mime": "",
-					"text": "",
-					"language": "",
-					"rawDataType": "",
-					"previewType": "parsed",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
-					"name": "api/admin/login",
-					"id": "4f0a0f7e-b344-9eef-6b5f-b24382e9d758",
-					"request": "a6ffb0bf-cb47-ec45-64ca-3f4d28e43f14",
-					"requestObject": {
-						"url": "",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
+					"id": "a20fa7c2-c5fe-4880-9696-de80d139a7ce",
+					"name": "login administrator",
+					"originalRequest": {
+						"url": "http://localhost:8000/api/admin/login",
+						"method": "POST",
+						"header": [
 							{
 								"key": "Content-Type",
 								"value": "application/json",
-								"description": "",
-								"enabled": true,
-								"warning": ""
+								"description": ""
 							}
 						],
-						"headers": "Content-Type: application/json\n",
-						"data": [
-							{
-								"key": "email",
-								"value": "francesco@gmail.com",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							},
-							{
-								"key": "password",
-								"value": "password",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							}
-						],
-						"method": "POST",
-						"dataMode": "params"
-					}
-				},
-				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK",
-						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+						}
 					},
-					"time": 1228,
-					"headers": [
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
 						{
 							"name": "access-control-allow-credentials",
 							"key": "access-control-allow-credentials",
@@ -1386,7 +1102,7 @@
 						{
 							"name": "date",
 							"key": "date",
-							"value": "Tue, 05 Mar 2019 00:46:47 +0000, Tue, 05 Mar 2019 00:46:47 GMT",
+							"value": "Fri, 08 Mar 2019 11:38:13 +0000, Fri, 08 Mar 2019 11:38:13 GMT",
 							"description": "The date and time that the message was sent"
 						},
 						{
@@ -1410,1268 +1126,228 @@
 						{
 							"name": "x-ratelimit-remaining",
 							"key": "x-ratelimit-remaining",
-							"value": "59",
+							"value": "58",
 							"description": "Custom header"
 						}
 					],
-					"cookies": [],
-					"mime": "",
-					"text": "{\"success\":true,\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTE3NDY4MDcsImV4cCI6MTU1MTc1MDQwNywibmJmIjoxNTUxNzQ2ODA3LCJqdGkiOiIyenZGdGNvcVpVSlpaR0FuIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.gylOBRekwB7QFzIwibInfnLGIQhyeZGM900G1vWePdE\"}",
-					"language": "json",
-					"rawDataType": "text",
-					"previewType": "text",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
-					"name": "api/admin/login",
-					"id": "3ec4fca8-979b-e64f-dadd-77925da5cbe4",
-					"request": "a6ffb0bf-cb47-ec45-64ca-3f4d28e43f14",
-					"requestObject": {
-						"url": "http://localhost:8000/api/admin/login",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"enabled": true,
-								"warning": ""
-							}
-						],
-						"headers": "Content-Type: application/json\n",
-						"data": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}",
-						"method": "POST",
-						"dataMode": "raw"
-					}
+					"cookie": [],
+					"responseTime": 1370,
+					"body": "{\"success\":true,\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNDUwOTMsImV4cCI6MTU1MjA0ODY5MywibmJmIjoxNTUyMDQ1MDkzLCJqdGkiOiIxT2c3MDdiR3ZNUnNSdWNYIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.LZ9EA4C62ni0gfOGtQ31MubXXNGVgrNTuaHzSfTWVxY\"}"
 				}
-			],
-			"rawModeData": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+			]
 		},
 		{
-			"id": "c2c63de8-169f-b81f-f096-e1c39e5f4e5f",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:8000/api/admin/profile",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1551751165889,
-			"name": "api/admin/user/all/:pagination?",
-			"description": "this is to get all users with or without pagination if pager parameter is passed then it will paginate it if its not passed then no pagination \nrequired body content:\n        'id'=>requried\nthe header must also carry Authorization: Bearer <token>\nresponse=>{\non success...'success' => true,\n            'message'=>'role set as default successfully'\non failure...'success' => false,\n            'message' => 'Sorry, role could not be added'\n}",
-			"collectionId": "1f4e13c0-c3f5-cd0a-aa59-7e20233d6699",
-			"responses": [
-				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK"
+			"name": "logging out an admin ",
+			"request": {
+				"url": "http://localhost:8000/api/admin/logout",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
 					},
-					"time": 0,
-					"headers": [],
-					"cookies": [],
-					"mime": "",
-					"text": "",
-					"language": "",
-					"rawDataType": "",
-					"previewType": "parsed",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
-					"name": "api/admin/login",
-					"id": "17b909dd-7410-32e1-919d-b499324edfe2",
-					"request": "c2c63de8-169f-b81f-f096-e1c39e5f4e5f",
-					"requestObject": {
-						"url": "",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"enabled": true,
-								"warning": ""
-							}
-						],
-						"headers": "Content-Type: application/json\n",
-						"data": [
-							{
-								"key": "email",
-								"value": "francesco@gmail.com",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							},
-							{
-								"key": "password",
-								"value": "password",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							}
-						],
-						"method": "POST",
-						"dataMode": "params"
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwMTgzMzQsImV4cCI6MTU1MjAyMTkzNCwibmJmIjoxNTUyMDE4MzM0LCJqdGkiOiJMZU9XMDdycDhlMHZRakoyIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.bShl0q-0YCqng1QbpwYVfRFWLYg5q2Bavmim9C8tYvA",
+						"description": ""
 					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwMTgzMzQsImV4cCI6MTU1MjAyMTkzNCwibmJmIjoxNTUyMDE4MzM0LCJqdGkiOiJMZU9XMDdycDhlMHZRakoyIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.bShl0q-0YCqng1QbpwYVfRFWLYg5q2Bavmim9C8tYvA\"\n}"
 				},
-				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK",
-						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-					},
-					"time": 1228,
-					"headers": [
-						{
-							"name": "access-control-allow-credentials",
-							"key": "access-control-allow-credentials",
-							"value": "true",
-							"description": "Indicates whether or not the response to the request can be exposed when the credentials flag is true. When used as part of a response to a preflight request, this indicates whether or not the actual request can be made using credentials."
-						},
-						{
-							"name": "access-control-allow-headers",
-							"key": "access-control-allow-headers",
-							"value": "Origin, Content-Type, Accept, Authorization, X-Request-With, cache-control",
-							"description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
-						},
-						{
-							"name": "access-control-allow-methods",
-							"key": "access-control-allow-methods",
-							"value": "PUT, GET, POST, DELETE, OPTIONS",
-							"description": "Specifies the method or methods allowed when accessing the resource. This is used in response to a preflight request."
-						},
-						{
-							"name": "access-control-allow-origin",
-							"key": "access-control-allow-origin",
-							"value": "*",
-							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
-						},
-						{
-							"name": "cache-control",
-							"key": "cache-control",
-							"value": "no-cache, private",
-							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
-						},
-						{
-							"name": "connection",
-							"key": "connection",
-							"value": "close",
-							"description": "Options that are desired for the connection"
-						},
-						{
-							"name": "content-type",
-							"key": "content-type",
-							"value": "application/json",
-							"description": "The mime type of this content"
-						},
-						{
-							"name": "date",
-							"key": "date",
-							"value": "Tue, 05 Mar 2019 00:46:47 +0000, Tue, 05 Mar 2019 00:46:47 GMT",
-							"description": "The date and time that the message was sent"
-						},
-						{
-							"name": "host",
-							"key": "host",
-							"value": "localhost:8000",
-							"description": "Custom header"
-						},
-						{
-							"name": "x-powered-by",
-							"key": "x-powered-by",
-							"value": "PHP/7.2.0",
-							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
-						},
-						{
-							"name": "x-ratelimit-limit",
-							"key": "x-ratelimit-limit",
-							"value": "60",
-							"description": "Custom header"
-						},
-						{
-							"name": "x-ratelimit-remaining",
-							"key": "x-ratelimit-remaining",
-							"value": "59",
-							"description": "Custom header"
-						}
-					],
-					"cookies": [],
-					"mime": "",
-					"text": "{\"success\":true,\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTE3NDY4MDcsImV4cCI6MTU1MTc1MDQwNywibmJmIjoxNTUxNzQ2ODA3LCJqdGkiOiIyenZGdGNvcVpVSlpaR0FuIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.gylOBRekwB7QFzIwibInfnLGIQhyeZGM900G1vWePdE\"}",
-					"language": "json",
-					"rawDataType": "text",
-					"previewType": "text",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
-					"name": "api/admin/login",
-					"id": "dd20f871-ffec-3478-a1a4-ea6acec0e6bb",
-					"request": "c2c63de8-169f-b81f-f096-e1c39e5f4e5f",
-					"requestObject": {
-						"url": "http://localhost:8000/api/admin/login",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"enabled": true,
-								"warning": ""
-							}
-						],
-						"headers": "Content-Type: application/json\n",
-						"data": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}",
-						"method": "POST",
-						"dataMode": "raw"
-					}
-				}
-			],
-			"rawModeData": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+				"description": "this is to logout an admin use raw json format \n      "
+			},
+			"response": []
 		},
 		{
-			"id": "ccc63811-e3aa-b87f-4283-5b1ea9273c7a",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:8000/api/admin/profile",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1551751165889,
-			"name": "api/admin/user/single/:id",
-			"description": "this is to get single users  \nrequired body content:\n        'id'=>requried\nthe header must also carry Authorization: Bearer <token>\nresponse=>{\non success...\"success\"=>true,\n                \"data\"=>$users,\n                'image_directory'=>\"image directory\",\non failure...'success' => false,\n            'message' => 'Sorry, user with id could not be found'\n}",
-			"collectionId": "1f4e13c0-c3f5-cd0a-aa59-7e20233d6699",
-			"responses": [
-				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK"
+			"name": "adding a new admin",
+			"request": {
+				"url": "http://localhost:8000/api/admin/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
 					},
-					"time": 0,
-					"headers": [],
-					"cookies": [],
-					"mime": "",
-					"text": "",
-					"language": "",
-					"rawDataType": "",
-					"previewType": "parsed",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
-					"name": "api/admin/login",
-					"id": "3d9f900d-eb00-b903-c948-3d7463c6dea9",
-					"request": "ccc63811-e3aa-b87f-4283-5b1ea9273c7a",
-					"requestObject": {
-						"url": "",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"enabled": true,
-								"warning": ""
-							}
-						],
-						"headers": "Content-Type: application/json\n",
-						"data": [
-							{
-								"key": "email",
-								"value": "francesco@gmail.com",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							},
-							{
-								"key": "password",
-								"value": "password",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							}
-						],
-						"method": "POST",
-						"dataMode": "params"
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNTA4MTUsImV4cCI6MTU1MjA1NDQxNSwibmJmIjoxNTUyMDUwODE1LCJqdGkiOiJBc0x2YzJvb2NUcjdLVk1zIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.fWhwqrEkkRYIzB7L7NG6GTz0w8hPlnKeSusfdavl4Hs",
+						"description": ""
 					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"bala\",\n\t\"email\":\"akpufranklin445544@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
 				},
-				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK",
-						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-					},
-					"time": 1228,
-					"headers": [
-						{
-							"name": "access-control-allow-credentials",
-							"key": "access-control-allow-credentials",
-							"value": "true",
-							"description": "Indicates whether or not the response to the request can be exposed when the credentials flag is true. When used as part of a response to a preflight request, this indicates whether or not the actual request can be made using credentials."
-						},
-						{
-							"name": "access-control-allow-headers",
-							"key": "access-control-allow-headers",
-							"value": "Origin, Content-Type, Accept, Authorization, X-Request-With, cache-control",
-							"description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
-						},
-						{
-							"name": "access-control-allow-methods",
-							"key": "access-control-allow-methods",
-							"value": "PUT, GET, POST, DELETE, OPTIONS",
-							"description": "Specifies the method or methods allowed when accessing the resource. This is used in response to a preflight request."
-						},
-						{
-							"name": "access-control-allow-origin",
-							"key": "access-control-allow-origin",
-							"value": "*",
-							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
-						},
-						{
-							"name": "cache-control",
-							"key": "cache-control",
-							"value": "no-cache, private",
-							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
-						},
-						{
-							"name": "connection",
-							"key": "connection",
-							"value": "close",
-							"description": "Options that are desired for the connection"
-						},
-						{
-							"name": "content-type",
-							"key": "content-type",
-							"value": "application/json",
-							"description": "The mime type of this content"
-						},
-						{
-							"name": "date",
-							"key": "date",
-							"value": "Tue, 05 Mar 2019 00:46:47 +0000, Tue, 05 Mar 2019 00:46:47 GMT",
-							"description": "The date and time that the message was sent"
-						},
-						{
-							"name": "host",
-							"key": "host",
-							"value": "localhost:8000",
-							"description": "Custom header"
-						},
-						{
-							"name": "x-powered-by",
-							"key": "x-powered-by",
-							"value": "PHP/7.2.0",
-							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
-						},
-						{
-							"name": "x-ratelimit-limit",
-							"key": "x-ratelimit-limit",
-							"value": "60",
-							"description": "Custom header"
-						},
-						{
-							"name": "x-ratelimit-remaining",
-							"key": "x-ratelimit-remaining",
-							"value": "59",
-							"description": "Custom header"
-						}
-					],
-					"cookies": [],
-					"mime": "",
-					"text": "{\"success\":true,\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTE3NDY4MDcsImV4cCI6MTU1MTc1MDQwNywibmJmIjoxNTUxNzQ2ODA3LCJqdGkiOiIyenZGdGNvcVpVSlpaR0FuIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.gylOBRekwB7QFzIwibInfnLGIQhyeZGM900G1vWePdE\"}",
-					"language": "json",
-					"rawDataType": "text",
-					"previewType": "text",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
-					"name": "api/admin/login",
-					"id": "09f21b85-2acf-e91c-ff41-19675cd27ed1",
-					"request": "ccc63811-e3aa-b87f-4283-5b1ea9273c7a",
-					"requestObject": {
-						"url": "http://localhost:8000/api/admin/login",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"enabled": true,
-								"warning": ""
-							}
-						],
-						"headers": "Content-Type: application/json\n",
-						"data": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}",
-						"method": "POST",
-						"dataMode": "raw"
-					}
-				}
-			],
-			"rawModeData": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+				"description": "this is to add a new admin"
+			},
+			"response": []
 		},
 		{
-			"id": "f057ab1b-5bb5-5158-34aa-89a1e7767e5d",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:8000/api/admin/login",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1551746821871,
-			"name": "api/admin/login",
-			"description": "this is a post request requires two parameters with the name email and password\nif the user credentails entered is invalid it returns:                      'success':false,\n            'message':'Invalid Email or Password',\n if the details entered for the admin is correct it returns:\n             'success' => true,\n            'token' => $jwt_token,",
-			"collectionId": "1f4e13c0-c3f5-cd0a-aa59-7e20233d6699",
-			"responses": [
-				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK"
+			"name": "view admin profile",
+			"request": {
+				"url": "http://localhost:8000/api/admin/profile",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
 					},
-					"time": 0,
-					"headers": [],
-					"cookies": [],
-					"mime": "",
-					"text": "",
-					"language": "",
-					"rawDataType": "",
-					"previewType": "parsed",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
-					"name": "api/admin/login",
-					"id": "2517ea4a-4594-1a2e-13b8-a1b803c08371",
-					"request": {
-						"url": "",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"enabled": true,
-								"warning": ""
-							}
-						],
-						"headers": "Content-Type: application/json\n",
-						"data": [
-							{
-								"key": "email",
-								"value": "francesco@gmail.com",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							},
-							{
-								"key": "password",
-								"value": "password",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							}
-						],
-						"method": "POST",
-						"dataMode": "params"
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNDQxNjksImV4cCI6MTU1MjA0Nzc2OSwibmJmIjoxNTUyMDQ0MTY5LCJqdGkiOiJ5TXZlZWZydlNZcWJrSWIwIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.6WbVwXBw5kDNsFqLYF7cuqaeh4TyMOb1f16ZLDonwYs",
+						"description": ""
 					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNDQxNjksImV4cCI6MTU1MjA0Nzc2OSwibmJmIjoxNTUyMDQ0MTY5LCJqdGkiOiJ5TXZlZWZydlNZcWJrSWIwIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.6WbVwXBw5kDNsFqLYF7cuqaeh4TyMOb1f16ZLDonwYs\"\n}"
 				},
-				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK",
-						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-					},
-					"time": 1228,
-					"headers": [
-						{
-							"name": "access-control-allow-credentials",
-							"key": "access-control-allow-credentials",
-							"value": "true",
-							"description": "Indicates whether or not the response to the request can be exposed when the credentials flag is true. When used as part of a response to a preflight request, this indicates whether or not the actual request can be made using credentials."
-						},
-						{
-							"name": "access-control-allow-headers",
-							"key": "access-control-allow-headers",
-							"value": "Origin, Content-Type, Accept, Authorization, X-Request-With, cache-control",
-							"description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
-						},
-						{
-							"name": "access-control-allow-methods",
-							"key": "access-control-allow-methods",
-							"value": "PUT, GET, POST, DELETE, OPTIONS",
-							"description": "Specifies the method or methods allowed when accessing the resource. This is used in response to a preflight request."
-						},
-						{
-							"name": "access-control-allow-origin",
-							"key": "access-control-allow-origin",
-							"value": "*",
-							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
-						},
-						{
-							"name": "cache-control",
-							"key": "cache-control",
-							"value": "no-cache, private",
-							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
-						},
-						{
-							"name": "connection",
-							"key": "connection",
-							"value": "close",
-							"description": "Options that are desired for the connection"
-						},
-						{
-							"name": "content-type",
-							"key": "content-type",
-							"value": "application/json",
-							"description": "The mime type of this content"
-						},
-						{
-							"name": "date",
-							"key": "date",
-							"value": "Tue, 05 Mar 2019 00:46:47 +0000, Tue, 05 Mar 2019 00:46:47 GMT",
-							"description": "The date and time that the message was sent"
-						},
-						{
-							"name": "host",
-							"key": "host",
-							"value": "localhost:8000",
-							"description": "Custom header"
-						},
-						{
-							"name": "x-powered-by",
-							"key": "x-powered-by",
-							"value": "PHP/7.2.0",
-							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
-						},
-						{
-							"name": "x-ratelimit-limit",
-							"key": "x-ratelimit-limit",
-							"value": "60",
-							"description": "Custom header"
-						},
-						{
-							"name": "x-ratelimit-remaining",
-							"key": "x-ratelimit-remaining",
-							"value": "59",
-							"description": "Custom header"
-						}
-					],
-					"cookies": [],
-					"mime": "",
-					"text": "{\"success\":true,\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTE3NDY4MDcsImV4cCI6MTU1MTc1MDQwNywibmJmIjoxNTUxNzQ2ODA3LCJqdGkiOiIyenZGdGNvcVpVSlpaR0FuIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.gylOBRekwB7QFzIwibInfnLGIQhyeZGM900G1vWePdE\"}",
-					"language": "json",
-					"rawDataType": "text",
-					"previewType": "text",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
-					"name": "api/admin/login",
-					"id": "b6f3a69d-6a02-ac6f-4ee8-8afae937c8bc",
-					"request": {
-						"url": "http://localhost:8000/api/admin/login",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"enabled": true,
-								"warning": ""
-							}
-						],
-						"headers": "Content-Type: application/json\n",
-						"data": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}",
-						"method": "POST",
-						"dataMode": "raw"
-					}
-				}
-			],
-			"rawModeData": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+				"description": "this is to view admin profile"
+			},
+			"response": []
 		},
 		{
-			"id": "f7c2ced2-e8a7-b0a7-fb7d-5e7c48811986",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:8000/api/admin/profile",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1551750878451,
-			"name": "api/admin/role/default/:id ",
-			"description": "this is to set a role as default\nrequired body content:\n        'id'=>requried\nthe header must also carry Authorization: Bearer <token>\nresponse=>{\non success...'success' => true,\n            'message'=>'role set as default successfully'\non failure...'success' => false,\n            'message' => 'Sorry, role could not be added'\n}",
-			"collectionId": "1f4e13c0-c3f5-cd0a-aa59-7e20233d6699",
-			"responses": [
-				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK"
+			"name": "add  a profile picture for the admin",
+			"request": {
+				"url": "http://localhost:8000/api/admin/profilephoto/add",
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"description": ""
 					},
-					"time": 0,
-					"headers": [],
-					"cookies": [],
-					"mime": "",
-					"text": "",
-					"language": "",
-					"rawDataType": "",
-					"previewType": "parsed",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
-					"name": "api/admin/login",
-					"id": "0d657084-c4eb-3418-39f0-9aa2a872c466",
-					"request": "f7c2ced2-e8a7-b0a7-fb7d-5e7c48811986",
-					"requestObject": {
-						"url": "",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"enabled": true,
-								"warning": ""
-							}
-						],
-						"headers": "Content-Type: application/json\n",
-						"data": [
-							{
-								"key": "email",
-								"value": "francesco@gmail.com",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							},
-							{
-								"key": "password",
-								"value": "password",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							}
-						],
-						"method": "POST",
-						"dataMode": "params"
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNDUwOTMsImV4cCI6MTU1MjA0ODY5MywibmJmIjoxNTUyMDQ1MDkzLCJqdGkiOiIxT2c3MDdiR3ZNUnNSdWNYIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.LZ9EA4C62ni0gfOGtQ31MubXXNGVgrNTuaHzSfTWVxY",
+						"description": ""
 					}
-				},
-				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK",
-						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-					},
-					"time": 1228,
-					"headers": [
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
 						{
-							"name": "access-control-allow-credentials",
-							"key": "access-control-allow-credentials",
-							"value": "true",
-							"description": "Indicates whether or not the response to the request can be exposed when the credentials flag is true. When used as part of a response to a preflight request, this indicates whether or not the actual request can be made using credentials."
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNDUwOTMsImV4cCI6MTU1MjA0ODY5MywibmJmIjoxNTUyMDQ1MDkzLCJqdGkiOiIxT2c3MDdiR3ZNUnNSdWNYIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.LZ9EA4C62ni0gfOGtQ31MubXXNGVgrNTuaHzSfTWVxY",
+							"description": "",
+							"type": "text"
 						},
 						{
-							"name": "access-control-allow-headers",
-							"key": "access-control-allow-headers",
-							"value": "Origin, Content-Type, Accept, Authorization, X-Request-With, cache-control",
-							"description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
-						},
-						{
-							"name": "access-control-allow-methods",
-							"key": "access-control-allow-methods",
-							"value": "PUT, GET, POST, DELETE, OPTIONS",
-							"description": "Specifies the method or methods allowed when accessing the resource. This is used in response to a preflight request."
-						},
-						{
-							"name": "access-control-allow-origin",
-							"key": "access-control-allow-origin",
-							"value": "*",
-							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
-						},
-						{
-							"name": "cache-control",
-							"key": "cache-control",
-							"value": "no-cache, private",
-							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
-						},
-						{
-							"name": "connection",
-							"key": "connection",
-							"value": "close",
-							"description": "Options that are desired for the connection"
-						},
-						{
-							"name": "content-type",
-							"key": "content-type",
-							"value": "application/json",
-							"description": "The mime type of this content"
-						},
-						{
-							"name": "date",
-							"key": "date",
-							"value": "Tue, 05 Mar 2019 00:46:47 +0000, Tue, 05 Mar 2019 00:46:47 GMT",
-							"description": "The date and time that the message was sent"
-						},
-						{
-							"name": "host",
-							"key": "host",
-							"value": "localhost:8000",
-							"description": "Custom header"
-						},
-						{
-							"name": "x-powered-by",
-							"key": "x-powered-by",
-							"value": "PHP/7.2.0",
-							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
-						},
-						{
-							"name": "x-ratelimit-limit",
-							"key": "x-ratelimit-limit",
-							"value": "60",
-							"description": "Custom header"
-						},
-						{
-							"name": "x-ratelimit-remaining",
-							"key": "x-ratelimit-remaining",
-							"value": "59",
-							"description": "Custom header"
+							"key": "profilephoto",
+							"value": "",
+							"description": "",
+							"type": "file"
 						}
-					],
-					"cookies": [],
-					"mime": "",
-					"text": "{\"success\":true,\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTE3NDY4MDcsImV4cCI6MTU1MTc1MDQwNywibmJmIjoxNTUxNzQ2ODA3LCJqdGkiOiIyenZGdGNvcVpVSlpaR0FuIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.gylOBRekwB7QFzIwibInfnLGIQhyeZGM900G1vWePdE\"}",
-					"language": "json",
-					"rawDataType": "text",
-					"previewType": "text",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
-					"name": "api/admin/login",
-					"id": "4cf5978a-a988-9959-590f-d78935406401",
-					"request": "f7c2ced2-e8a7-b0a7-fb7d-5e7c48811986",
-					"requestObject": {
-						"url": "http://localhost:8000/api/admin/login",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"enabled": true,
-								"warning": ""
-							}
-						],
-						"headers": "Content-Type: application/json\n",
-						"data": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}",
-						"method": "POST",
-						"dataMode": "raw"
-					}
-				}
-			],
-			"rawModeData": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+					]
+				},
+				"description": "admin adds a pofile photo"
+			},
+			"response": []
 		},
 		{
-			"id": "f8b485ed-fc28-645e-ae61-1615cc3d6c4e",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:8000/api/admin/profile",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PUT",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1551750623304,
-			"name": "api/admin/role/update/:id",
-			"description": "this is to update a role\nrequired body content:\n        'id'=>requried\n         'rolename' => 'required',\n        'isdefault' => 'required',\nthe header must also carry Authorization: Bearer <token>\nresponse=>{\non success...'success' => true,\n            'role' => role updated successfully\non failure...'success' => false,\n            'message' => 'Sorry, role could not be added'\n}",
-			"collectionId": "1f4e13c0-c3f5-cd0a-aa59-7e20233d6699",
-			"responses": [
-				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK"
+			"name": "admin view roles ",
+			"request": {
+				"url": "localhost:8000/api/admin/role/all-content/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
 					},
-					"time": 0,
-					"headers": [],
-					"cookies": [],
-					"mime": "",
-					"text": "",
-					"language": "",
-					"rawDataType": "",
-					"previewType": "parsed",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
-					"name": "api/admin/login",
-					"id": "395429cf-546f-700c-6e4c-85b89a23297c",
-					"request": "f8b485ed-fc28-645e-ae61-1615cc3d6c4e",
-					"requestObject": {
-						"url": "",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"enabled": true,
-								"warning": ""
-							}
-						],
-						"headers": "Content-Type: application/json\n",
-						"data": [
-							{
-								"key": "email",
-								"value": "francesco@gmail.com",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							},
-							{
-								"key": "password",
-								"value": "password",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							}
-						],
-						"method": "POST",
-						"dataMode": "params"
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNDY4MjMsImV4cCI6MTU1MjA1MDQyMywibmJmIjoxNTUyMDQ2ODIzLCJqdGkiOiJ6OUZGTjZhUFVSd2FZSWV0Iiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.7ze6fWIoE04hnUM67PL0MpoiG78W5D1hGRpxILayPzQ",
+						"description": ""
 					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
 				},
-				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK",
-						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-					},
-					"time": 1228,
-					"headers": [
-						{
-							"name": "access-control-allow-credentials",
-							"key": "access-control-allow-credentials",
-							"value": "true",
-							"description": "Indicates whether or not the response to the request can be exposed when the credentials flag is true. When used as part of a response to a preflight request, this indicates whether or not the actual request can be made using credentials."
-						},
-						{
-							"name": "access-control-allow-headers",
-							"key": "access-control-allow-headers",
-							"value": "Origin, Content-Type, Accept, Authorization, X-Request-With, cache-control",
-							"description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
-						},
-						{
-							"name": "access-control-allow-methods",
-							"key": "access-control-allow-methods",
-							"value": "PUT, GET, POST, DELETE, OPTIONS",
-							"description": "Specifies the method or methods allowed when accessing the resource. This is used in response to a preflight request."
-						},
-						{
-							"name": "access-control-allow-origin",
-							"key": "access-control-allow-origin",
-							"value": "*",
-							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
-						},
-						{
-							"name": "cache-control",
-							"key": "cache-control",
-							"value": "no-cache, private",
-							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
-						},
-						{
-							"name": "connection",
-							"key": "connection",
-							"value": "close",
-							"description": "Options that are desired for the connection"
-						},
-						{
-							"name": "content-type",
-							"key": "content-type",
-							"value": "application/json",
-							"description": "The mime type of this content"
-						},
-						{
-							"name": "date",
-							"key": "date",
-							"value": "Tue, 05 Mar 2019 00:46:47 +0000, Tue, 05 Mar 2019 00:46:47 GMT",
-							"description": "The date and time that the message was sent"
-						},
-						{
-							"name": "host",
-							"key": "host",
-							"value": "localhost:8000",
-							"description": "Custom header"
-						},
-						{
-							"name": "x-powered-by",
-							"key": "x-powered-by",
-							"value": "PHP/7.2.0",
-							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
-						},
-						{
-							"name": "x-ratelimit-limit",
-							"key": "x-ratelimit-limit",
-							"value": "60",
-							"description": "Custom header"
-						},
-						{
-							"name": "x-ratelimit-remaining",
-							"key": "x-ratelimit-remaining",
-							"value": "59",
-							"description": "Custom header"
-						}
-					],
-					"cookies": [],
-					"mime": "",
-					"text": "{\"success\":true,\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTE3NDY4MDcsImV4cCI6MTU1MTc1MDQwNywibmJmIjoxNTUxNzQ2ODA3LCJqdGkiOiIyenZGdGNvcVpVSlpaR0FuIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.gylOBRekwB7QFzIwibInfnLGIQhyeZGM900G1vWePdE\"}",
-					"language": "json",
-					"rawDataType": "text",
-					"previewType": "text",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
-					"name": "api/admin/login",
-					"id": "419dd4b5-a790-46d8-e689-70902a9e21af",
-					"request": "f8b485ed-fc28-645e-ae61-1615cc3d6c4e",
-					"requestObject": {
-						"url": "http://localhost:8000/api/admin/login",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"enabled": true,
-								"warning": ""
-							}
-						],
-						"headers": "Content-Type: application/json\n",
-						"data": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}",
-						"method": "POST",
-						"dataMode": "raw"
-					}
-				}
-			],
-			"rawModeData": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+				"description": "this displays all the roles with or without pagination...if the\nlast parameter which is the pagination is not added it fetches all the roles without pagination and if it is added it paginates all contents dependent on the pagination details..\n\n"
+			},
+			"response": []
 		},
 		{
-			"id": "fe69bbb9-b50a-0938-79a6-711475a68a10",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:8000/api/admin/profile",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1551750587685,
-			"name": "api/admin/role/store",
-			"description": "this is to add a new role\nrequired body content:\n'       rolename' => 'required',\n        'isdefault' => 'required',\nthe header must also carry Authorization: Bearer <token>\nresponse=>{\non success...'success' => true,\n            'role' => new role added\non failure...'success' => false,\n            'message' => 'Sorry, role could not be added'\n}",
-			"collectionId": "1f4e13c0-c3f5-cd0a-aa59-7e20233d6699",
-			"responses": [
-				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK"
+			"name": "admin show single role",
+			"request": {
+				"url": "http://localhost:8000/api/admin/role/show/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
 					},
-					"time": 0,
-					"headers": [],
-					"cookies": [],
-					"mime": "",
-					"text": "",
-					"language": "",
-					"rawDataType": "",
-					"previewType": "parsed",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
-					"name": "api/admin/login",
-					"id": "4cce7e8f-51c0-5d84-1681-cee620437210",
-					"request": "fe69bbb9-b50a-0938-79a6-711475a68a10",
-					"requestObject": {
-						"url": "",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"enabled": true,
-								"warning": ""
-							}
-						],
-						"headers": "Content-Type: application/json\n",
-						"data": [
-							{
-								"key": "email",
-								"value": "francesco@gmail.com",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							},
-							{
-								"key": "password",
-								"value": "password",
-								"description": "",
-								"type": "text",
-								"enabled": true
-							}
-						],
-						"method": "POST",
-						"dataMode": "params"
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNDUwOTMsImV4cCI6MTU1MjA0ODY5MywibmJmIjoxNTUyMDQ1MDkzLCJqdGkiOiIxT2c3MDdiR3ZNUnNSdWNYIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.LZ9EA4C62ni0gfOGtQ31MubXXNGVgrNTuaHzSfTWVxY",
+						"description": ""
 					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
 				},
-				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK",
-						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				"description": "this displays a specific role with the id passed as the paramater...\nthe header must also carry admin Authorization: Bearer <token>"
+			},
+			"response": []
+		},
+		{
+			"name": "admin adds a new role",
+			"request": {
+				"url": "http://localhost:8000/api/admin/role/store",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
 					},
-					"time": 1228,
-					"headers": [
-						{
-							"name": "access-control-allow-credentials",
-							"key": "access-control-allow-credentials",
-							"value": "true",
-							"description": "Indicates whether or not the response to the request can be exposed when the credentials flag is true. When used as part of a response to a preflight request, this indicates whether or not the actual request can be made using credentials."
-						},
-						{
-							"name": "access-control-allow-headers",
-							"key": "access-control-allow-headers",
-							"value": "Origin, Content-Type, Accept, Authorization, X-Request-With, cache-control",
-							"description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
-						},
-						{
-							"name": "access-control-allow-methods",
-							"key": "access-control-allow-methods",
-							"value": "PUT, GET, POST, DELETE, OPTIONS",
-							"description": "Specifies the method or methods allowed when accessing the resource. This is used in response to a preflight request."
-						},
-						{
-							"name": "access-control-allow-origin",
-							"key": "access-control-allow-origin",
-							"value": "*",
-							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
-						},
-						{
-							"name": "cache-control",
-							"key": "cache-control",
-							"value": "no-cache, private",
-							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
-						},
-						{
-							"name": "connection",
-							"key": "connection",
-							"value": "close",
-							"description": "Options that are desired for the connection"
-						},
-						{
-							"name": "content-type",
-							"key": "content-type",
-							"value": "application/json",
-							"description": "The mime type of this content"
-						},
-						{
-							"name": "date",
-							"key": "date",
-							"value": "Tue, 05 Mar 2019 00:46:47 +0000, Tue, 05 Mar 2019 00:46:47 GMT",
-							"description": "The date and time that the message was sent"
-						},
-						{
-							"name": "host",
-							"key": "host",
-							"value": "localhost:8000",
-							"description": "Custom header"
-						},
-						{
-							"name": "x-powered-by",
-							"key": "x-powered-by",
-							"value": "PHP/7.2.0",
-							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
-						},
-						{
-							"name": "x-ratelimit-limit",
-							"key": "x-ratelimit-limit",
-							"value": "60",
-							"description": "Custom header"
-						},
-						{
-							"name": "x-ratelimit-remaining",
-							"key": "x-ratelimit-remaining",
-							"value": "59",
-							"description": "Custom header"
-						}
-					],
-					"cookies": [],
-					"mime": "",
-					"text": "{\"success\":true,\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTE3NDY4MDcsImV4cCI6MTU1MTc1MDQwNywibmJmIjoxNTUxNzQ2ODA3LCJqdGkiOiIyenZGdGNvcVpVSlpaR0FuIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.gylOBRekwB7QFzIwibInfnLGIQhyeZGM900G1vWePdE\"}",
-					"language": "json",
-					"rawDataType": "text",
-					"previewType": "text",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
-					"name": "api/admin/login",
-					"id": "04a5d435-bebf-2e8c-e126-f491f4773d9f",
-					"request": "fe69bbb9-b50a-0938-79a6-711475a68a10",
-					"requestObject": {
-						"url": "http://localhost:8000/api/admin/login",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"enabled": true,
-								"warning": ""
-							}
-						],
-						"headers": "Content-Type: application/json\n",
-						"data": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}",
-						"method": "POST",
-						"dataMode": "raw"
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNDUwOTMsImV4cCI6MTU1MjA0ODY5MywibmJmIjoxNTUyMDQ1MDkzLCJqdGkiOiIxT2c3MDdiR3ZNUnNSdWNYIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.LZ9EA4C62ni0gfOGtQ31MubXXNGVgrNTuaHzSfTWVxY",
+						"description": ""
 					}
-				}
-			],
-			"rawModeData": "{\n\t\"email\":\"francesco@gmail.com\",\n\t\"password\":\"franklin101\"\n}"
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"rolename\":\"madness\",\n\t\"isdefault\":\"0\"\n}"
+				},
+				"description": "this is to add a new role\nrequired body content:\n'       rolename' => 'required',\n        'isdefault' => 'required',\nthe header must also carry Authorization: Bearer <token>\nresponse=>{\non success...'success' => true,\n            'role' => new role added\non failure...'success' => false,\n            'message' => 'Sorry, role could not be added'\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "admin updates a role",
+			"request": {
+				"url": "http://localhost:8000/api/admin/role/update/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNDUwOTMsImV4cCI6MTU1MjA0ODY5MywibmJmIjoxNTUyMDQ1MDkzLCJqdGkiOiIxT2c3MDdiR3ZNUnNSdWNYIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.LZ9EA4C62ni0gfOGtQ31MubXXNGVgrNTuaHzSfTWVxY",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"rolename\":\"balotelli\",\n\t\"isdefault\":\"1\"\n}"
+				},
+				"description": "this is to update a role\nrequired body content:\n        'id'=>requried\n         'rolename' => 'required',\n        'isdefault' => 'required',\nthe header must also carry Authorization: Bearer <token>\nresponse=>{\non success...'success' => true,\n            'role' => role updated successfully\non failure...'success' => false,\n            'message' => 'Sorry, role could not be added'\n}"
+			},
+			"response": []
 		}
 	]
 }

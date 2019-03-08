@@ -5,7 +5,11 @@ namespace App\Http\Controllers\Administrator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\role;
+use Validator;
 use JWTAuth;
+use Tymon\JWTAuth\Exceptions\JWTException;
+use App\admin;
+use App\Http\Controllers\SanitizeController;
 
 class roleController extends Controller
 {
@@ -16,7 +20,7 @@ public function __construct()
 {
     $this->middleware("auth:admins");
      $this->role = new role();
-    
+    $this->admin = new admin();
 }
 
 public function index($pagination=null,Request $request)
@@ -49,11 +53,16 @@ public function show($id)
 public function store(Request $request)
 {
 
-    $this->validate($request, [
-        'rolename' => 'required',
+    $validator = Validator::make($request->only("rolename","isdefault"), 
+    [
+        'rolename' => 'required|string',
         'isdefault' => 'required',
-    ]);
- 
+    ]
+     );
+     
+    if($validator->fails()){
+        return $validator->messages()->toArray();
+      }   
     $this->role->rolename = $request->rolename;
     $this->role->isdefault = $request->isdefault;
  
@@ -80,12 +89,24 @@ public function update(Request $request,$id)
             'message' => 'Sorry, role with id ' . $id . ' cannot be found'
         ], 400);
     }
+
+    $validator = Validator::make($request->all(), 
+    [
+        'rolename' => 'required|string',
+        'isdefault' => 'required',
+    ]
+     );
+     
+    if($validator->fails()){
+        return $validator->messages()->toArray();
+      }
  
     $update = $role->fill($request->all())->save();
 
     if ($update) {
         return response()->json([
-            'success' => true
+            'success' => true,
+            "message"=>"role updated successfully"
         ]);
     } else {
         return response()->json([
@@ -129,7 +150,7 @@ public function default(Request $request,$id)
             'message' => 'Sorry, role with id ' . $id . ' cannot be found'
         ], 400);
     }
-   $set_default = $this->role::where(["id"=>$id])->update(["rolename"=>"default"]);
+   $set_default = $this->role::where(["id"=>$id])->update(["isdefault"=>"1"]);
    if($set_default)
    {
     return response()->json([

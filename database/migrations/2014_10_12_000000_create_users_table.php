@@ -21,14 +21,12 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string("phone");
             $table->string("cityid");
-            $table->string("occupationid");
-            $table->integer("rating");
             $table->string("roleid");
-            $table->string("profilephoto");
+            $table->string("profilephoto")->nullable()->default(NULL);
             $table->string("status");
             $table->rememberToken();
             $table->timestamps();
-        });
+            });
     }
 
     /**
