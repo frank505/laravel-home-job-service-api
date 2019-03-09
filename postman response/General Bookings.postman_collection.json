@@ -1,0 +1,76 @@
+{
+	"variables": [],
+	"info": {
+		"name": "General Bookings",
+		"_postman_id": "81fda16f-62b0-f8b9-18d4-dc1a2e60a6c3",
+		"description": "CRUD operation for bookings\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get a single booking",
+			"request": {
+				"url": "http://localhost:8000/api/bookings/single-bookings/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "get a single booking using its id as the last parameter in url"
+			},
+			"response": []
+		},
+		{
+			"name": "get booking for user",
+			"request": {
+				"url": "http://localhost:8000/api/bookings/user/12/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "get all bookings for a user using the user_id and the last parameter is the pagination variable asking of the number of pages you want per page"
+			},
+			"response": []
+		},
+		{
+			"name": "get booking for particular artisan",
+			"request": {
+				"url": "http://localhost:8000/api/bookings/artisan/21/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIxNDE4NTgsImV4cCI6MTU1MjE0NTQ1OCwibmJmIjoxNTUyMTQxODU4LCJqdGkiOiJXV3ZMWGZ2ckJEbzY1cnQ2Iiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.C_ZMgCemqDPRP_ZX6AznVbbertgR_SM6uTzdpX3sPn4",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "get all bookings for an artisan using the artisan_id and the last parameter is the pagination variable asking of the number of pages you want per page"
+			},
+			"response": []
+		}
+	]
+}

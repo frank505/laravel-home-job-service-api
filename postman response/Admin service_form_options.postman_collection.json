@@ -1,7 +1,7 @@
 {
 	"variables": [],
 	"info": {
-		"name": "service_form_options",
+		"name": "Admin service_form_options",
 		"_postman_id": "bff3229d-60f7-3f92-7e76-f668a5a4dec7",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"

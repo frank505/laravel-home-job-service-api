@@ -1,0 +1,33 @@
+{
+	"variables": [],
+	"info": {
+		"name": "General Sub Categories",
+		"_postman_id": "d3ccdeb6-0925-683b-4f1f-a5da1c991620",
+		"description": "this handles sub caegories getters with no authentication needed",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "gets all the sub categories",
+			"request": {
+				"url": "http://localhost:8000/api/sub-categories",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "this gets all the available sub categories"
+			},
+			"response": []
+		},
+		{
+			"name": "gets all the sub categories copy",
+			"request": {
+				"url": "http://localhost:8000/api/sub-categories",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "this gets all the available sub categories"
+			},
+			"response": []
+		}
+	]
+}

@@ -1,7 +1,7 @@
 {
 	"variables": [],
 	"info": {
-		"name": "Category",
+		"name": "Admin Category",
 		"_postman_id": "389db4d9-5fdc-59e8-115e-7e4aeccf7883",
 		"description": "this is for the categories crud functionality",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
@@ -15,7 +15,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNDY4MjMsImV4cCI6MTU1MjA1MDQyMywibmJmIjoxNTUyMDQ2ODIzLCJqdGkiOiJ6OUZGTjZhUFVSd2FZSWV0Iiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.7ze6fWIoE04hnUM67PL0MpoiG78W5D1hGRpxILayPzQ",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIxNDE4NTgsImV4cCI6MTU1MjE0NTQ1OCwibmJmIjoxNTUyMTQxODU4LCJqdGkiOiJXV3ZMWGZ2ckJEbzY1cnQ2Iiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.C_ZMgCemqDPRP_ZX6AznVbbertgR_SM6uTzdpX3sPn4",
 						"description": ""
 					},
 					{
@@ -37,7 +37,7 @@
 							"key": "image",
 							"description": "",
 							"type": "file",
-							"src": "IMG_20180106_140316.jpg"
+							"src": "IMG_20170907_174301.jpg"
 						}
 					]
 				},

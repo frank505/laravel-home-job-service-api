@@ -17,22 +17,22 @@ class UserSkillsController extends Controller
 public function __construct()
 {
     $this->middleware("auth:users");
-     $this->user_skills = new user_skills();
+     $this->user_skills = new UserSkills();
 }
 
-public function index($pagination=null,Request $request)
-{
-//laravel automatically converts it to json and sends a response text too
-//$auth = auth("admins")->authenticate($request->token);
-if($pagination==null || $pagination==""){
-    return $this->user_skills->get(['id','category_id','sub_category_id','skill','created_at'])->toArray();
-}
-    $paginated_user_skills =  $this->user_skills->paginate($pagination,['id','category_id','sub_category_id','skill','created_at']);
-    return response()->json([
-        'success' => true,
-         'data'=>$paginated_user_skills
-    ], 200);
-}
+// public function index($pagination=null,Request $request)
+// {
+// //laravel automatically converts it to json and sends a response text too
+// //$auth = auth("admins")->authenticate($request->token);
+// if($pagination==null || $pagination==""){
+//     return $this->user_skills->get(['id','category_id','sub_category_id','skill','created_at'])->toArray();
+// }
+//     $paginated_user_skills =  $this->user_skills->paginate($pagination,['id','category_id','sub_category_id','skill','created_at']);
+//     return response()->json([
+//         'success' => true,
+//          'data'=>$paginated_user_skills
+//     ], 200);
+// }
 
 
 public function store(Request $request)
@@ -68,7 +68,7 @@ public function store(Request $request)
     if ($create){
         return response()->json([
             'success' => true,
-            'user_skills' => $this->user_skills
+            'message' => "new user skill added successfully"
         ]);
     }   
     else{

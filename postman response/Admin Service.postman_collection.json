@@ -1,0 +1,145 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Admin Service",
+		"_postman_id": "13301e4b-3df4-5e60-e48b-942d05720f27",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "admin updates a  service",
+			"request": {
+				"url": "http://localhost:8000/api/admin/services/update/1",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIxMzQzOTAsImV4cCI6MTU1MjEzNzk5MCwibmJmIjoxNTUyMTM0MzkwLCJqdGkiOiJ1YktTOUx2d1hROGNBMDJKIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.W6fNR0FEqSCOLMl_TL0LtjxXotx7sdW2kJ828O3Wy7g",
+						"description": ""
+					},
+					{
+						"key": "",
+						"value": "",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "service",
+							"value": "hello world",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "4",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "best service ever",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"description": "",
+							"type": "file",
+							"src": "kakashi sensei.jpg"
+						}
+					]
+				},
+				"description": "updates a service with the id :\n'id'=>required for querying data before updating the service\n'services' => 'required|string',\n        'category_id'=>'required|string',\n        'description'=>'required|string',\n        'image.*' => 'image|mimes:jpeg,bmp,png|max:8000',\n        \n      the header must also carry admin Authorization: Bearer <token>"
+			},
+			"response": []
+		},
+		{
+			"name": "admin adds a new service",
+			"request": {
+				"url": "http://localhost:8000/api/admin/services/create",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIxMzQzOTAsImV4cCI6MTU1MjEzNzk5MCwibmJmIjoxNTUyMTM0MzkwLCJqdGkiOiJ1YktTOUx2d1hROGNBMDJKIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.W6fNR0FEqSCOLMl_TL0LtjxXotx7sdW2kJ828O3Wy7g",
+						"description": ""
+					},
+					{
+						"key": "",
+						"value": "",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "service",
+							"value": "hello world",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "4",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "best service ever",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"description": "",
+							"type": "file",
+							"src": "IMG_20171119_110531.jpg"
+						}
+					]
+				},
+				"description": "updates a service with the id :\n'id'=>required for querying data before updating the service\n'services' => 'required|string',\n        'category_id'=>'required|string',\n        'description'=>'required|string',\n        'image.*' => 'image|mimes:jpeg,bmp,png|max:8000',\n        \n      the header must also carry admin Authorization: Bearer <token>"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/admin/services/single-category/:id/:pagination?",
+			"request": {
+				"url": "http://localhost:8000/api/admin/services/single-category/4/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIxMzQzOTAsImV4cCI6MTU1MjEzNzk5MCwibmJmIjoxNTUyMTM0MzkwLCJqdGkiOiJ1YktTOUx2d1hROGNBMDJKIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.W6fNR0FEqSCOLMl_TL0LtjxXotx7sdW2kJ828O3Wy7g",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "gets services based on the category_id and if an optional parameter is added which is pagination it paginates the value too\nthe header must also carry admin Authorization: Bearer <token>"
+			},
+			"response": []
+		},
+		{
+			"name": "delete a service",
+			"request": {
+				"url": "http://localhost:8000/api/admin/services/delete/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIxMzQzOTAsImV4cCI6MTU1MjEzNzk5MCwibmJmIjoxNTUyMTM0MzkwLCJqdGkiOiJ1YktTOUx2d1hROGNBMDJKIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.W6fNR0FEqSCOLMl_TL0LtjxXotx7sdW2kJ828O3Wy7g",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "gets the id of the service is sets its isdeleted property to 1 from zero simulating a delete\n        \n      the header must also carry admin Authorization: Bearer <token>"
+			},
+			"response": []
+		}
+	]
+}

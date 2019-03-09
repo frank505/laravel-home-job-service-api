@@ -138,7 +138,7 @@ class AdminAuthController extends Controller
 
     public function login(Request $request)
     {
-       
+             
         $validator = Validator::make($request->only('email', 'password'), 
         ['email' => 'required|email',
         'password' => 'required|string|min:6']);
@@ -157,12 +157,15 @@ class AdminAuthController extends Controller
                 'message' => 'Invalid Email or Password',
             ], 401);
         }
- 
-        return response()->json([
-            'success' => true,
-            'token' => $jwt_token,
-        ]);
+       //set token expiration time in minutes
+       $token_time_frame = auth("admins")->factory()->setTTL(1440);
       
+
+    return response()->json([
+        'success' => true,
+        'token' => $jwt_token,
+        'expires_in'=>auth("admins")->factory()->getTTL(),
+    ]);
     }
  
     public function logout(Request $request)
@@ -262,6 +265,8 @@ class AdminAuthController extends Controller
          }
     }
 
+    
+
     public function ViewUsers(Request $request,$pagination=null)
     {
         if($pagination==null || $pagination==""){
@@ -296,5 +301,14 @@ class AdminAuthController extends Controller
             ],200);
         }
         
-        
+        public function returnResponseWithToken($token)
+        {
+            
+         return response()->json([
+             'success'=>true,
+              'access_token'=>$token,
+              'token_type'=>'Bearer',
+              'expires_in'=>auth()->factory()->getTTL() * 60 * 24,
+            ]);
+        }
 }

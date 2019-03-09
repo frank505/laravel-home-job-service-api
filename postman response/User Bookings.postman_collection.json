@@ -1,16 +1,16 @@
 {
 	"variables": [],
 	"info": {
-		"name": "Bookings",
-		"_postman_id": "2569a680-96a2-5097-cd0f-2d930badffac",
-		"description": "CRUD operation for bookings\n",
+		"name": "User Bookings",
+		"_postman_id": "30a48f31-c4a0-0fb7-9b42-7c545e1dc114",
+		"description": "CRUD and more for users to manage thier bookings",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "create a new booking",
 			"request": {
-				"url": "http://localhost:8000/api/admin/bookings/create",
+				"url": "http://localhost:8000/api/user/bookings/create",
 				"method": "POST",
 				"header": [
 					{
@@ -20,7 +20,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNTU5NjksImV4cCI6MTU1MjA1OTU2OSwibmJmIjoxNTUyMDU1OTY5LCJqdGkiOiJCY0QydVgxRjliZlk1c3ZwIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.7ZB7DFb6irRETo1N-CphKFp1UCA0tAKzW6egkrG4Fmw",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU1MjE0MTcwOSwiZXhwIjoxNTUyMTQ1MzA5LCJuYmYiOjE1NTIxNDE3MDksImp0aSI6IlJ2aTRUV0JqVHRCWGl1VWgiLCJzdWIiOjE1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.EwshL-wiI7htZMrlTtj0gSTEbtveBFCa-Fj7Y7E_kpQ",
 						"description": ""
 					}
 				],
@@ -35,7 +35,7 @@
 		{
 			"name": "edit booking",
 			"request": {
-				"url": "http://localhost:8000/api/admin/bookings/update/1",
+				"url": "http://localhost:8000/api/user/bookings/update/1",
 				"method": "POST",
 				"header": [
 					{
@@ -45,7 +45,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNTU5NjksImV4cCI6MTU1MjA1OTU2OSwibmJmIjoxNTUyMDU1OTY5LCJqdGkiOiJCY0QydVgxRjliZlk1c3ZwIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.7ZB7DFb6irRETo1N-CphKFp1UCA0tAKzW6egkrG4Fmw",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU1MjE0MTcwOSwiZXhwIjoxNTUyMTQ1MzA5LCJuYmYiOjE1NTIxNDE3MDksImp0aSI6IlJ2aTRUV0JqVHRCWGl1VWgiLCJzdWIiOjE1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.EwshL-wiI7htZMrlTtj0gSTEbtveBFCa-Fj7Y7E_kpQ",
 						"description": ""
 					}
 				],
@@ -60,7 +60,7 @@
 		{
 			"name": "get a single booking",
 			"request": {
-				"url": "http://localhost:8000/api/admin/bookings/single-bookings/1",
+				"url": "http://localhost:8000/api/user/bookings/single-bookings/1",
 				"method": "GET",
 				"header": [
 					{
@@ -70,7 +70,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNTU5NjksImV4cCI6MTU1MjA1OTU2OSwibmJmIjoxNTUyMDU1OTY5LCJqdGkiOiJCY0QydVgxRjliZlk1c3ZwIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.7ZB7DFb6irRETo1N-CphKFp1UCA0tAKzW6egkrG4Fmw",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU1MjE0MTcwOSwiZXhwIjoxNTUyMTQ1MzA5LCJuYmYiOjE1NTIxNDE3MDksImp0aSI6IlJ2aTRUV0JqVHRCWGl1VWgiLCJzdWIiOjE1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.EwshL-wiI7htZMrlTtj0gSTEbtveBFCa-Fj7Y7E_kpQ",
 						"description": ""
 					}
 				],
@@ -85,8 +85,8 @@
 		{
 			"name": "get booking for user",
 			"request": {
-				"url": "http://localhost:8000/api/admin/bookings/user/12/1",
-				"method": "GET",
+				"url": "http://localhost:8000/api/user/bookings/user/1",
+				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
@@ -95,22 +95,22 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNTU5NjksImV4cCI6MTU1MjA1OTU2OSwibmJmIjoxNTUyMDU1OTY5LCJqdGkiOiJCY0QydVgxRjliZlk1c3ZwIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.7ZB7DFb6irRETo1N-CphKFp1UCA0tAKzW6egkrG4Fmw",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU1MjE0MTcwOSwiZXhwIjoxNTUyMTQ1MzA5LCJuYmYiOjE1NTIxNDE3MDksImp0aSI6IlJ2aTRUV0JqVHRCWGl1VWgiLCJzdWIiOjE1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.EwshL-wiI7htZMrlTtj0gSTEbtveBFCa-Fj7Y7E_kpQ",
 						"description": ""
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "{\n\t\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU1MjE0MTcwOSwiZXhwIjoxNTUyMTQ1MzA5LCJuYmYiOjE1NTIxNDE3MDksImp0aSI6IlJ2aTRUV0JqVHRCWGl1VWgiLCJzdWIiOjE1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.EwshL-wiI7htZMrlTtj0gSTEbtveBFCa-Fj7Y7E_kpQ\"\n}"
 				},
-				"description": "get all bookings for a user using the user_id and the last parameter is the pagination variable asking of the number of pages you want per page"
+				"description": "get all bookings for a user passing the user token in the body and the last parameter is the pagination variable asking of the number of pages you want per page"
 			},
 			"response": []
 		},
 		{
 			"name": "get booking for particular artisan",
 			"request": {
-				"url": "http://localhost:8000/api/admin/bookings/artisan/21/1",
+				"url": "http://localhost:8000/api/user/bookings/artisan/21/2",
 				"method": "GET",
 				"header": [
 					{
@@ -120,7 +120,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNTU5NjksImV4cCI6MTU1MjA1OTU2OSwibmJmIjoxNTUyMDU1OTY5LCJqdGkiOiJCY0QydVgxRjliZlk1c3ZwIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.7ZB7DFb6irRETo1N-CphKFp1UCA0tAKzW6egkrG4Fmw",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU1MjE0MTcwOSwiZXhwIjoxNTUyMTQ1MzA5LCJuYmYiOjE1NTIxNDE3MDksImp0aSI6IlJ2aTRUV0JqVHRCWGl1VWgiLCJzdWIiOjE1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.EwshL-wiI7htZMrlTtj0gSTEbtveBFCa-Fj7Y7E_kpQ",
 						"description": ""
 					}
 				],

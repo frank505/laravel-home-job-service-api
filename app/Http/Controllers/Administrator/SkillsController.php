@@ -41,7 +41,7 @@ public function store(Request $request)
 
     $validator = Validator::make($request->all(), 
     [
-        //'category_id' => 'required|integer',
+        'category_id' => 'required|integer',
         'sub_category_id' => 'required|integer',
         'skill'=>'required|string'
     ]
@@ -56,7 +56,7 @@ public function store(Request $request)
  
    $create =   $this->skills::create(
           [
-             // 'category_id'=>$request->category_id,
+             'category_id'=>$request->category_id,
               'sub_category_id'=>$request->sub_category_id,
               'skill'=>$request->skill
           ]
@@ -65,7 +65,7 @@ public function store(Request $request)
     if ($create){
         return response()->json([
             'success' => true,
-            'skills' => $this->skills
+            'message'=>'skills was created successfully'
         ]);
     }   
     else{
@@ -88,7 +88,7 @@ public function update(Request $request,$id)
 
     $validator = Validator::make($request->all(), 
     [
-     //'category_id' => 'required|integer',
+     'category_id' => 'required|integer',
      'sub_category_id' => 'required|integer',
      'skill'=>'required|string'
     ]

@@ -1,0 +1,45 @@
+{
+	"variables": [],
+	"info": {
+		"name": "User Sub Categories",
+		"_postman_id": "59d2b735-8486-4cd1-e996-98ad06ead7bc",
+		"description": "this is to get sub categories for user only",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "this is to view all sub categories",
+			"request": {
+				"url": "http://localhost:8000/api/user/sub-categories/all-content/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU1MjEzNzc0MSwiZXhwIjoxNTUyMTQxMzQxLCJuYmYiOjE1NTIxMzc3NDEsImp0aSI6ImxGVjZRN2RSTlZnMGZWOGwiLCJzdWIiOjE1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.4uY0RR4Jpy0EWsZovMHLQc89uwCJvDSrcgfkFAaY568",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "this views all sub categories with optional pagination values"
+			},
+			"response": []
+		},
+		{
+			"name": "get sub categories by category_id specific for user",
+			"request": {
+				"url": "http://localhost:8000/api/user/sub-categories/categories/4/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU1MjEzNzc0MSwiZXhwIjoxNTUyMTQxMzQxLCJuYmYiOjE1NTIxMzc3NDEsImp0aSI6ImxGVjZRN2RSTlZnMGZWOGwiLCJzdWIiOjE1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.4uY0RR4Jpy0EWsZovMHLQc89uwCJvDSrcgfkFAaY568",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "this views gets all categories sub categories with optional pagination values using thier categories_id..note that pagination paramater is the last of them"
+			},
+			"response": []
+		}
+	]
+}

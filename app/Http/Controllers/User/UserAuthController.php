@@ -64,7 +64,8 @@ class UserAuthController extends Controller
  
         return response()->json([
             'success' => true,
-            'data' => $user
+            'data' => $user,
+            'expires_in'=>auth("users")->factory()->getTTL() * 60 * 24 * 30,
         ], 200);
     }
 
@@ -144,10 +145,13 @@ class UserAuthController extends Controller
             'message' => 'Invalid Email or Password',
             ], 401);
         }
- 
-        return response()->json([
+      
+        $token_time_frame = auth("users")->factory()->setTTL(NULL);
+
+          return response()->json([
             'success' => true,
             'token' => $jwt_token,
+            'expires_in'=>auth("users")->factory()->getTTL(),
         ]);
        }
        

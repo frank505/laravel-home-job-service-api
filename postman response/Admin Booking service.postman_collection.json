@@ -1,7 +1,7 @@
 {
 	"variables": [],
 	"info": {
-		"name": "Booking service",
+		"name": "Admin Booking service",
 		"_postman_id": "eb9c44a6-5e53-9379-1db4-acb7181e31fd",
 		"description": "this performs CRUD operation on the booking service content",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"

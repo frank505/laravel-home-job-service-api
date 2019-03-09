@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\SanitizeController;
 use Validator;
 use Illuminate\Routing\UrlGenerator;
+use App\Categories;
 
 class CategoriesController extends Controller
 {

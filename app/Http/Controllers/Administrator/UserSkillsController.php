@@ -17,7 +17,7 @@ class UserSkillsController extends Controller
     public function __construct()
     {
         $this->middleware("auth:admins");
-         $this->user_skills = new user_skills();
+         $this->user_skills = new UserSkills();
     }
     
 

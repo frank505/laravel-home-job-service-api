@@ -14,7 +14,7 @@ class UserSkillsController extends Controller
     protected $user_skills;
     public function __construct()
     {
-         $this->user_skills = new user_skills();
+         $this->user_skills = new UserSkills();
     }
 
     

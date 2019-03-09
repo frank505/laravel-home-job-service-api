@@ -22,8 +22,9 @@ Route::group(['prefix' => '/',
      Route::get("sub-categories/categories/{id}/{pagination?}","SubCategoriesController@getSubCategoriesFromCategories");
 
      //this route is for skills
-     Route::get("skills","SkillsController@viewSkillsForSubCategory");
-     Route::get("user-skills/view/{id}/{pagination?}","UserSkillsController@UserSkills");
+     Route::get("skills/sub-category/{id}/{pagination?}","SkillsController@viewSkillsForSubCategory");
+     Route::get("skills/{pagination?}","SkillsController@index");
+     Route::get("user-skills/user/{id}/{pagination?}","UserSkillsController@UserSkills");
 });
 
 Route::group(['prefix' => 'admin',
@@ -99,11 +100,12 @@ Route::group(['prefix' => 'admin',
     Route::get('bookings-service/{id}/{pagination?}','BookingServiceOptionsController@getServiceOptionsForParticularService');
   //skills section
   Route::post("skills/create","SkillsController@store");
-  Route::Post("skills/update","SkillsController@update");
+  Route::Post("skills/update/{id}","SkillsController@update");
   Route::delete("skills/delete/{id}","SkillsController@delete");
-  Route::get("skills/view","SkillsController@viewSkillsForSubCategory");
+  Route::get("skills/sub-category/{id}/{pagination?}","SkillsController@viewSkillsForSubCategory");
+  Route::get("skills/{pagination?}","SkillsController@index");
   //user skills
-  Route::get("user-skills/view/{id}/{pagination?}","UserSkillsController@UserSkills");
+  Route::get("user-skills/user/{id}/{pagination?}","UserSkillsController@UserSkills");
 });
 
 Route::group(["prefix"=>"user",
@@ -125,7 +127,7 @@ Route::group(["prefix"=>"user",
     Route::delete('bookings/delete/{id}', 'BookingsController@delete');
     //bookings route
     Route::get('bookings/all-content/{pagination?}', 'BookingsController@index');
-    Route::get('bookings/user/{id}/{pagination?}','BookingsController@BookingForParticularUser');
+    Route::post('bookings/user/{pagination?}','BookingsController@BookingForParticularUser');
     Route::get("bookings/artisan/{id}/{pagination?}","BookingsController@BookingForParticularArtisan");
     Route::get("bookings/single-bookings/{id}","BookingsController@getBooking");
      //this routes are for the sub categories section 
@@ -133,11 +135,13 @@ Route::group(["prefix"=>"user",
      Route::get("sub-categories/categories/{id}/{pagination?}","SubCategoriesController@getSubCategoriesFromCategories");
 
      //this routes is for skills
-     Route::get("skills/view","SkillsController@viewSkillsForSubCategory");
+     Route::get("skills/sub-category/{id}/{pagination?}","SkillsController@viewSkillsForSubCategory");
+     Route::get("skills/{pagination?}","SkillsController@index");
    //this routes is for user skills
    Route::post("user-skills/create","UserSkillsController@store");
-   Route::post("user-skills/update","UserSkillsController@update");
-   Route::get("user-skills/view","UserSkillsController@UserSkills");
+   Route::post("user-skills/update/{id}","UserSkillsController@update");
+   Route::post("user-skills/user","UserSkillsController@UserSkills");
+   Route::delete("user-skills/delete/{id}","UserSkillsController@delete");
 });
 
 

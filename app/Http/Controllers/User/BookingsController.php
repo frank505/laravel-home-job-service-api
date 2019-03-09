@@ -156,26 +156,57 @@ public function delete(Request $request,$id)
     }
 }
 
-public function BookingForParticularUser(Request $request,$id,$pagination=null)
+public function BookingForParticularUser(Request $request,$pagination=null)
 {
-    
+
+    $validator = Validator::make($request->only('token'), 
+        ['token' => 'required']);
+        if($validator->fails()){
+            return response()->json([
+             "success"=>false,
+             "message"=>$validator->messages()->toArray(),
+            ],400);    
+          }
+ 
+        $user = auth("users")->authenticate($request->token);
+ 
+
     if($pagination==null || $pagination==""){
-        $Bookings =  $this->Bookings->where(["user_id"=>$id])->get()->toArray();
+        $Bookings =  $this->Bookings->where(["user_id"=>$user->id])->get()->toArray();
         return response()->json([
             'success'=>true,
             'data'=>$Bookings,
         ]);          
     }else{
-        $Bookings = $this->Bookings->where(["user_id"=>$id])->paginate($pagination);
+        $Bookings = $this->Bookings->where(["user_id"=>$user->id])->paginate($pagination);
         return response()->json([
             'success'=>true,
             'data'=>$Bookings,    
             ]);
     }
 }
-public function BookingForParticularArtisan(Request $request, $id)
+public function BookingForParticularArtisan(Request $request, $id,$pagination=null)
 {
-    $Bookings =  $this->Bookings->where(["artisan_id"=>$id])->get()->toArray();
+
+    if($pagination==null || $pagination==""){
+        $Bookings =  $this->Bookings->where(["artisan_id"=>$id])->get()->toArray();
+        return response()->json([
+            'success'=>true,
+            'data'=>$Bookings,
+        ]);          
+    }else{
+        $Bookings = $this->Bookings->where(["artisan_id"=>$id])->paginate($pagination);
+        return response()->json([
+            'success'=>true,
+            'data'=>$Bookings,    
+            ]);
+    }
+
+}
+
+public function getBooking(Request $request, $id)
+{
+    $Bookings =  $this->Bookings->where(["id"=>$id])->get()->toArray();
     return response()->json([
         'success'=>true,
         'data'=>$Bookings,

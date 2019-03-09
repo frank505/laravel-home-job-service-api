@@ -63,14 +63,26 @@ public function BookingForParticularUser(Request $request,$id,$pagination=null)
             ]);
     }
 }
-public function BookingForParticularArtisan(Request $request, $id)
+
+public function BookingForParticularArtisan(Request $request, $id,$pagination=null)
 {
-    $Bookings =  $this->Bookings->where(["artisan_id"=>$id])->get()->toArray();
-    return response()->json([
-        'success'=>true,
-        'data'=>$Bookings,
-    ]);
+
+    if($pagination==null || $pagination==""){
+        $Bookings =  $this->Bookings->where(["artisan_id"=>$id])->get()->toArray();
+        return response()->json([
+            'success'=>true,
+            'data'=>$Bookings,
+        ]);          
+    }else{
+        $Bookings = $this->Bookings->where(["artisan_id"=>$id])->paginate($pagination);
+        return response()->json([
+            'success'=>true,
+            'data'=>$Bookings,    
+            ]);
+    }
+
 }
+
 
 
 }
