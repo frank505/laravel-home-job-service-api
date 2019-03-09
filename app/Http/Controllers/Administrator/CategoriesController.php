@@ -8,6 +8,8 @@ use App\categories;
 use Illuminate\Routing\UrlGenerator;
 use App\Http\Controllers\SanitizeController;
 use Validator;
+use JWTAuth;
+
 
 class CategoriesController extends Controller
 {
@@ -53,16 +55,19 @@ public function store(Request $request)
     ]
      );
      
-    if($validator->fails()){
-        return $validator->messages()->toArray();
-      }  
+     if($validator->fails()){
+        return response()->json([
+         "success"=>false,
+         "message"=>$validator->messages()->toArray(),
+        ],400);    
+      }
 
     $image = $request->file("image");
     if($image==NULL){
         return response()->json([
             'success' => false,
             'message' => 'please select an image'
-        ], 500);    
+        ], 400);    
     }
     // var_dump($image);
    //  return;
@@ -71,7 +76,7 @@ public function store(Request $request)
      return response()->json([
          'success' => false,
          'message' => 'Sorry, this is not an image please ensure your images are png or jpeg files'
-     ], 500);
+     ], 400);
    }
    $rename_image = uniqid()."_".time().date("Ymd")."_ICO.".$image_extension; //change file name
    $this->categories::create(
@@ -105,9 +110,12 @@ public function update(Request $request,$id)
     ]
      );
      
-    if($validator->fails()){
-        return $validator->messages()->toArray();
-      }  
+     if($validator->fails()){
+        return response()->json([
+         "success"=>false,
+         "message"=>$validator->messages()->toArray(),
+        ],400);    
+      }
 
     $image = $request->file("image");
     if($image==NULL){

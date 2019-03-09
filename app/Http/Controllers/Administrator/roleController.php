@@ -60,9 +60,12 @@ public function store(Request $request)
     ]
      );
      
-    if($validator->fails()){
-        return $validator->messages()->toArray();
-      }   
+     if($validator->fails()){
+        return response()->json([
+         "success"=>false,
+         "message"=>$validator->messages()->toArray(),
+        ],400);    
+      } 
     $this->role->rolename = $request->rolename;
     $this->role->isdefault = $request->isdefault;
  
@@ -97,8 +100,11 @@ public function update(Request $request,$id)
     ]
      );
      
-    if($validator->fails()){
-        return $validator->messages()->toArray();
+     if($validator->fails()){
+        return response()->json([
+         "success"=>false,
+         "message"=>$validator->messages()->toArray(),
+        ],400);    
       }
  
     $update = $role->fill($request->all())->save();

@@ -37,9 +37,12 @@ class UserAuthController extends Controller
         'roleid'=>'required|string'
                 ]
     );
-          if($validator->fails()){
-          return  $validator->messages()->toArray();
-          }    
+    if($validator->fails()){
+        return response()->json([
+         "success"=>false,
+         "message"=>$validator->messages()->toArray(),
+        ],400);    
+      }  
    $check_email = $this->user->where("email",$request->email)->count();
    if($check_email!=0){
       $taken = array("email"=>"this email is already taken");
@@ -125,7 +128,10 @@ class UserAuthController extends Controller
         ['email' => 'required|email',
         'password' => 'required|string|min:6']);
         if($validator->fails()){
-            return $validator->messages()->toArray();
+            return response()->json([
+             "success"=>false,
+             "message"=>$validator->messages()->toArray(),
+            ],400);    
           }
     
          $input = $request->only("email","password");
@@ -164,9 +170,12 @@ class UserAuthController extends Controller
     'roleid' =>'required|string'
             ]
 );
-      if($validator->fails()){
-          $validator->messages()->toArray();
-      }    
+if($validator->fails()){
+    return response()->json([
+     "success"=>false,
+     "message"=>$validator->messages()->toArray(),
+    ],400);    
+  }
         
             $update = $this->user::where(["id"=>$id])->update(
             ['firstname'=>$request->firstname,
@@ -195,7 +204,10 @@ class UserAuthController extends Controller
         $validator = Validator::make($request->only('token'), 
         ['token' => 'required']);
         if($validator->fails()){
-            return $validator->messages()->toArray();
+            return response()->json([
+             "success"=>false,
+             "message"=>$validator->messages()->toArray(),
+            ],400);    
           }
  
         try {
@@ -218,7 +230,10 @@ class UserAuthController extends Controller
         $validator = Validator::make($request->only('token'), 
         ['token' => 'required']);
         if($validator->fails()){
-            return $validator->messages()->toArray();
+            return response()->json([
+             "success"=>false,
+             "message"=>$validator->messages()->toArray(),
+            ],400);    
           }
  
         $user = auth("users")->authenticate($request->token);

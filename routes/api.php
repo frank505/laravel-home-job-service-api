@@ -5,6 +5,26 @@ use Illuminate\Http\Request;
 
 
 
+Route::group(['prefix' => '/',
+ "namespace"=>"General",
+"middleware"=>"CORS"], function () {
+    //routes for categories
+    Route::get('categories/{pagination?}', 'CategoriesController@index'); 
+    //routes for bookings
+    //bookings route
+    Route::get('bookings/{pagination?}', 'BookingsController@index');
+    Route::get('bookings/user/{id}/{pagination?}','BookingsController@BookingForParticularUser');
+    Route::get("bookings/artisan/{id}/{pagination?}","BookingsController@BookingForParticularArtisan");
+    Route::get("bookings/single-bookings/{id}","BookingsController@getBooking");
+    //this routes are for sub categories
+     //this routes are for the sub categories section 
+     Route::get('sub-categories/{pagination?}', 'SubCategoriesController@index');
+     Route::get("sub-categories/categories/{id}/{pagination?}","SubCategoriesController@getSubCategoriesFromCategories");
+
+     //this route is for skills
+     Route::get("skills","SkillsController@viewSkillsForSubCategory");
+     Route::get("user-skills/view/{id}/{pagination?}","UserSkillsController@UserSkills");
+});
 
 Route::group(['prefix' => 'admin',
 'namespace'=>'Administrator',
@@ -41,6 +61,15 @@ Route::group(['prefix' => 'admin',
     Route::post('categories/update/{id}', 'CategoriesController@update');
     //this is to set default roles
     Route::delete('categories/delete/{id}', 'CategoriesController@delete');
+     //this routes are for the sub categories section 
+     Route::get('sub-categories/all-content/{pagination?}', 'SubCategoriesController@index');
+     Route::get("sub-categories/categories/{id}/{pagination?}","SubCategoriesController@getSubCategoriesFromCategories");
+     Route::post('sub-categories/create', 'SubCategoriesController@store');
+     //this is to update roles
+     Route::post('sub-categories/update/{id}', 'SubCategoriesController@update');
+     //this is to set default roles
+     Route::delete('sub-categories/delete/{id}', 'SubCategoriesController@delete');
+ 
     //services creation
     Route::post('services/create', 'ServicesController@store');
     //this is to update roles
@@ -56,11 +85,6 @@ Route::group(['prefix' => 'admin',
     Route::get('service-options/all-content/{pagination?}', 'ServiceFormOptionsController@index'); //all service
     Route::get('service-options/single-service/{id}/{pagination?}','ServiceFormOptionsController@getServiceOptionsForParticularService');
     //bookings route
-    Route::post('bookings/create', 'BookingsController@store');
-    //this is to update roles
-    Route::post('bookings/update/{id}', 'BookingsController@update');
-    //this is to set default roles
-    Route::delete('bookings/delete/{id}', 'BookingsController@delete');
     Route::get('bookings/all-content/{pagination?}', 'BookingsController@index');
     Route::get('bookings/user/{id}/{pagination?}','BookingsController@BookingForParticularUser');
     Route::get("bookings/artisan/{id}/{pagination?}","BookingsController@BookingForParticularArtisan");
@@ -73,7 +97,13 @@ Route::group(['prefix' => 'admin',
     Route::delete('bookings-service/delete/{id}', 'BookingServiceOptionsController@delete');
     Route::get('bookings-service/all-content/{pagination?}', 'BookingServiceOptionsController@index');
     Route::get('bookings-service/{id}/{pagination?}','BookingServiceOptionsController@getServiceOptionsForParticularService');
-
+  //skills section
+  Route::post("skills/create","SkillsController@store");
+  Route::Post("skills/update","SkillsController@update");
+  Route::delete("skills/delete/{id}","SkillsController@delete");
+  Route::get("skills/view","SkillsController@viewSkillsForSubCategory");
+  //user skills
+  Route::get("user-skills/view/{id}/{pagination?}","UserSkillsController@UserSkills");
 });
 
 Route::group(["prefix"=>"user",
@@ -86,6 +116,28 @@ Route::group(["prefix"=>"user",
     Route::post("/profilephoto/add","UserAuthController@AddProfilePicture");
     //here we pass the post data which is the token through the body
     Route::post("/profile","UserAuthController@getAuthUser");
+     //this routes are for the categories section 
+     Route::get('categories/{pagination?}', 'CategoriesController@index');
+     Route::post('bookings/create', 'BookingsController@store');
+    //this is to update roles
+    Route::post('bookings/update/{id}', 'BookingsController@update');
+    //this is to set default roles
+    Route::delete('bookings/delete/{id}', 'BookingsController@delete');
+    //bookings route
+    Route::get('bookings/all-content/{pagination?}', 'BookingsController@index');
+    Route::get('bookings/user/{id}/{pagination?}','BookingsController@BookingForParticularUser');
+    Route::get("bookings/artisan/{id}/{pagination?}","BookingsController@BookingForParticularArtisan");
+    Route::get("bookings/single-bookings/{id}","BookingsController@getBooking");
+     //this routes are for the sub categories section 
+     Route::get('sub-categories/all-content/{pagination?}', 'SubCategoriesController@index');
+     Route::get("sub-categories/categories/{id}/{pagination?}","SubCategoriesController@getSubCategoriesFromCategories");
+
+     //this routes is for skills
+     Route::get("skills/view","SkillsController@viewSkillsForSubCategory");
+   //this routes is for user skills
+   Route::post("user-skills/create","UserSkillsController@store");
+   Route::post("user-skills/update","UserSkillsController@update");
+   Route::get("user-skills/view","UserSkillsController@UserSkills");
 });
 
 

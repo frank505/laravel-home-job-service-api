@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Services;
 use Illuminate\Routing\UrlGenerator;
 use App\Http\Controllers\SanitizeController;
+use Validator;
+use JWTAuth;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
 class ServicesController extends Controller
 {
@@ -15,7 +18,7 @@ class ServicesController extends Controller
     protected $services;
     public function __construct(UrlGenerator $url)
     {
-        $this->middleware("auth:admins",['except'=>['index','GetServiceByCategory']]);
+        $this->middleware("auth:admins");
         $this->services = new Services();
         $this->base_url = $url->to("/");  //this is to make the baseurl available in this controller
     }
@@ -46,14 +49,31 @@ if($pagination==null || $pagination==""){
 public function store(Request $request)
 {
 
-    $this->validate($request, [
-        'service' => 'required|string',
-        'category_id'=>'required|integer',
-        'description'=>'required|string',
-        'image.*' => 'image|mimes:jpeg,bmp,png|max:8000',
+    $validator =   $this->validate($request, [
+        
     ]);
- 
+    
+    $validator = Validator::make($request->all(), 
+    ['service' => 'required|string',
+    'category_id'=>'required|integer',
+    'description'=>'required|string',
+    'image.*' => 'image|mimes:jpeg,bmp,png|max:8000'
+    ]);
+    
+    if($validator->fails()){
+        return response()->json([
+         "success"=>false,
+         "message"=>$validator->messages()->toArray(),
+        ],400);    
+      }
+
     $image = $request->file("image");
+    if($image==NULL){
+        return response()->json([
+            'success' => false,
+            'message' => 'please select an image'
+        ], 500);    
+    }
     // var_dump($image);
    //  return;
      $image_extension = $image->getClientOriginalExtension();
@@ -90,17 +110,29 @@ public function update(Request $request,$id)
             'message' => 'Sorry, services with id ' . $id . ' cannot be found'
         ], 400);
     }
+  $validator = Validator::make($request->all(),
+[
+    'service' => 'required|string',
+    'category_id'=>'required|string',
+    'description'=>'required|string',
+    'image.*' => 'image|mimes:jpeg,bmp,png|max:8000',
 
-    $this->validate($request,
-    [
-        'service' => 'required|string',
-        'category_id'=>'required|string',
-        'description'=>'required|string',
-        'image.*' => 'image|mimes:jpeg,bmp,png|max:8000',
-        
-         ]);
+]);
+  
+         if($validator->fails()){
+            return response()->json([
+             "success"=>false,
+             "message"=>$validator->messages()->toArray(),
+            ],400);    
+          }
     
     $image = $request->file("image");
+    if($image==NULL){
+        return response()->json([
+            'success' => false,
+            'message' => 'please select an image'
+        ], 500);    
+    }
     $image_extension = $image->getClientOriginalExtension();
  if(SanitizeController::CheckFileExtensions($image_extension,array("png","jpg","jpeg","PNG","JPG","JPEG"))==FALSE){
     return response()->json([
@@ -108,7 +140,7 @@ public function update(Request $request,$id)
         'message' => 'Sorry, this is not an image please ensure your images are png or jpeg files'
     ], 500);
   }
-  $rename_image = uniqid()."_".time().date("Ymd")."_IMG.".$image_extension; //change file name
+  $rename_image = uniqid()."_".time().date("Ymd")."_SERVICES.".$image_extension; //change file name
 $update = $this->services::where(["id"=>$id])->update(
     [
         'service'=>$request->service,
@@ -123,7 +155,8 @@ $update = $this->services::where(["id"=>$id])->update(
 
 if ($update) {
 return response()->json([
-    'success' => true
+    'success' => true,
+    "message"=>"category updated successfully"
 ]);
 } else {
 return response()->json([

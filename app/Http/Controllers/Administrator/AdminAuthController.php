@@ -33,14 +33,22 @@ class AdminAuthController extends Controller
     'email' => 'required|email',
     'password' => 'required|string|min:6']);
     if($validator->fails()){
-        return $validator->messages()->toArray();
+        return response()->json([
+         "success"=>false,
+         "message"=>$validator->messages()->toArray(),
+        ],400);    
       }
-
+      
       $check_email = $this->admin->where("email",$request->email)->count();
       if($check_email!=0){
-         $taken = array("email"=>"this email is already taken");
-         return response()->json($taken, 200);
-      }
+        return response()->json([
+            "success"=>false,
+            "message"=>"this email is already taken",
+  
+        ],400);
+           } 
+      
+      
         $this->admin->name = $request->name;
         $this->admin->email = $request->email;
         $this->admin->password = Hash::make($request->password);
@@ -66,9 +74,13 @@ class AdminAuthController extends Controller
         'token' => 'required'
                 ]
     );
-          if($validator->fails()){
-            return  $validator->messages()->toArray();
-          }    
+
+    if($validator->fails()){
+        return response()->json([
+         "success"=>false,
+         "message"=>$validator->messages()->toArray(),
+        ],400);    
+      }
 
           $admin = auth("admins")->authenticate($request->token);
 
@@ -130,10 +142,12 @@ class AdminAuthController extends Controller
         $validator = Validator::make($request->only('email', 'password'), 
         ['email' => 'required|email',
         'password' => 'required|string|min:6']);
-        if($validator->fails()){
-            return $validator->messages()->toArray();
-          }
-    
+    if($validator->fails()){
+        return response()->json([
+         "success"=>false,
+         "message"=>$validator->messages()->toArray(),
+        ],400);    
+      }
          $input = $request->only("email","password");
         $jwt_token = null;
  
@@ -156,7 +170,10 @@ class AdminAuthController extends Controller
         $validator = Validator::make($request->only('token'), 
         ['token' => 'required']);
         if($validator->fails()){
-            return $validator->messages()->toArray();
+            return response()->json([
+             "success"=>false,
+             "message"=>$validator->messages()->toArray(),
+            ],400);    
           }
  
         try {
@@ -183,9 +200,11 @@ class AdminAuthController extends Controller
         $validator = Validator::make($request->only('token'), 
         ['token' => 'required']);
         if($validator->fails()){
-            return $validator->messages()->toArray();
+            return response()->json([
+             "success"=>false,
+             "message"=>$validator->messages()->toArray(),
+            ],400);    
           }
- 
         $admin = auth("admins")->authenticate($request->token);
  
         return response()->json([

@@ -1,20 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Administrator;
+namespace App\Http\Controllers\General;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use JWTAuth;
 use App\Bookings;
 use Validator;
 
-
 class BookingsController extends Controller
 {
+    //
+
     protected $Bookings;
     public function __construct()
     {
-        $this->middleware("auth:admins");
         $this->Bookings = new Bookings;
     }
 

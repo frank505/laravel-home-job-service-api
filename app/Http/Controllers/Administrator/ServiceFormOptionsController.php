@@ -72,8 +72,11 @@ public function store(Request $request)
     'options'=>'required',
     'selected'=>'required|string']);
      
-      if($validator->fails()){
-        return $validator->messages()->toArray();
+    if($validator->fails()){
+        return response()->json([
+         "success"=>false,
+         "message"=>$validator->messages()->toArray(),
+        ],400);    
       }
       $options = json_encode($request->options); //make it accept json_encoded_array
     $created =  $this->ServiceFormOptions::create(
@@ -126,9 +129,11 @@ public function update(Request $request,$id)
     'price'=>'required|integer',
     'options'=>'required',
     'selected'=>'required|string']);
-     
-      if($validator->fails()){
-        return $validator->messages()->toArray();
+    if($validator->fails()){
+        return response()->json([
+         "success"=>false,
+         "message"=>$validator->messages()->toArray(),
+        ],400);    
       }
       $options = json_encode($request->options); //make it accept json_encoded_array
 $update = $this->ServiceFormOptions::where(["service_id"=>$id])->update(

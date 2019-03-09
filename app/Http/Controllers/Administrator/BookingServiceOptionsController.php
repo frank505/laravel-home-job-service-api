@@ -74,9 +74,11 @@ class BookingServiceOptionsController extends Controller
     'price'=>'required|string'
     ]);
     if($validator->fails()){
-        return $validator->messages()->toArray();
-      }  
-
+        return response()->json([
+         "success"=>false,
+         "message"=>$validator->messages()->toArray(),
+        ],400);    
+      }
 
        $options = json_encode($request->options);
         $created =  $this->BookingServiceOptions::create(
@@ -132,10 +134,12 @@ class BookingServiceOptionsController extends Controller
         'price'=>'required|string'
         ]);
        
-    if($validator->fails()){
-        return $validator->messages()->toArray();
-      }  
-                        
+        if($validator->fails()){
+            return response()->json([
+             "success"=>false,
+             "message"=>$validator->messages()->toArray(),
+            ],400);    
+          }            
       $options = json_encode($request->options);
     $update = $this->BookingServiceOptions::where(["service_id"=>$id])->update(
         [

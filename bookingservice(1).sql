@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 08, 2019 at 05:44 PM
+-- Generation Time: Mar 09, 2019 at 02:38 PM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -143,7 +143,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (6, '2019_03_05_044114_create_services_table', 4),
 (7, '2019_03_07_032416_create_service_form_options_table', 5),
 (8, '2019_03_07_045104_create_bookings_table', 6),
-(9, '2019_03_07_055927_create_booking_service_options_table', 7);
+(9, '2019_03_07_055927_create_booking_service_options_table', 7),
+(10, '2019_03_09_024655_create_sub_categories_table', 8),
+(11, '2019_03_09_034740_create_skills_table', 9),
+(12, '2019_03_09_113028_create_user_skills_table', 10);
 
 -- --------------------------------------------------------
 
@@ -200,9 +203,10 @@ CREATE TABLE `services` (
 --
 
 INSERT INTO `services` (`id`, `service`, `category_id`, `isdeleted`, `description`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'mathias', 4, 1, 'dddddddd', '5c7e145ddcc3b_155176662120190305_IMG.jpg', '2019-03-05 05:07:56', '2019-03-05 05:21:17'),
+(1, 'hello world', 4, 1, 'best service ever', '5c83b3a4ac690_155213507620190309_SERVICES.jpg', '2019-03-05 05:07:56', '2019-03-09 11:43:33'),
 (2, 'mathias', 4, 0, 'dddddddd', '5c7e126b915bc_155176612320190305_SERVICES.jpg', '2019-03-05 05:08:43', '2019-03-05 05:08:43'),
-(3, 'mathias', 4, 0, 'dddddddd', '5c7e127d81e20_155176614120190305_SERVICES.jpg', '2019-03-05 05:09:01', '2019-03-05 05:09:01');
+(3, 'mathias', 4, 0, 'dddddddd', '5c7e127d81e20_155176614120190305_SERVICES.jpg', '2019-03-05 05:09:01', '2019-03-05 05:09:01'),
+(4, 'hello world', 4, 0, 'best service ever', '5c83b3e24fb4d_155213513820190309_SERVICES.jpg', '2019-03-09 11:38:58', '2019-03-09 11:38:58');
 
 -- --------------------------------------------------------
 
@@ -225,6 +229,43 @@ CREATE TABLE `service_form_options` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `skills`
+--
+
+CREATE TABLE `skills` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `sub_category_id` int(11) NOT NULL,
+  `skill` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sub_categories`
+--
+
+CREATE TABLE `sub_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `category_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sub_category` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sub_categories`
+--
+
+INSERT INTO `sub_categories` (`id`, `category_id`, `sub_category`, `image`, `created_at`, `updated_at`) VALUES
+(2, '4', 'boss test and see', '5c83b6c04b46e_155213587220190309_ICO.png', '2019-03-09 11:51:12', '2019-03-09 11:51:12');
 
 -- --------------------------------------------------------
 
@@ -260,6 +301,23 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `phone`
 (14, 'kosi', 'kakashi', 'akpufranklin87443333@gmail.com', '$2y$10$jLh9wNiIGC79/d.2SmKSgO5IXGZF5owCUdktMpV25tabFyEBjx14W', '070103455554', 'sd3432', 'de3434', NULL, 0, NULL, '2019-03-08 12:55:22', '2019-03-08 12:55:22'),
 (15, 'bask', 'costa', 'mailer@gmail.com', '$2y$10$aDNdlsTJsWMHxz3JiQazc.WRi.rYLc30dHsG8xdeeYFvyB2iNbJre', '3344', 'dhfj34', 'dfgg', '5c827dff0400b_155205580720190308_IMG.jpg', 0, NULL, '2019-03-08 12:59:50', '2019-03-08 13:36:47'),
 (16, 'bask', 'costa', 'mailsser@gmail.com', '$2y$10$5DMJBUzRZjlxPh7CCiILge/CF/QsErlNY1wWhi44qfbGqbcGPUt/e', '3344', 'dhfj34', 'dfgg', NULL, 0, NULL, '2019-03-08 13:07:19', '2019-03-08 13:07:19');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_skills`
+--
+
+CREATE TABLE `user_skills` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `skill_id` int(11) NOT NULL,
+  `rating` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `years_of_experience` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `isdeleted` tinyint(1) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Indexes for dumped tables
@@ -321,11 +379,29 @@ ALTER TABLE `service_form_options`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `skills`
+--
+ALTER TABLE `skills`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sub_categories`
+--
+ALTER TABLE `sub_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- Indexes for table `user_skills`
+--
+ALTER TABLE `user_skills`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -347,19 +423,19 @@ ALTER TABLE `bookings`
 -- AUTO_INCREMENT for table `booking_service_options`
 --
 ALTER TABLE `booking_service_options`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -371,19 +447,37 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `service_form_options`
 --
 ALTER TABLE `service_form_options`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `skills`
+--
+ALTER TABLE `skills`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `sub_categories`
+--
+ALTER TABLE `sub_categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `user_skills`
+--
+ALTER TABLE `user_skills`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
