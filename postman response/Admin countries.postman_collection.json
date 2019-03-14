@@ -1,0 +1,111 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Admin countries",
+		"_postman_id": "7fc90d43-c4ba-4af5-1a16-fc6c25069474",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create a new country",
+			"request": {
+				"url": "http://localhost:8000/api/admin/countries/create",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTI1ODcwNTgsImV4cCI6MTU1MjU5MDY1OCwibmJmIjoxNTUyNTg3MDU4LCJqdGkiOiJhamdnVFZKaGdNS3BSUjNEIiwic3ViIjo4LCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.Ax56ZT8Hn9RGXXLB4Av-f6_fcLawJrXXdgv9liq5_mw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"country\":\"nigeria\"\n}"
+				},
+				"description": "this is for the admin to create a new country"
+			},
+			"response": []
+		},
+		{
+			"name": "update a country using its ID",
+			"request": {
+				"url": "http://localhost:8000/api/admin/countries/update/1",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTI1ODcwNTgsImV4cCI6MTU1MjU5MDY1OCwibmJmIjoxNTUyNTg3MDU4LCJqdGkiOiJhamdnVFZKaGdNS3BSUjNEIiwic3ViIjo4LCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.Ax56ZT8Hn9RGXXLB4Av-f6_fcLawJrXXdgv9liq5_mw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"country\":\"uganda\"\n}"
+				},
+				"description": "this is for the admin to update a country"
+			},
+			"response": []
+		},
+		{
+			"name": "delete a country by admin",
+			"request": {
+				"url": "http://localhost:8000/api/admin/countries/delete/1",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTI1ODcwNTgsImV4cCI6MTU1MjU5MDY1OCwibmJmIjoxNTUyNTg3MDU4LCJqdGkiOiJhamdnVFZKaGdNS3BSUjNEIiwic3ViIjo4LCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.Ax56ZT8Hn9RGXXLB4Av-f6_fcLawJrXXdgv9liq5_mw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "this simply changes a countries isdeleted property from zero to one"
+			},
+			"response": []
+		},
+		{
+			"name": "select all countries",
+			"request": {
+				"url": "http://localhost:8000/api/admin/countries/all-content",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTI1ODcwNTgsImV4cCI6MTU1MjU5MDY1OCwibmJmIjoxNTUyNTg3MDU4LCJqdGkiOiJhamdnVFZKaGdNS3BSUjNEIiwic3ViIjo4LCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.Ax56ZT8Hn9RGXXLB4Av-f6_fcLawJrXXdgv9liq5_mw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "this fetches all countries both deleted and not deleted"
+			},
+			"response": []
+		}
+	]
+}

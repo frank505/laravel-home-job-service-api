@@ -25,6 +25,7 @@ Route::group(['prefix' => '/',
      Route::get("skills/sub-category/{id}/{pagination?}","SkillsController@viewSkillsForSubCategory");
      Route::get("skills/{pagination?}","SkillsController@index");
      Route::get("user-skills/user/{id}/{pagination?}","UserSkillsController@UserSkills");
+     Route::get("countries","CountriesController@index");
 });
 
 Route::group(['prefix' => 'admin',
@@ -106,6 +107,11 @@ Route::group(['prefix' => 'admin',
   Route::get("skills/{pagination?}","SkillsController@index");
   //user skills
   Route::get("user-skills/user/{id}/{pagination?}","UserSkillsController@UserSkills");
+ //countries routes
+ Route::post("countries/create","CountriesController@store");
+ Route::post("countries/update/{id}","CountriesController@update");
+ Route::post("countries/delete/{id}","CountriesController@delete");
+ Route::get("countries/all-content","CountriesController@index");
 });
 
 Route::group(["prefix"=>"user",
@@ -142,6 +148,8 @@ Route::group(["prefix"=>"user",
    Route::post("user-skills/update/{id}","UserSkillsController@update");
    Route::post("user-skills/user","UserSkillsController@UserSkills");
    Route::delete("user-skills/delete/{id}","UserSkillsController@delete");
+   //get all countries
+   Route::get("countries/all-content","CountriesController@index");
 });
 
 

@@ -1,0 +1,25 @@
+{
+	"variables": [],
+	"info": {
+		"name": "General Countries",
+		"_postman_id": "fec16ee4-d83d-1e6c-d65a-88fac7f860aa",
+		"description": "get all countries accessible by any body",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "select all countries",
+			"request": {
+				"url": "http://localhost:8000/api/countries",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "this fetches all countries both deleted and not deleted"
+			},
+			"response": []
+		}
+	]
+}

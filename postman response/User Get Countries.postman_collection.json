@@ -1,0 +1,31 @@
+{
+	"variables": [],
+	"info": {
+		"name": "User Get Countries",
+		"_postman_id": "6a3e4164-130c-0429-30d4-fd0fb9d6598f",
+		"description": "get all countries accessible by users only",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "select all countries",
+			"request": {
+				"url": "http://localhost:8000/api/user/countries/all-content",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU1MjU4Nzg2OSwiZXhwIjoxNTUyNTkxNDY5LCJuYmYiOjE1NTI1ODc4NjksImp0aSI6ImR6N0VlekZsWkw3WUJlWWsiLCJzdWIiOjksInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.IeTw5HsvP8ZuKd76r4lUrn0PPp8ipSYLxshbI8uN7W0",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "this fetches all countries both deleted and not deleted"
+			},
+			"response": []
+		}
+	]
+}

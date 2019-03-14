@@ -11,6 +11,7 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 use App\admin;
 use App\Http\Controllers\SanitizeController;
 
+
 class roleController extends Controller
 {
     //
