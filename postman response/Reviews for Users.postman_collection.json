@@ -1,0 +1,86 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Reviews for Users",
+		"_postman_id": "90f39864-b6e0-56c6-8f83-2b7c5de47fed",
+		"description": "this is for the users with the role of customers to post a review on a service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all the reviews ever written and paginate it",
+			"request": {
+				"url": "http://localhost:8000/api/user/reviews/all-reviews/2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU1MjY0OTE4MCwiZXhwIjoxNTUyNjUyNzgwLCJuYmYiOjE1NTI2NDkxODAsImp0aSI6IlhhNm5XdmRWTmJFeFZ0cE0iLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.qSCwONF8Ju57yoOgQ8K2eSMXs8iW-NdYGEgWFfYsMto",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"customer_id\":\"1\",\n\"artisan_id\":\"2\",\n\"booking_id\":\"3\",\n\"review\":\"craziest programmer ever\",\n\"rating\":\"step up your game\",\n\"review_date\":\"2/02/2019\"\n}"
+				},
+				"description": "this is to get all the reviews and then paginate it"
+			},
+			"response": []
+		},
+		{
+			"name": "this is to paginate a request by service_id for reviews",
+			"request": {
+				"url": "http://localhost:8000/api/user/reviews/service/2/2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU1MjY0OTE4MCwiZXhwIjoxNTUyNjUyNzgwLCJuYmYiOjE1NTI2NDkxODAsImp0aSI6IlhhNm5XdmRWTmJFeFZ0cE0iLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.qSCwONF8Ju57yoOgQ8K2eSMXs8iW-NdYGEgWFfYsMto",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"customer_id\":\"1\",\n\"artisan_id\":\"2\",\n\"booking_id\":\"3\",\n\"review\":\"craziest programmer ever\",\n\"rating\":\"step up your game\",\n\"review_date\":\"2/02/2019\"\n}"
+				},
+				"description": "this takes two get parameters the first is the service_id and the second is the content to be displayed per page"
+			},
+			"response": []
+		},
+		{
+			"name": "this is to paginate data based on artisan id",
+			"request": {
+				"url": "http://localhost:8000/api/user/reviews/artisan/2/2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU1MjY0OTE4MCwiZXhwIjoxNTUyNjUyNzgwLCJuYmYiOjE1NTI2NDkxODAsImp0aSI6IlhhNm5XdmRWTmJFeFZ0cE0iLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.qSCwONF8Ju57yoOgQ8K2eSMXs8iW-NdYGEgWFfYsMto",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"customer_id\":\"1\",\n\"artisan_id\":\"2\",\n\"booking_id\":\"3\",\n\"review\":\"craziest programmer ever\",\n\"rating\":\"step up your game\",\n\"review_date\":\"2/02/2019\"\n}"
+				},
+				"description": "this takes two get parameters the first is the artisan_id and the second is the content to be displayed per page"
+			},
+			"response": []
+		}
+	]
+}

@@ -26,6 +26,13 @@ Route::group(['prefix' => '/',
      Route::get("skills/{pagination?}","SkillsController@index");
      Route::get("user-skills/user/{id}/{pagination?}","UserSkillsController@UserSkills");
      Route::get("countries","CountriesController@index");
+     Route::get("state/country/{id}","StateController@index");
+      //get all cities from specific states
+   Route::get("city/state/{id}","CityController@index");
+   //this is for reviews
+   Route::get("reviews/{pagination}","ReviewsController@getReviews");
+   Route::get("reviews/service/{id}/{pagination}","ReviewsController@getReviewsForServiceId");
+   Route::get("reviews/artisan/{id}/{pagination}","ReviewsController@getReviewsForArtisanId");
 });
 
 Route::group(['prefix' => 'admin',
@@ -112,6 +119,21 @@ Route::group(['prefix' => 'admin',
  Route::post("countries/update/{id}","CountriesController@update");
  Route::post("countries/delete/{id}","CountriesController@delete");
  Route::get("countries/all-content","CountriesController@index");
+ //this is to handle state requests
+ Route::post("state/create","StateController@store");
+ Route::post("state/update/{id}","StateController@update");
+ Route::post("state/delete/{id}","StateController@delete");
+ //get states from a specific country id
+ Route::get("state/country/{id}","StateController@index");
+//this is for handiling the city section
+Route::post("city/create","CityController@store");
+Route::post("city/update/{id}","CityController@update");
+Route::delete("city/delete/{id}","CityController@delete");
+Route::get("city/state/{id}","CityController@index");
+//reviews section
+Route::get("reviews/all-reviews/{pagination}","ReviewsController@getReviews");
+Route::get("reviews/service/{id}/{pagination}","ReviewsController@getReviewsForServiceId");
+Route::get("reviews/artisan/{id}/{pagination}","ReviewsController@getReviewsForArtisanId");
 });
 
 Route::group(["prefix"=>"user",
@@ -139,7 +161,7 @@ Route::group(["prefix"=>"user",
      //this routes are for the sub categories section 
      Route::get('sub-categories/all-content/{pagination?}', 'SubCategoriesController@index');
      Route::get("sub-categories/categories/{id}/{pagination?}","SubCategoriesController@getSubCategoriesFromCategories");
-
+     
      //this routes is for skills
      Route::get("skills/sub-category/{id}/{pagination?}","SkillsController@viewSkillsForSubCategory");
      Route::get("skills/{pagination?}","SkillsController@index");
@@ -150,6 +172,16 @@ Route::group(["prefix"=>"user",
    Route::delete("user-skills/delete/{id}","UserSkillsController@delete");
    //get all countries
    Route::get("countries/all-content","CountriesController@index");
+   //get all states
+   Route::get("state/country/{id}","StateController@index");
+   //get all cities from specific states
+   Route::get("city/state/{id}","CityController@index");
+   //reviews
+   Route::post("reviews/create/{id}","ReviewsController@create");
+   Route::get("reviews/all-reviews/{pagination}","ReviewsController@getReviews");
+   Route::get("reviews/service/{id}/{pagination}","ReviewsController@getReviewsForServiceId");
+   Route::get("reviews/artisan/{id}/{pagination}","ReviewsController@getReviewsForArtisanId");
+   
 });
 
 

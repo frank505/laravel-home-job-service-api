@@ -1,0 +1,36 @@
+{
+	"variables": [],
+	"info": {
+		"name": "General States",
+		"_postman_id": "fadd4949-b9bb-ffed-05e8-f5cbc304ece5",
+		"description": "have access to the states with any authentication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "this is to get the states",
+			"request": {
+				"url": "http://localhost:8000/api/user/state/country/2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU1MjY0MzA4NSwiZXhwIjoxNTUyNjQ2Njg1LCJuYmYiOjE1NTI2NDMwODUsImp0aSI6Im95WG5RYkVkVEJWczFHOWwiLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.FCGM76SUwB1IB9Z12wZx3awF5knxp56Vc7kSLHvK9fI",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"country_id\":\"2\",\n\t\"state\":\"anambra\"\n}"
+				},
+				"description": "here user gets the states"
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,59 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Reviews for General",
+		"_postman_id": "2f07cd01-3f67-13b8-eb40-814e54c13832",
+		"description": "this is the review for general use with no auth gaurd",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all the reviews ever written and paginate it",
+			"request": {
+				"url": "http://localhost:8000/api/reviews/4",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"customer_id\":\"1\",\n\"artisan_id\":\"2\",\n\"booking_id\":\"3\",\n\"review\":\"craziest programmer ever\",\n\"rating\":\"step up your game\",\n\"review_date\":\"2/02/2019\"\n}"
+				},
+				"description": "this is to get all the reviews and then paginate it"
+			},
+			"response": []
+		},
+		{
+			"name": "this is to paginate a request by service_id for reviews",
+			"request": {
+				"url": "http://localhost:8000/api/reviews/service/2/2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"customer_id\":\"1\",\n\"artisan_id\":\"2\",\n\"booking_id\":\"3\",\n\"review\":\"craziest programmer ever\",\n\"rating\":\"step up your game\",\n\"review_date\":\"2/02/2019\"\n}"
+				},
+				"description": "this takes two get parameters the first is the service_id and the second is the content to be displayed per page"
+			},
+			"response": []
+		},
+		{
+			"name": "this is to paginate data based on artisan id",
+			"request": {
+				"url": "http://localhost:8000/api/reviews/artisan/2/2",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"customer_id\":\"1\",\n\"artisan_id\":\"2\",\n\"booking_id\":\"3\",\n\"review\":\"craziest programmer ever\",\n\"rating\":\"step up your game\",\n\"review_date\":\"2/02/2019\"\n}"
+				},
+				"description": "this takes two get parameters the first is the artisan_id and the second is the content to be displayed per page"
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,31 @@
+{
+	"variables": [],
+	"info": {
+		"name": "User Cities",
+		"_postman_id": "3939f25a-97ca-5371-f0aa-c9d82b4c3448",
+		"description": "this is to get all the states by the users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "this is to get cities",
+			"request": {
+				"url": "http://localhost:8000/api/user/city/state/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU1MjY0NDM1MywiZXhwIjoxNTUyNjQ3OTUzLCJuYmYiOjE1NTI2NDQzNTMsImp0aSI6IndZUURydENKa1R3STBQemciLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.VBGP_dxxrrp08rJY5p672_4GRtXOQW7Avgkvvr6FwM4",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"country_id\":\"2\",\n\t\"state\":\"anambra\"\n}"
+				},
+				"description": "here user gets the cities"
+			},
+			"response": []
+		}
+	]
+}

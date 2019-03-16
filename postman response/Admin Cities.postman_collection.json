@@ -1,0 +1,111 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Admin Cities",
+		"_postman_id": "48062132-5eab-e61e-8eb8-ed3b9b6cdd79",
+		"description": "this is the admin to handle the cities CRUD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "this is to create city",
+			"request": {
+				"url": "http://localhost:8000/api/admin/city/create",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTI2NDM0MjMsImV4cCI6MTU1MjY0NzAyMywibmJmIjoxNTUyNjQzNDIzLCJqdGkiOiI5TFJndDdJQnlWQVgxM1pyIiwic3ViIjo4LCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.RBrWagRGJYshNKiWa90JqmrpY9rZC4HT30W3oPit7pk",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"state_id\":\"1\",\n\t\"city\":\"we are heading for africa\"\n}"
+				},
+				"description": "ceating cities only available to the admin"
+			},
+			"response": []
+		},
+		{
+			"name": "this is to update a city",
+			"request": {
+				"url": "http://localhost:8000/api/admin/state/update/1",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTI2NDIwOTEsImV4cCI6MTU1MjY0NTY5MSwibmJmIjoxNTUyNjQyMDkxLCJqdGkiOiJ4R2hiMjh1MjRPcENpRGVwIiwic3ViIjo4LCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.h4ADnQJzr4z1fzrs6zZmGt5BLbQV8aQZ89kDwoGXveQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"country_id\":\"2\",\n\t\"state\":\"anambra\"\n}"
+				},
+				"description": "here an admin updates a city"
+			},
+			"response": []
+		},
+		{
+			"name": "this is to delete a city",
+			"request": {
+				"url": "http://localhost:8000/api/admin/city/delete/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTI2NDIwOTEsImV4cCI6MTU1MjY0NTY5MSwibmJmIjoxNTUyNjQyMDkxLCJqdGkiOiJ4R2hiMjh1MjRPcENpRGVwIiwic3ViIjo4LCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.h4ADnQJzr4z1fzrs6zZmGt5BLbQV8aQZ89kDwoGXveQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "here an admin deletes a city"
+			},
+			"response": []
+		},
+		{
+			"name": "this is to get the cities from a specific state id",
+			"request": {
+				"url": "http://localhost:8000/api/admin/city/state/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTI2NDIwOTEsImV4cCI6MTU1MjY0NTY5MSwibmJmIjoxNTUyNjQyMDkxLCJqdGkiOiJ4R2hiMjh1MjRPcENpRGVwIiwic3ViIjo4LCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.h4ADnQJzr4z1fzrs6zZmGt5BLbQV8aQZ89kDwoGXveQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"country_id\":\"2\",\n\t\"state\":\"anambra\"\n}"
+				},
+				"description": "this is to get the cities from a specific state id"
+			},
+			"response": []
+		}
+	]
+}

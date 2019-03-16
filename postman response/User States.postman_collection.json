@@ -1,0 +1,31 @@
+{
+	"variables": [],
+	"info": {
+		"name": "User States",
+		"_postman_id": "a37a7bb3-c883-eedd-2db9-b9ffef64e52c",
+		"description": "this is to handle all adimin state activities",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "this is to get the states",
+			"request": {
+				"url": "http://localhost:8000/api/user/state/country/2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU1MjY0NDM1MywiZXhwIjoxNTUyNjQ3OTUzLCJuYmYiOjE1NTI2NDQzNTMsImp0aSI6IndZUURydENKa1R3STBQemciLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.VBGP_dxxrrp08rJY5p672_4GRtXOQW7Avgkvvr6FwM4",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"country_id\":\"2\",\n\t\"state\":\"anambra\"\n}"
+				},
+				"description": "here user gets the states"
+			},
+			"response": []
+		}
+	]
+}

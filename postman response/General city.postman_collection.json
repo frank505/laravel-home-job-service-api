@@ -1,0 +1,25 @@
+{
+	"variables": [],
+	"info": {
+		"name": "General city",
+		"_postman_id": "037fee18-0a14-f287-ff69-394129d9539b",
+		"description": "have access to all the cities",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "this is to get all the cities",
+			"request": {
+				"url": "http://localhost:8000/api/city/state/1",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"country_id\":\"2\",\n\t\"state\":\"anambra\"\n}"
+				},
+				"description": "here user gets the available cities"
+			},
+			"response": []
+		}
+	]
+}

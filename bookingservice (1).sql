@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2019 at 02:38 PM
+-- Generation Time: Mar 16, 2019 at 08:35 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -79,8 +79,9 @@ CREATE TABLE `bookings` (
 --
 
 INSERT INTO `bookings` (`id`, `user_id`, `service_id`, `location`, `artisan_id`, `time`, `address`, `total_cost`, `status`, `scheduledate`, `completedate`, `created_at`, `updated_at`) VALUES
-(1, 12, 21, 'ansu uli abiiiii oooooh', '21', '2019-03-03', 'what joker', '221', 0, '2019-03-03', '2019-03-03', '2019-03-08 13:57:26', '2019-03-08 14:01:31'),
-(2, 12, 21, 'ansu uli', '21', '2019-03-03', 'uli', '221', 0, '2019-03-03', '2019-03-03', '2019-03-08 13:59:18', '2019-03-08 13:59:18');
+(1, 12, 21, 'ansu uli abiiiii oooooh', '21', '2019-03-03', 'what joker', '221', 0, '2019-03-03', '2019-03-03', '2019-03-08 13:57:26', '2019-03-09 13:47:04'),
+(2, 12, 21, 'ansu uli', '21', '2019-03-03', 'uli', '221', 0, '2019-03-03', '2019-03-03', '2019-03-08 13:59:18', '2019-03-08 13:59:18'),
+(3, 12, 21, 'ansu uli', '21', '2019-03-03', 'uli', '221', 0, '2019-03-03', '2019-03-03', '2019-03-09 13:45:52', '2019-03-09 13:45:52');
 
 -- --------------------------------------------------------
 
@@ -118,6 +119,59 @@ CREATE TABLE `categories` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `category`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'waste', '5c83ce3e915a8_155214188620190309_ICO.jpg', '2019-03-09 13:31:26', '2019-03-09 13:31:26'),
+(2, 'waste', '5c83d23286039_155214289820190309_ICO.jpg', '2019-03-09 13:48:18', '2019-03-09 13:48:18');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cities`
+--
+
+CREATE TABLE `cities` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `state_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `city` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `isdeleted` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `cities`
+--
+
+INSERT INTO `cities` (`id`, `state_id`, `city`, `isdeleted`, `created_at`, `updated_at`) VALUES
+(1, '1', 'we are heading home', '1', '2019-03-15 08:51:38', '2019-03-15 08:54:49'),
+(2, '1', 'kola bus stop', '0', '2019-03-15 08:51:56', '2019-03-15 08:51:56'),
+(3, '1', 'we are heading for africa', '0', '2019-03-15 08:55:49', '2019-03-15 08:55:49');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `countries`
+--
+
+CREATE TABLE `countries` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `country` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `isdeleted` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `countries`
+--
+
+INSERT INTO `countries` (`id`, `country`, `isdeleted`, `created_at`, `updated_at`) VALUES
+(1, 'uganda', 1, '2019-03-14 17:12:27', '2019-03-14 17:16:50');
+
 -- --------------------------------------------------------
 
 --
@@ -146,7 +200,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (9, '2019_03_07_055927_create_booking_service_options_table', 7),
 (10, '2019_03_09_024655_create_sub_categories_table', 8),
 (11, '2019_03_09_034740_create_skills_table', 9),
-(12, '2019_03_09_113028_create_user_skills_table', 10);
+(12, '2019_03_09_113028_create_user_skills_table', 10),
+(13, '2019_03_14_163727_create_countries_table', 11),
+(14, '2019_03_14_163849_create_states_table', 11),
+(15, '2019_03_14_163940_create_cities_table', 11),
+(16, '2019_03_14_223026_create_reviews_table', 12);
 
 -- --------------------------------------------------------
 
@@ -159,6 +217,33 @@ CREATE TABLE `password_resets` (
   `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `artisan_id` int(11) NOT NULL,
+  `service_id` int(11) NOT NULL,
+  `booking_id` int(11) NOT NULL,
+  `review` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rating` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `review_date` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `customer_id`, `artisan_id`, `service_id`, `booking_id`, `review`, `rating`, `review_date`, `created_at`, `updated_at`) VALUES
+(1, 1, 2, 2, 3, 'coolest review ever', '5 star', '2/02/2019', '2019-03-15 09:56:10', '2019-03-15 09:56:10'),
+(2, 1, 2, 2, 3, 'craziest programmer ever', 'step up your game', '2/02/2019', '2019-03-15 09:57:10', '2019-03-15 09:57:10');
 
 -- --------------------------------------------------------
 
@@ -245,6 +330,35 @@ CREATE TABLE `skills` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `skills`
+--
+
+INSERT INTO `skills` (`id`, `category_id`, `sub_category_id`, `skill`, `created_at`, `updated_at`) VALUES
+(2, 4, 10, 'cooking', '2019-03-09 14:56:49', '2019-03-09 14:56:49');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `states`
+--
+
+CREATE TABLE `states` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `country_id` int(11) NOT NULL,
+  `state` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `isdeleted` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `states`
+--
+
+INSERT INTO `states` (`id`, `country_id`, `state`, `isdeleted`, `created_at`, `updated_at`) VALUES
+(1, 2, 'anambra', 1, '2019-03-15 00:47:13', '2019-03-15 08:34:27');
+
 -- --------------------------------------------------------
 
 --
@@ -320,6 +434,15 @@ CREATE TABLE `user_skills` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Dumping data for table `user_skills`
+--
+
+INSERT INTO `user_skills` (`id`, `user_id`, `skill_id`, `rating`, `years_of_experience`, `isdeleted`, `created_at`, `updated_at`) VALUES
+(1, 23, 2, '5', '10023', 1, '2019-03-09 15:27:29', '2019-03-09 15:39:57'),
+(2, 23, 2, '5', '100', 0, '2019-03-09 15:28:26', '2019-03-09 15:28:26'),
+(3, 23, 2, '5', '10023', 0, '2019-03-09 15:29:07', '2019-03-09 15:29:07');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -349,6 +472,18 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `cities`
+--
+ALTER TABLE `cities`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `countries`
+--
+ALTER TABLE `countries`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -359,6 +494,12 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `roles`
@@ -382,6 +523,12 @@ ALTER TABLE `service_form_options`
 -- Indexes for table `skills`
 --
 ALTER TABLE `skills`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `states`
+--
+ALTER TABLE `states`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -417,7 +564,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `booking_service_options`
@@ -429,13 +576,31 @@ ALTER TABLE `booking_service_options`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `cities`
+--
+ALTER TABLE `cities`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `countries`
+--
+ALTER TABLE `countries`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -459,7 +624,13 @@ ALTER TABLE `service_form_options`
 -- AUTO_INCREMENT for table `skills`
 --
 ALTER TABLE `skills`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `states`
+--
+ALTER TABLE `states`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `sub_categories`
@@ -477,7 +648,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_skills`
 --
 ALTER TABLE `user_skills`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

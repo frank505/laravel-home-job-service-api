@@ -1,0 +1,111 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Admin States",
+		"_postman_id": "418efaa3-7083-46bc-46b3-15544ad71c3d",
+		"description": "this is to handle all adimin state activities",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "this is to create states",
+			"request": {
+				"url": "http://localhost:8000/api/admin/state/create",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTI2MTQxOTksImV4cCI6MTU1MjYxNzc5OSwibmJmIjoxNTUyNjE0MTk5LCJqdGkiOiJsZDhoYVpEeGt4WktRVUtIIiwic3ViIjo4LCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.rc6Vy0GvxwNl2jxgB5-U9YAe2MLPBUJH-V6HUYzQ0YQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"country_id\":\"1\",\n\t\"state\":\"lagos\"\n}"
+				},
+				"description": "ceating states only available to the admin"
+			},
+			"response": []
+		},
+		{
+			"name": "this is to update state ",
+			"request": {
+				"url": "http://localhost:8000/api/admin/state/update/1",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTI2NDIwOTEsImV4cCI6MTU1MjY0NTY5MSwibmJmIjoxNTUyNjQyMDkxLCJqdGkiOiJ4R2hiMjh1MjRPcENpRGVwIiwic3ViIjo4LCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.h4ADnQJzr4z1fzrs6zZmGt5BLbQV8aQZ89kDwoGXveQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"country_id\":\"2\",\n\t\"state\":\"anambra\"\n}"
+				},
+				"description": "here admin tries to update state"
+			},
+			"response": []
+		},
+		{
+			"name": "this is to delete a state",
+			"request": {
+				"url": "http://localhost:8000/api/admin/state/delete/1",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTI2NDIwOTEsImV4cCI6MTU1MjY0NTY5MSwibmJmIjoxNTUyNjQyMDkxLCJqdGkiOiJ4R2hiMjh1MjRPcENpRGVwIiwic3ViIjo4LCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.h4ADnQJzr4z1fzrs6zZmGt5BLbQV8aQZ89kDwoGXveQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"country_id\":\"2\",\n\t\"state\":\"anambra\"\n}"
+				},
+				"description": "here an admin deletes a state"
+			},
+			"response": []
+		},
+		{
+			"name": "this is to get the states",
+			"request": {
+				"url": "http://localhost:8000/api/admin/state/country/2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTI2NDIwOTEsImV4cCI6MTU1MjY0NTY5MSwibmJmIjoxNTUyNjQyMDkxLCJqdGkiOiJ4R2hiMjh1MjRPcENpRGVwIiwic3ViIjo4LCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.h4ADnQJzr4z1fzrs6zZmGt5BLbQV8aQZ89kDwoGXveQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"country_id\":\"2\",\n\t\"state\":\"anambra\"\n}"
+				},
+				"description": "here an admin deletes a state"
+			},
+			"response": []
+		}
+	]
+}
