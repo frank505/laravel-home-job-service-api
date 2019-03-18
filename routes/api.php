@@ -143,12 +143,14 @@ Route::group(["prefix"=>"user",
     Route::post('login', 'UserAuthController@login');
     Route::post("edit/{id}","UserAuthController@editProfile");
     Route::post("logout","UserAuthController@logout");
+    Route::post("change-password","UserAuthController@ChangePassword");
     Route::post("/profilephoto/add","UserAuthController@AddProfilePicture");
     //here we pass the post data which is the token through the body
     Route::post("/profile","UserAuthController@getAuthUser");
+    Route::post("/reset-password-link","UserAuthController@sendResetPasswordLink");
      //this routes are for the categories section 
      Route::get('categories/{pagination?}', 'CategoriesController@index');
-     Route::post('bookings/create', 'BookingsController@store');
+          Route::post('bookings/create', 'BookingsController@store');
     //this is to update roles
     Route::post('bookings/update/{id}', 'BookingsController@update');
     //this is to set default roles

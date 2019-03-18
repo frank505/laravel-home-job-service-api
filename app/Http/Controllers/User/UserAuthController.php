@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\SanitizeController;
 use Illuminate\Routing\UrlGenerator;
 use Validator;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserResetPasswordMail;
+Use Symfony\Component\HttpFoundation\Response;
+Use DB;
+use Carbon\Carbon;
+
 class UserAuthController extends Controller
 {
     //
@@ -19,10 +25,11 @@ class UserAuthController extends Controller
      protected $user;
      protected $base_url;
     public function __construct(UrlGenerator $url){
-        $this->middleware("auth:users",['except'=>['login','register']]);
+        $this->middleware("auth:users",['except'=>['login','register','sendResetPasswordLink']]);
         $this->user = new User();
         $this->base_url = $url->to("/");  //this is to make the baseurl available in this controller
     }
+    
 
     
     public function register(Request $request)
@@ -194,7 +201,7 @@ if($validator->fails()){
         return response()->json([
             'success' => true,
             "message"=>"profile updated successfully"
-        ]);
+        ],200);
     } else {
         return response()->json([
             'success' => false,
@@ -247,4 +254,88 @@ if($validator->fails()){
             'image_directory'=>$this->base_url."/images/users",
             ]);
     }
+
+
+  public function sendEmailData($user_email)
+  {
+      $token = $this->createToken($user_email);
+  return Mail::to($user_email)->send(new UserResetPasswordMail($token));
+ 
+  }
+
+  public function createToken($user_email)
+  {
+    //   $prevToken = DB::table("password_resets")->where("email",$user_email)->first();
+    //   if($prevToken){
+    //       return $prevToken;
+    //   }
+      $token = str_random(60);
+      $this->saveToken($token,$user_email);
+      return $token;
+  }
+
+  public function saveToken($token,$email)
+  {
+      DB::table('password_resets')->insert(
+          [
+              "email"=>$email,"token"=>$token,"created_at"=>Carbon::now()
+              ]
+          );
+  }
+
+    public function sendResetPasswordLink(Request $request)
+    {
+       // return $request->all();
+        $validator = Validator::make($request->only('email'), 
+        ['email' => 'required']);
+        if($validator->fails()){
+            return response()->json([
+             "success"=>false,
+             "message"=>$validator->messages()->toArray(),
+            ],400);    
+    }
+
+    $check_email_exist = $this->user::where(["email"=>$request->email])->count();
+    if($check_email_exist==0){
+        return response()->json([
+            "success"=>false,
+            "message"=>"user with this email does not exist"
+        ],400);
+    }else{
+        $this->sendEmailData($request->email);
+        return response()->json([
+            "success"=>true,
+            "message"=>"reset password link has been sent to your email please click on the link to reset your password",
+           ],200);    
+
+    }
+}
+
+
+  public function ChangePassword(Request $request)
+  {
+
+    $validator = Validator::make($request->all(), 
+    ['password' => 'required','token'=>'required']);
+    if($validator->fails()){
+        return response()->json([
+         "success"=>false,
+         "message"=>$validator->messages()->toArray(),
+        ],400);    
+}
+
+$user = auth("users")->authenticate($request->token);
+
+  $hash_password = Hash::make($request->password);
+ $user->password = $hash_password;
+   if($user->save()){
+    return response()->json([
+        'success' => true,
+        "message"=>"password changed sucessfully"
+    ],200);
+   }
+  }
+
+
+
 }

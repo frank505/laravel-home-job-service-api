@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get("/reset-password","ResetPasswordController@showResetPasswordView");
+Route::post("/reset-password-action","ResetPasswordController@ResetPasswordAction")->name("password.request");
