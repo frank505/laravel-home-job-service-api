@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2019 at 04:12 AM
+-- Generation Time: Mar 20, 2019 at 07:43 PM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -109,38 +109,6 @@ INSERT INTO `booking_options` (`id`, `service_id`, `booking_id`, `option_id`, `o
 (3, 3, 3, 4, '1000', '10000', '4000', '2019-03-20 00:52:44', '2019-03-20 00:52:44'),
 (4, 3, 3, 4, '1000', '10000', '4000', '2019-03-20 00:58:18', '2019-03-20 00:58:18'),
 (5, 3, 3, 4, '1000', '10000', '4000', '2019-03-20 00:58:23', '2019-03-20 00:58:23');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `booking_service_options`
---
-
-CREATE TABLE `booking_service_options` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `service_id` int(11) NOT NULL,
-  `description` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `required` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `selected` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `display` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `order` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `options` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `price` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `booking_service_options`
---
-
-INSERT INTO `booking_service_options` (`id`, `service_id`, `description`, `name`, `title`, `type`, `required`, `selected`, `display`, `order`, `options`, `price`, `created_at`, `updated_at`) VALUES
-(1, 3, 'how are you doing', 'kosisochukwu_is_too_fat_oooh', 'kosisochukwu is too fat oooh', 'type A', 'this is required', 'i am selected', 'this is displaying', 'first order derivative', '{\"first\":\"test\",\"second\":\"cost\",\"third\":\"men of old\"}', 1000, NULL, '2019-03-20 01:59:29'),
-(3, 3, 'how are you doing', 'kosisochukwu_is_too_fat_oooh', 'kosisochukwu is too fat oooh', 'type A', 'this is required', 'i am selected', 'this is displaying', 'first order derivative', '{\"first\":\"test\",\"second\":\"cost\",\"third\":\"men of old\"}', 1000, NULL, '2019-03-20 01:59:29'),
-(9, 3, 'how are you doing', 'kosisochukwu_is_too_fat_oooh', 'kosisochukwu is too fat oooh', 'type A', 'this is required', 'i am selected', 'this is displaying', 'first order derivative', '{\"first\":\"test\",\"second\":\"cost\",\"third\":\"men of old\"}', 1000, '2019-03-20 01:55:54', '2019-03-20 01:59:29');
 
 -- --------------------------------------------------------
 
@@ -352,6 +320,7 @@ INSERT INTO `services` (`id`, `service`, `category_id`, `isdeleted`, `descriptio
 CREATE TABLE `service_form_options` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `service_id` int(11) NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `display` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -369,9 +338,9 @@ CREATE TABLE `service_form_options` (
 -- Dumping data for table `service_form_options`
 --
 
-INSERT INTO `service_form_options` (`id`, `service_id`, `type`, `name`, `display`, `required`, `order`, `ispublic`, `price`, `options`, `selected`, `created_at`, `updated_at`) VALUES
-(1, 0, 'sdg', 'castro the fat boy', 'displaying', 'freaking required', 'reorder', 0, 123, '{\"first\":\"test\",\"second\":\"basking\"}', 'i was', '2019-03-20 01:48:10', '2019-03-20 01:48:10'),
-(2, 15, 'sdg', 'castro the fat boy', 'displaying', 'freaking required', 'reorder', 0, 123, '{\"first\":\"test\",\"second\":\"basking\"}', 'i was', '2019-03-20 02:09:15', '2019-03-20 02:09:15');
+INSERT INTO `service_form_options` (`id`, `service_id`, `title`, `type`, `name`, `display`, `required`, `order`, `ispublic`, `price`, `options`, `selected`, `created_at`, `updated_at`) VALUES
+(1, 0, '', 'sdg', 'castro the fat boy', 'displaying', 'freaking required', 'reorder', 0, 123, '{\"first\":\"test\",\"second\":\"basking\"}', 'i was', '2019-03-20 01:48:10', '2019-03-20 01:48:10'),
+(2, 15, '', 'sdg', 'castro the fat boy', 'displaying', 'freaking required', 'reorder', 0, 123, '{\"first\":\"test\",\"second\":\"basking\"}', 'i was', '2019-03-20 02:09:15', '2019-03-20 02:09:15');
 
 -- --------------------------------------------------------
 
@@ -525,12 +494,6 @@ ALTER TABLE `booking_options`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `booking_service_options`
---
-ALTER TABLE `booking_service_options`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
@@ -636,12 +599,6 @@ ALTER TABLE `bookings`
 --
 ALTER TABLE `booking_options`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `booking_service_options`
---
-ALTER TABLE `booking_service_options`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `categories`
