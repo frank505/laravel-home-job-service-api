@@ -138,4 +138,7 @@ class BookingOptionsController extends Controller
         ], 500);
     }
  }
+
+
+ 
 }
