@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Administrator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use JWTAuth;
+use App\Http\Resources\ServiceFormOptionsCollection;
 use App\ServiceFormOptions;
 use Validator;
 
@@ -23,18 +24,12 @@ class ServiceFormOptionsController extends Controller
     //laravel automatically converts it to json and sends a response text too
     //$auth = auth("admins")->authenticate($request->token);
     if($pagination==null || $pagination==""){
-        $ServiceFormOptions =  $this->ServiceFormOptions->get()->toArray();
-        return response()->json([
-            'success'=>true,
-            'data'=>json_decode($ServiceFormOptions),    
-            ]);
+        $ServiceFormOptions =  $this->ServiceFormOptions->get();
+        return ServiceFormOptionsCollection::collection($ServiceFormOptions);
         
     }else{
         $ServiceFormOptions= $this->ServiceFormOptions->paginate($pagination);
-        return response()->json([
-            'success'=>true,
-            'data'=>json_decode($ServiceFormOptions),    
-            ]);
+        return ServiceFormOptionsCollection::collection($ServiceFormOptions);
     }
 }
 
@@ -42,16 +37,11 @@ public function getServiceOptionsForParticularService(Request $request, $id,$pag
 {
     if($pagination==null || $pagination==""){
         $ServiceFormOptions =  $this->ServiceFormOptions->where(["service_id"=>$id])->get(["options"])->toArray();
-        return response()->json([
-            'success'=>true,
-            'data'=>json_decode($ServiceFormOptions),
-        ]);
+        $ServiceFormOptions= $this->ServiceFormOptions->paginate($pagination);
+        return ServiceFormOptionsCollection::collection($ServiceFormOptions);
     }else{
         $ServiceFormOptions= $this->ServiceFormOptions->paginate($pagination);
-        return response()->json([
-            'success'=>true,
-            'data'=>json_decode($ServiceFormOptions),    
-            ]);
+        return ServiceFormOptionsCollection::collection($ServiceFormOptions);
     }
    
 }
