@@ -166,7 +166,7 @@ $update = $this->ServiceFormOptions::where(["service_id"=>$id])->update(
     [
         'service_id'=>$request->service_id,
         'type'=>$request->type,
-        'title'=>$request->title;
+        'title'=>$request->title,
          'name'=>$add_dash_url,
          'display'=>$request->display,
         'required'=>$request->required,
