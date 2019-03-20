@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Admin Booking service",
-		"_postman_id": "eb9c44a6-5e53-9379-1db4-acb7181e31fd",
+		"_postman_id": "e3be2b73-e9cc-bdf2-8337-113070b5078a",
 		"description": "this performs CRUD operation on the booking service content",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -10,12 +10,12 @@
 		{
 			"name": "ceate a new booking service option",
 			"request": {
-				"url": "http://localhost:8000/api/admin/bookings-service/create",
+				"url": "http://localhost:8000/api/admin/bookings-service/update/3",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTIwNTU5NjksImV4cCI6MTU1MjA1OTU2OSwibmJmIjoxNTUyMDU1OTY5LCJqdGkiOiJCY0QydVgxRjliZlk1c3ZwIiwic3ViIjoyLCJwcnYiOiI3ZDk2ODFkNjNhODdiMWZmYzk0ZWMxOTY1M2RhZjY5ZmYxNjI3YTIxIn0.7ZB7DFb6irRETo1N-CphKFp1UCA0tAKzW6egkrG4Fmw",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hZG1pblwvbG9naW4iLCJpYXQiOjE1NTMwNDg2NzksIm5iZiI6MTU1MzA0ODY3OSwianRpIjoiZXV6dldRVmpXcXZLdnQyRCIsInN1YiI6OCwicHJ2IjoiN2Q5NjgxZDYzYTg3YjFmZmM5NGVjMTk2NTNkYWY2OWZmMTYyN2EyMSJ9.NiizRyUc8le0UrFQFp1r-mh-yJX-pa-Mb3nLva-gNSc\"",
 						"description": ""
 					},
 					{
@@ -26,7 +26,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"service_id\":\"12\",\n\t\"description\":\"how are you doing\",\n\t\"name\":\"kosisochukwu\",\n\t\"type\":\"type A\",\n\t\"required\":\"this is required\",\n\t\"selected\":\"i am selected\",\n\t\"display\":\"this is displaying\",\n\t\"order\":\"first order derivative\",\n\t\"options\":{\n\t\t\"first\":\"test\",\n\t\t\"second\":\"cost\",\n\t\t\"third\":\"men of old\"\n\t},\n\t\"price\":\"1000\"\n}"
+					"raw": "{\n\t\"service_id\":\"3\",\n\t\"description\":\"how are you doing\",\n\t\"title\":\"kosisochukwu is too fat oooh\",\n\t\"type\":\"type A\",\n\t\"required\":\"this is required\",\n\t\"selected\":\"i am selected\",\n\t\"display\":\"this is displaying\",\n\t\"order\":\"first order derivative\",\n\t\"options\":{\n\t\t\"first\":\"test\",\n\t\t\"second\":\"cost\",\n\t\t\"third\":\"men of old\"\n\t},\n\t\"price\":\"1000\"\n}"
 				},
 				"description": ""
 			},

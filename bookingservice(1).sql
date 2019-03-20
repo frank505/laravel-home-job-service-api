@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2019 at 08:35 AM
+-- Generation Time: Mar 20, 2019 at 04:12 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -86,6 +86,33 @@ INSERT INTO `bookings` (`id`, `user_id`, `service_id`, `location`, `artisan_id`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `booking_options`
+--
+
+CREATE TABLE `booking_options` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `service_id` int(11) NOT NULL,
+  `booking_id` int(11) NOT NULL,
+  `option_id` int(11) NOT NULL,
+  `option_value` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `total_amount` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `option_cost` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `booking_options`
+--
+
+INSERT INTO `booking_options` (`id`, `service_id`, `booking_id`, `option_id`, `option_value`, `total_amount`, `option_cost`, `created_at`, `updated_at`) VALUES
+(3, 3, 3, 4, '1000', '10000', '4000', '2019-03-20 00:52:44', '2019-03-20 00:52:44'),
+(4, 3, 3, 4, '1000', '10000', '4000', '2019-03-20 00:58:18', '2019-03-20 00:58:18'),
+(5, 3, 3, 4, '1000', '10000', '4000', '2019-03-20 00:58:23', '2019-03-20 00:58:23');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `booking_service_options`
 --
 
@@ -94,16 +121,26 @@ CREATE TABLE `booking_service_options` (
   `service_id` int(11) NOT NULL,
   `description` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `required` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `selected` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `display` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `order` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `options` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `options` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `price` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `booking_service_options`
+--
+
+INSERT INTO `booking_service_options` (`id`, `service_id`, `description`, `name`, `title`, `type`, `required`, `selected`, `display`, `order`, `options`, `price`, `created_at`, `updated_at`) VALUES
+(1, 3, 'how are you doing', 'kosisochukwu_is_too_fat_oooh', 'kosisochukwu is too fat oooh', 'type A', 'this is required', 'i am selected', 'this is displaying', 'first order derivative', '{\"first\":\"test\",\"second\":\"cost\",\"third\":\"men of old\"}', 1000, NULL, '2019-03-20 01:59:29'),
+(3, 3, 'how are you doing', 'kosisochukwu_is_too_fat_oooh', 'kosisochukwu is too fat oooh', 'type A', 'this is required', 'i am selected', 'this is displaying', 'first order derivative', '{\"first\":\"test\",\"second\":\"cost\",\"third\":\"men of old\"}', 1000, NULL, '2019-03-20 01:59:29'),
+(9, 3, 'how are you doing', 'kosisochukwu_is_too_fat_oooh', 'kosisochukwu is too fat oooh', 'type A', 'this is required', 'i am selected', 'this is displaying', 'first order derivative', '{\"first\":\"test\",\"second\":\"cost\",\"third\":\"men of old\"}', 1000, '2019-03-20 01:55:54', '2019-03-20 01:59:29');
 
 -- --------------------------------------------------------
 
@@ -204,7 +241,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (13, '2019_03_14_163727_create_countries_table', 11),
 (14, '2019_03_14_163849_create_states_table', 11),
 (15, '2019_03_14_163940_create_cities_table', 11),
-(16, '2019_03_14_223026_create_reviews_table', 12);
+(16, '2019_03_14_223026_create_reviews_table', 12),
+(17, '2019_03_19_230518_create_booking_options_table', 13),
+(18, '2019_03_19_231320_create_booking_options_table', 14);
 
 -- --------------------------------------------------------
 
@@ -217,6 +256,17 @@ CREATE TABLE `password_resets` (
   `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `password_resets`
+--
+
+INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+('akpufranklin2@gmail.com', 't7RbPlB6NkxASVXQCOm1toVfR4FmYIrkL8UGDIUcfVYUeMDsdSPnRB8kMmBT', '2019-03-18 05:44:08'),
+('akpufranklin2@gmail.com', 'J42c28HgeuboyU0vMn3usmOKQmIbBoHq01kV6jht2cCsyVGe8JbEj28og2vM', '2019-03-18 07:44:21'),
+('akpufranklin2@gmail.com', 'E65gcuAfKbGzSXB4SH2zyMjqmsVNwE8ZzNeojf6red7tSqQ1lU2ytyCpFoZ6', '2019-03-18 07:46:21'),
+('akpufranklin2@gmail.com', '6d6JZDj8ib4VLr2KdXCGpEfSoa3E9vbb1mCHto1V1TNK6GthmIG11hcWIa05', '2019-03-18 12:04:27'),
+('akpufranklin2@gmail.com', 'bC1XNmHFDt3yk72a4XZOAyQ52aIzGcKnym6EqMkrP15hI95awTe5DBQwehAF', '2019-03-18 14:57:38');
 
 -- --------------------------------------------------------
 
@@ -309,11 +359,19 @@ CREATE TABLE `service_form_options` (
   `order` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ispublic` tinyint(1) NOT NULL,
   `price` int(11) NOT NULL,
-  `options` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `options` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `selected` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `service_form_options`
+--
+
+INSERT INTO `service_form_options` (`id`, `service_id`, `type`, `name`, `display`, `required`, `order`, `ispublic`, `price`, `options`, `selected`, `created_at`, `updated_at`) VALUES
+(1, 0, 'sdg', 'castro the fat boy', 'displaying', 'freaking required', 'reorder', 0, 123, '{\"first\":\"test\",\"second\":\"basking\"}', 'i was', '2019-03-20 01:48:10', '2019-03-20 01:48:10'),
+(2, 15, 'sdg', 'castro the fat boy', 'displaying', 'freaking required', 'reorder', 0, 123, '{\"first\":\"test\",\"second\":\"basking\"}', 'i was', '2019-03-20 02:09:15', '2019-03-20 02:09:15');
 
 -- --------------------------------------------------------
 
@@ -379,7 +437,8 @@ CREATE TABLE `sub_categories` (
 --
 
 INSERT INTO `sub_categories` (`id`, `category_id`, `sub_category`, `image`, `created_at`, `updated_at`) VALUES
-(2, '4', 'boss test and see', '5c83b6c04b46e_155213587220190309_ICO.png', '2019-03-09 11:51:12', '2019-03-09 11:51:12');
+(2, '1', 'boss test and see', '5c83b6c04b46e_155213587220190309_ICO.png', '2019-03-09 11:51:12', '2019-03-09 11:51:12'),
+(3, '1', 'winning', '5c83b6c04b46e_155213587220190309_ICO.png', '2019-03-09 11:51:12', '2019-03-09 11:51:12');
 
 -- --------------------------------------------------------
 
@@ -409,7 +468,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `phone`, `cityid`, `roleid`, `profilephoto`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
 (9, 'nnamdi', 'chukwu', 'chukwu@gmail.com', '$2y$10$BmOzMBZrkXnnRPhKYr7tt.Ocan33eT5qp1Z68huIlbrVUDiG49GqO', '332222223', 'dds', 'dffd', '5c7cb8297d7ba_155167748120190304_IMG.JPG', 0, NULL, '2019-03-04 03:45:10', '2019-03-08 11:36:48'),
-(10, 'basdeedde', 'costanino', 'akpufranklin2@gmail.com', '$2y$10$EwtbpaORkfcNc72bFS2dE.kT/sp6KzW8sn/J//hp2tkNfy4/5BtOG', '3344', 'dhfj34', 'dfgg', NULL, 0, NULL, '2019-03-08 12:50:46', '2019-03-08 13:17:49'),
+(10, 'basdeedde', 'costanino', 'akpufranklin2@gmail.com', '$2y$10$uLy78kZhJuYecn9sr.TmjenCSD8utml/8jDEDtZd61L9zfM.lWIje', '3344', 'dhfj34', 'dfgg', NULL, 0, NULL, '2019-03-08 12:50:46', '2019-03-18 17:21:35'),
 (11, 'kosi', 'kakashi', 'akpufranklin444@gmail.com', '$2y$10$Bs5NEimIGn8olHZVnR5Y3O5CWh8nhg0okSJ4OspO.NwIjzE0sMMdG', '070103455554', 'sd3432', 'de3434', NULL, 0, NULL, '2019-03-08 12:50:58', '2019-03-08 12:50:58'),
 (13, 'kosi', 'kakashi', 'akpufranklin8744@gmail.com', '$2y$10$ayWPswzHdLvRfkhn9.FaPOMSy1uBl6dTVmD7m3zSqt8zcwpee5aMC', '070103455554', 'sd3432', 'de3434', NULL, 0, NULL, '2019-03-08 12:54:07', '2019-03-08 12:54:07'),
 (14, 'kosi', 'kakashi', 'akpufranklin87443333@gmail.com', '$2y$10$jLh9wNiIGC79/d.2SmKSgO5IXGZF5owCUdktMpV25tabFyEBjx14W', '070103455554', 'sd3432', 'de3434', NULL, 0, NULL, '2019-03-08 12:55:22', '2019-03-08 12:55:22'),
@@ -457,6 +516,12 @@ ALTER TABLE `admins`
 -- Indexes for table `bookings`
 --
 ALTER TABLE `bookings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `booking_options`
+--
+ALTER TABLE `booking_options`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -567,10 +632,16 @@ ALTER TABLE `bookings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `booking_options`
+--
+ALTER TABLE `booking_options`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `booking_service_options`
 --
 ALTER TABLE `booking_service_options`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -594,7 +665,7 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -618,7 +689,7 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `service_form_options`
 --
 ALTER TABLE `service_form_options`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `skills`
@@ -636,7 +707,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `sub_categories`
 --
 ALTER TABLE `sub_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`

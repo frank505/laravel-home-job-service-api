@@ -20,9 +20,9 @@
                                     @endforeach
                                 @endif
                                      
-                                @if (session("custom_error"))
+                                @if (session("error_password_same"))
                                     <div class="alert alert-danger">
-                                        <strong>{{ session("custom_error")}}</strong>
+                                        <strong>{{ session("error_password_same")}}</strong>
                                     </span>
                                     </div>
                                 @endif
@@ -34,8 +34,10 @@
                                     </span>
                                     </div>
                                 @endif
+
+
+                                
                     
-                            <input name="token" value="{{ $token }}" type="hidden" ></input>
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 

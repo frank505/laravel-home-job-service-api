@@ -1,0 +1,91 @@
+{
+	"variables": [],
+	"info": {
+		"name": "General Booking Options",
+		"_postman_id": "0bd55ad7-0b92-3d0d-3d3d-eb34262f8779",
+		"description": "booking options ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create booking options",
+			"request": {
+				"url": "http://localhost:8000/api/booking-options/create",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"service_id\":\"3\",\n        \"booking_id\":\"3\",\n        \"option_id\":\"4\",\n        \"option_value\":\"1000\",\n        \"total_amount\":\"10000\",\n        \"option_cost\":\"4000\"\n}"
+				},
+				"description": "general create booking options"
+			},
+			"response": []
+		},
+		{
+			"name": "update booking options by the user no token required",
+			"request": {
+				"url": "http://localhost:8000/api/booking-options/update/2",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"service_id\":\"3\",\n        \"booking_id\":\"3\",\n        \"option_id\":\"4\",\n        \"option_value\":\"1234\",\n        \"total_amount\":\"10000\",\n        \"option_cost\":\"4000\"\n}"
+				},
+				"description": "general update booking options\n"
+			},
+			"response": []
+		},
+		{
+			"name": "delete booking options using the id",
+			"request": {
+				"url": "http://localhost:8000/api/booking-options/delete/2",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get all booking service ",
+			"request": {
+				"url": "http://localhost:8000/api/booking-options/get",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n}"
+				},
+				"description": "this does an inner join with booking service options table to fetch thier both data"
+			},
+			"response": []
+		}
+	]
+}

@@ -24,14 +24,15 @@ class BookingServiceOptionsController extends Controller
         //laravel automatically converts it to json and sends a response text too
         //$auth = auth("admins")->authenticate($request->token);
         if($pagination==null || $pagination==""){
-            $BookingServiceOptions =  $this->BookingServiceOptions->get()->toArray();
+            $BookingServiceOptions =  $this->BookingServiceOptions->where(["ispublic"=>1,"service_id"=>0])->get()->toArray();
             return response()->json([
                 'success'=>true,
-                'data'=>$BookingServiceOptions,    
+                'data'=>$BookingServiceOptions),    
                 ]);
             
         }else{
-            $BookingServiceOptions =  $this->BookingServiceOptions->paginate($pagination);
+            $BookingServiceOptions =  $this->BookingServiceOptions->where(["ispublic"=>1,"service_id"=>0])->
+            paginate($pagination);
             return response()->json([
                 'success'=>true,
                 'data'=>$BookingServiceOptions,
@@ -64,13 +65,12 @@ class BookingServiceOptionsController extends Controller
     [
     'service_id' => 'required|integer',
     'description' => 'required|string',
-    'name'=>'required|string',
+    'title'=>'required|string',
     'type'=>'required|string',
     'required'=>'required|string',
     'selected'=>'required|string',
     'display'=>'required|string',
     'order'=>'required|string',
-    'options'=>'required',
     'price'=>'required|string'
     ]);
     if($validator->fails()){
@@ -80,11 +80,24 @@ class BookingServiceOptionsController extends Controller
         ],400);    
       }
 
-       $options = json_encode($request->options);
+      if($request->options==null){
+        $options = null;
+    }  else{
+      $options = json_encode($request->options);
+    }
+
+    $space_checker = preg_match("/\s/",$request->title);
+    if($space_checker==0){
+        $add_dash_url = $request->title;
+    }else{
+      $add_dash_url = str_replace(" ","_",$request->title);   
+    }
         $created =  $this->BookingServiceOptions::create(
-        ['service_id'=>$request->service_id,
+        [
+            'service_id'=>$request->service_id,
         'description'=>$request->description,
-        'name'=>$request->name,
+        'title'=>$request->title,
+        'name'=>$add_dash_url,
         'type'=>$request->type,
         'required'=>$request->required,
          'display'=>$request->display,
@@ -122,16 +135,15 @@ class BookingServiceOptionsController extends Controller
        
     $validator =    Validator::make($request->all(),
     [
-        //'service_id' => 'required|integer',
-        'description' => 'required|string',
-        'name'=>'required|string',
-        'type'=>'required|string',
-        'required'=>'required|string',
-        'selected'=>'required|string',
-        'display'=>'required|string',
-        'order'=>'required|string',
-        'options'=>'required',
-        'price'=>'required|string'
+      //  'service_id' => 'required|integer',
+    'description' => 'required|string',
+    'title'=>'required|string',
+    'type'=>'required|string',
+    'required'=>'required|string',
+    'selected'=>'required|string',
+    'display'=>'required|string',
+    'order'=>'required|string',
+    'price'=>'required|string'
         ]);
        
         if($validator->fails()){
@@ -139,13 +151,26 @@ class BookingServiceOptionsController extends Controller
              "success"=>false,
              "message"=>$validator->messages()->toArray(),
             ],400);    
-          }            
-      $options = json_encode($request->options);
+          }          
+          if($request->options==null){
+            $options = null;
+        }  else{
+          $options = json_encode($request->options);
+        }
+    
+        $space_checker = preg_match("/\s/",$request->title);
+        if($space_checker==0){
+            $add_dash_url = $request->title;
+        }else{
+          $add_dash_url = str_replace(" ","_",$request->title);   
+        }
+
     $update = $this->BookingServiceOptions::where(["service_id"=>$id])->update(
         [
             //'service_id'=>$request->service_id,
             'description'=>$request->description,
-        'name'=>$request->name,
+        'title'=>$request->title,
+        'name'=>$add_dash_url,
         'type'=>$request->type,
         'required'=>$request->required,
          'display'=>$request->display,

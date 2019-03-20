@@ -44,13 +44,13 @@ public function getServiceOptionsForParticularService(Request $request, $id,$pag
         $ServiceFormOptions =  $this->ServiceFormOptions->where(["service_id"=>$id])->get(["options"])->toArray();
         return response()->json([
             'success'=>true,
-            'data'=>$ServiceFormOptions,
+            'data'=>json_decode($ServiceFormOptions),
         ]);
     }else{
         $ServiceFormOptions= $this->ServiceFormOptions->paginate($pagination);
         return response()->json([
             'success'=>true,
-            'data'=>$ServiceFormOptions,    
+            'data'=>json_decode($ServiceFormOptions),    
             ]);
     }
    
@@ -61,15 +61,15 @@ public function store(Request $request)
  
 
      $validator = Validator::make($request->all(), 
-    ['service_id' => 'required|integer',
+    [
+        'service_id' => 'required|integer',
     'type'=>'required|string',
-    'name'=>'required|string',
+    //'title'=>'required|string',
     'display' => 'required|string',
     'required'=>'required|string',
     'order'=>'required|string',
     'ispublic'=>'required|boolean',
     'price'=>'required|integer',
-    'options'=>'required',
     'selected'=>'required|string']);
      
     if($validator->fails()){
@@ -78,12 +78,22 @@ public function store(Request $request)
          "message"=>$validator->messages()->toArray(),
         ],400);    
       }
-      $options = json_encode($request->options); //make it accept json_encoded_array
+      $space_checker = preg_match("/\s/",$request->title);
+      if($space_checker==0){
+          $add_dash_url = $request->title;
+      }else{
+        $add_dash_url = str_replace(" ","_",$request->title);   
+      }
+      if($request->options==null){
+        $options = null;
+    }  else{
+      $options = json_encode($request->options);
+    }
     $created =  $this->ServiceFormOptions::create(
     [
-        'service_id'=>$request->service_id,
+       'service_id'=>$request->service_id,
     'type'=>$request->type,
-     'name'=>$request->name,
+     'name'=>$request->title,
      'display'=>$request->display,
      'required'=>$request->required,
      'order'=>$request->order,
@@ -119,15 +129,14 @@ public function update(Request $request,$id)
 
     $validator = Validator::make($request->all(), 
     [
-        //'service_id' => 'required|integer',
+        'service_id' => 'required|integer',
     'type'=>'required|string',
-    'name'=>'required|string',
+    //'title'=>'required|string',
     'display' => 'required|string',
     'required'=>'required|string',
     'order'=>'required|string',
     'ispublic'=>'required|boolean',
     'price'=>'required|integer',
-    'options'=>'required',
     'selected'=>'required|string']);
     if($validator->fails()){
         return response()->json([
@@ -135,10 +144,20 @@ public function update(Request $request,$id)
          "message"=>$validator->messages()->toArray(),
         ],400);    
       }
-      $options = json_encode($request->options); //make it accept json_encoded_array
+      $space_checker = preg_match("/\s/",$request->title);
+      if($space_checker==0){
+          $add_dash_url = $request->title;
+      }else{
+        $add_dash_url = str_replace(" ","_",$request->title);   
+      }
+      if($request->options==null){
+        $options = null;
+    }  else{
+      $options = json_encode($request->options);
+    }
 $update = $this->ServiceFormOptions::where(["service_id"=>$id])->update(
     [
-        //'service_id'=>$request->service_id,
+        'service_id'=>$request->service_id,
         'type'=>$request->type,
          'name'=>$request->name,
          'display'=>$request->display,

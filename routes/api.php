@@ -33,6 +33,11 @@ Route::group(['prefix' => '/',
    Route::get("reviews/{pagination}","ReviewsController@getReviews");
    Route::get("reviews/service/{id}/{pagination}","ReviewsController@getReviewsForServiceId");
    Route::get("reviews/artisan/{id}/{pagination}","ReviewsController@getReviewsForArtisanId");
+
+   Route::post("booking-options/create","BookingOptionsController@store");
+   Route::post("booking-options/update/{id}","BookingOptionsController@update");
+   Route::post("booking-options/delete/{id}","BookingOptionsController@delete");
+   Route::get("booking-options/get","BookingOptionsController@index");
 });
 
 Route::group(['prefix' => 'admin',
@@ -134,6 +139,8 @@ Route::get("city/state/{id}","CityController@index");
 Route::get("reviews/all-reviews/{pagination}","ReviewsController@getReviews");
 Route::get("reviews/service/{id}/{pagination}","ReviewsController@getReviewsForServiceId");
 Route::get("reviews/artisan/{id}/{pagination}","ReviewsController@getReviewsForArtisanId");
+
+Route::get("booking-options/get","BookingOptionsController@index");
 });
 
 Route::group(["prefix"=>"user",
@@ -183,7 +190,11 @@ Route::group(["prefix"=>"user",
    Route::get("reviews/all-reviews/{pagination}","ReviewsController@getReviews");
    Route::get("reviews/service/{id}/{pagination}","ReviewsController@getReviewsForServiceId");
    Route::get("reviews/artisan/{id}/{pagination}","ReviewsController@getReviewsForArtisanId");
-   
+  
+   Route::post("booking-options/create","BookingOptionsController@store");
+   Route::post("booking-options/update/{id}","BookingOptionsController@update");
+   Route::post("booking-options/delete/{id}","BookingOptionsController@delete");
+   Route::get("booking-options/get","BookingOptionsController@index");   
 });
 
 

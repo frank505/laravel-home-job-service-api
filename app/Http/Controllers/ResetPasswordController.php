@@ -4,15 +4,12 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use Validator;
-use Illuminate\Support\Facades\Hash;
-
 class ResetPasswordController extends Controller
 {
     //
-    
-    public function showResetPasswordView(Request $request)
+    public function showResetPasswordView()
     {
-        return view("users.reset-password.resetpassword")->with("token",$request->query("token"));
+        return view("users.reset-password.resetpassword");
     }
     public function ResetPasswordAction(Request $request)
     {
@@ -22,24 +19,21 @@ class ResetPasswordController extends Controller
         'password' => 'required|string|min:6',
         'password_confirmation' => 'required|string|min:6',
         ]);
+
     
     
-    $token = $request->token;
+    //   $prevToken = DB::table("password_resets")->where("email",$user_email)->first();
+    //   if($prevToken){
+    //       return $prevToken;
+    //   }
        if($request->password != $request->password_confirmation)
        {
-        return redirect("/reset-password?token=".$token)->with("custom_error","password and password confirmation must be the same");
+        return redirect("/reset-password")->with("error_password_same","password and password confirmation must be the same");
        }else{
            
-          $check_data_from_db =  DB::table("password_resets")->where(["token"=>$token,"email"=>$request->email])->count();
-          if($check_data_from_db!==0){
-              $hash_password = Hash::make($request->password);
-              DB::table('users')->where(["email"=>$request->email])->update([
-                  "password"=>$hash_password,
-              ]);
-         //later please delete this token
-              return redirect("/reset-password?token=".$token)->with("success","your password was successfully reset");
-          }else{
-            return redirect("/reset-password?token=".$token)->with("custom_error","invalid email or token is expired or invalid");
+          $token =  DB::table("password-resets")->where("token",$token)->first();
+          if($token){
+              return redirect("/reset-password")->with("success","ready to go");
           }
        }
          

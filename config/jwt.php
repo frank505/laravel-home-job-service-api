@@ -101,7 +101,7 @@ return [
     |
     */
 
-    'ttl' => env('JWT_TTL', 60),
+    'ttl' => env('JWT_TTL', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -150,7 +150,7 @@ return [
     'required_claims' => [
         'iss',
         'iat',
-        'exp',
+       // 'exp',
         'nbf',
         'sub',
         'jti',
@@ -235,7 +235,7 @@ return [
     |
     */
 
-    'blacklist_grace_period' => env('JWT_BLACKLIST_GRACE_PERIOD', 0),
+    'blacklist_grace_period' => env('JWT_BLACKLIST_GRACE_PERIOD', 500),
 
     /*
     |--------------------------------------------------------------------------

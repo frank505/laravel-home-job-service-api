@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Admin service_form_options",
-		"_postman_id": "bff3229d-60f7-3f92-7e76-f668a5a4dec7",
+		"_postman_id": "e6b5b297-11a5-e006-9988-edcf85c533d2",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -49,7 +49,10 @@
 						"description": ""
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": "gets a single service option\n    \n    Bearer <token> is required in the header too"
 			},
 			"response": []
@@ -66,7 +69,10 @@
 						"description": ""
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": "loads all service-options in the db with optional pagination\n    \n    Bearer <token> is required in the header too"
 			},
 			"response": []
@@ -108,7 +114,10 @@
 						"description": ""
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": "this function deletes all content with the service_id \nas the parameter\n service_id=>'required'\n    \n    where id parameter equals to the service_id\n   admin Bearer <token> is required in the header too"
 			},
 			"response": []
