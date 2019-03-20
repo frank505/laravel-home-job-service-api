@@ -16,6 +16,10 @@ Route::group(['prefix' => '/',
     Route::get('bookings/user/{id}/{pagination?}','BookingsController@BookingForParticularUser');
     Route::get("bookings/artisan/{id}/{pagination?}","BookingsController@BookingForParticularArtisan");
     Route::get("bookings/single-bookings/{id}","BookingsController@getBooking");
+    Route::post("bookings/{booking_id}/set-status/{status_id}","BookingsController@setBookingStatusId");
+    Route::get("bookings/pending-artisan/{artisan_id}/get-status/{status}","BookingsController@getPendingBookingForArtisan");
+  Route::get("bookings/pending-artisan/{user_id}/get-status/{status}","BookingsController@getPendingBookingForUser");
+  Route::get("bookings/get-approved/{customers_id}","BookingsController@getAllwhereUsersIdEqualsCustomersIdAndIsApproved");
     //this routes are for sub categories
      //this routes are for the sub categories section 
      Route::get('sub-categories/{pagination?}', 'SubCategoriesController@index');

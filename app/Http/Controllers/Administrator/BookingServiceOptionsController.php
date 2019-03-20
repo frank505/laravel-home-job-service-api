@@ -135,7 +135,7 @@ class BookingServiceOptionsController extends Controller
        
     $validator =    Validator::make($request->all(),
     [
-      //  'service_id' => 'required|integer',
+      'service_id' => 'required|integer',
     'description' => 'required|string',
     'title'=>'required|string',
     'type'=>'required|string',

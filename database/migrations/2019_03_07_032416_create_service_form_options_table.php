@@ -17,13 +17,14 @@ class CreateServiceFormOptionsTable extends Migration
             $table->bigIncrements('id');
              $table->integer("service_id"); 
              $table->string("type");
+             $table->string("title");
              $table->string("name");
              $table->string("display");
              $table->string("required");
              $table->string("order");
              $table->boolean('ispublic');
              $table->integer("price");
-             $table->json('options')->nullable(); //json_encoded_array
+             $table->string('options')->nullable(); //json_encoded_array
              $table->string("selected");
             $table->timestamps();
             

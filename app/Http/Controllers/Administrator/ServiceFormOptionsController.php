@@ -26,14 +26,14 @@ class ServiceFormOptionsController extends Controller
         $ServiceFormOptions =  $this->ServiceFormOptions->get()->toArray();
         return response()->json([
             'success'=>true,
-            'data'=>$ServiceFormOptions,    
+            'data'=>json_decode($ServiceFormOptions),    
             ]);
         
     }else{
         $ServiceFormOptions= $this->ServiceFormOptions->paginate($pagination);
         return response()->json([
             'success'=>true,
-            'data'=>$ServiceFormOptions,    
+            'data'=>json_decode($ServiceFormOptions),    
             ]);
     }
 }
@@ -64,7 +64,7 @@ public function store(Request $request)
     [
         'service_id' => 'required|integer',
     'type'=>'required|string',
-    //'title'=>'required|string',
+     'title'=>'required|string',
     'display' => 'required|string',
     'required'=>'required|string',
     'order'=>'required|string',
@@ -84,16 +84,21 @@ public function store(Request $request)
       }else{
         $add_dash_url = str_replace(" ","_",$request->title);   
       }
+
       if($request->options==null){
         $options = null;
     }  else{
       $options = json_encode($request->options);
     }
+
+  
+
     $created =  $this->ServiceFormOptions::create(
     [
        'service_id'=>$request->service_id,
     'type'=>$request->type,
-     'name'=>$request->title,
+    'title'=>$request->title,
+     'name'=>$add_dash_url,
      'display'=>$request->display,
      'required'=>$request->required,
      'order'=>$request->order,
@@ -126,12 +131,12 @@ public function update(Request $request,$id)
             'message' => 'Sorry, ServiceFormOptions with id ' . $id . ' cannot be found'
         ], 400);
     }
-
+    
     $validator = Validator::make($request->all(), 
     [
         'service_id' => 'required|integer',
     'type'=>'required|string',
-    //'title'=>'required|string',
+    'title'=>'required|string',
     'display' => 'required|string',
     'required'=>'required|string',
     'order'=>'required|string',
@@ -155,11 +160,14 @@ public function update(Request $request,$id)
     }  else{
       $options = json_encode($request->options);
     }
+
+
 $update = $this->ServiceFormOptions::where(["service_id"=>$id])->update(
     [
         'service_id'=>$request->service_id,
         'type'=>$request->type,
-         'name'=>$request->name,
+        'title'=>$request->title;
+         'name'=>$add_dash_url,
          'display'=>$request->display,
         'required'=>$request->required,
          'order'=>$request->order,
