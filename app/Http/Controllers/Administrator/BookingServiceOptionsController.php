@@ -27,7 +27,7 @@ class BookingServiceOptionsController extends Controller
             $BookingServiceOptions =  $this->BookingServiceOptions->where(["ispublic"=>1,"service_id"=>0])->get()->toArray();
             return response()->json([
                 'success'=>true,
-                'data'=>$BookingServiceOptions),    
+                'data'=>$BookingServiceOptions,    
                 ]);
             
         }else{
