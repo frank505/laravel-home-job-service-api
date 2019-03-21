@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\BookingOptions;
 use DB;
 use Validator;
+use Carbon\Carbon;
 
 class BookingOptionsController extends Controller
 {
@@ -31,6 +32,60 @@ class BookingOptionsController extends Controller
     }
 
 
+
+    public function MultipleInsert(Request $request)
+    {
+        $data_store = array();
+        $array = $request->all();
+        $now = Carbon::now('utc')->toDateTimeString();
+        foreach ($array as $key => $array_data) {
+            # code...
+            $validator = Validator::make($array_data, 
+            [
+            'service_id' => 'required|integer',
+            'booking_id' => 'required|integer',
+            'option_id' => 'required|integer',
+            'option_value'=>'required|string',
+            'total_amount' => 'required|integer',
+            'option_cost' =>'required|integer'
+            ]        
+            );
+             $key = $key + 1;
+            if($validator->fails()){
+                return response()->json([
+                 "success"=>false,
+                 "row"=>"this error message is coming from row number $key",
+                 "message"=>$validator->messages()->toArray(),
+                ],400);    
+              } 
+             
+              $service_id = $array_data["service_id"];
+              $booking_id = $array_data["booking_id"];
+            $option_id = $array_data["option_id"];
+            $option_value = $array_data["option_value"];
+            $total_amount = $array_data["total_amount"];
+            $option_cost = $array_data["option_cost"];
+
+             $row = array("service_id"=>$service_id,"booking_id"=>$booking_id,"option_id"=>$option_id,
+              "option_value"=>$option_value, "total_amount"=>$total_amount,"option_cost"=>$option_cost,
+              "created_at"=>$now,"updated_at"=>$now);
+              $data_store[] = $row;
+
+        }
+
+
+       $insert_data =  $this->booking_options::insert($data_store);
+         if($insert_data)
+         {
+            return response()->json([
+                'success' => true,
+                'message' => "data inserted successfully"
+            ]);
+        
+         }
+
+      }
+
     public function store(Request $request)
     {   
     $validator = Validator::make($request->all(), 
@@ -42,6 +97,8 @@ class BookingOptionsController extends Controller
         'total_amount' => 'required|integer',
         'option_cost' =>'required|integer'
     ]
+
+
      );
      
      if($validator->fails()){
@@ -62,7 +119,7 @@ class BookingOptionsController extends Controller
 
     return response()->json([
         'success' => true,
-        'booking_options' => $this->booking_options
+        'message' => "data inserted successfully"
     ]);
 
 

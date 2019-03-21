@@ -196,6 +196,7 @@ Route::group(["prefix"=>"user",
    Route::get("reviews/artisan/{id}/{pagination}","ReviewsController@getReviewsForArtisanId");
   
    Route::post("booking-options/create","BookingOptionsController@store");
+   Route::post("booking-options/multiple-insert","BookingOptionsController@MultipleInsert");
    Route::post("booking-options/update/{id}","BookingOptionsController@update");
    Route::post("booking-options/delete/{id}","BookingOptionsController@delete");
    Route::get("booking-options/get","BookingOptionsController@index");   
