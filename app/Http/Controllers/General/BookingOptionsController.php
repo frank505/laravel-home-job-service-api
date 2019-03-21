@@ -21,7 +21,7 @@ class BookingOptionsController extends Controller
     public function index()
     {
      $db_query = DB::SELECT("SELECT booking_options.id,booking_options.service_id FROM booking_options 
-     INNER JOIN booking_service_options ON booking_options.service_id = booking_service_options.service_id");
+     INNER JOIN service_form_options ON booking_options.service_id = service_form_options.service_id");
      return response()->json([
         'success' => true,
         'data'=>$db_query

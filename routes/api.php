@@ -100,7 +100,7 @@ Route::group(['prefix' => 'admin',
     Route::post('service-options/create','ServiceFormOptionsController@store');//create
     Route::post('service-options/update/{id}','ServiceFormOptionsController@update');//update
     Route::delete('service-options/delete/{id}', 'ServiceFormOptionsController@delete');//delete
-    Route::get('service-options/all-content/{pagination?}', 'ServiceFormOptionsController@index'); //all service
+    Route::get('service-options/all-content/{service_id}', 'ServiceFormOptionsController@index'); //all service
     Route::get('service-options/single-service/{id}/{pagination?}','ServiceFormOptionsController@getServiceOptionsForParticularService');
     //bookings route
     Route::get('bookings/all-content/{pagination?}', 'BookingsController@index');

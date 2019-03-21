@@ -19,31 +19,20 @@ class ServiceFormOptionsController extends Controller
         $this->ServiceFormOptions = new ServiceFormOptions;
     }
 
-    public function index($pagination=null,Request $request)
+    public function index($service_id,Request $request)
     {   
     //laravel automatically converts it to json and sends a response text too
     //$auth = auth("admins")->authenticate($request->token);
-    if($pagination==null || $pagination==""){
-        $ServiceFormOptions =  $this->ServiceFormOptions->get();
-        return ServiceFormOptionsCollection::collection($ServiceFormOptions);
-        
-    }else{
-        $ServiceFormOptions= $this->ServiceFormOptions->paginate($pagination);
-        return ServiceFormOptionsCollection::collection($ServiceFormOptions);
-    }
+    $ServiceFormOptions = $this->ServiceFormOptons->where(["service_id"=>0,"service_id"=>$service_id])->get();
+    return ServiceFormOptionsCollection::collection($ServiceFormOptions);
 }
 
 public function getServiceOptionsForParticularService(Request $request, $id,$pagination=null)
 {
-    if($pagination==null || $pagination==""){
-        $ServiceFormOptions =  $this->ServiceFormOptions->where(["service_id"=>$id])->get(["options"])->toArray();
-        $ServiceFormOptions= $this->ServiceFormOptions->paginate($pagination);
-        return ServiceFormOptionsCollection::collection($ServiceFormOptions);
-    }else{
-        $ServiceFormOptions= $this->ServiceFormOptions->paginate($pagination);
-        return ServiceFormOptionsCollection::collection($ServiceFormOptions);
-    }
-   
+
+    $ServiceFormOptions = $this->ServiceFormOptons->where(["service_id"=>0,"service_id"=>$id])->get(["options"]);
+    return ServiceFormOptionsCollection::collection($ServiceFormOptions);
+
 }
 
 public function store(Request $request)
