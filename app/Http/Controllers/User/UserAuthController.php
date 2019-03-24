@@ -35,13 +35,24 @@ class UserAuthController extends Controller
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(),
-        ['firstname' => 'required|string',
+        [
+            'firstname' => 'required|string',
         'lastname'=>'required|string',
         'email' => 'required|email',
         'password' => 'required|string|min:6',
         'phone'=>'required|string',
-        'cityid'=>'required|string',
-        'roleid'=>'required|string'
+        // 'roleid'=>'required|string',
+        // 'country_id'=>'required|string',
+        'residence'=>'required|string',
+        'city'=>'required|string',
+        // 'what_you_do'=>'required|string',
+        'adress'=>'required|string',
+        // 'bank'=>'required|string',
+        // 'account_number'=>'required|string',
+        // 'gaurantors_name'=>'required|string',
+        // 'gaurantors_number'=>'required|string',
+        // 'why_you_love_what_you_do'=>'required|string',
+
                 ]
     );
     if($validator->fails()){
@@ -55,20 +66,34 @@ class UserAuthController extends Controller
       $taken = array("email"=>"this email is already taken");
       return response()->json($taken, 200);
    }
+   
         $this->user::create(
-            ['firstname'=>$request->firstname,
+            [
+            'firstname'=>$request->firstname,
              'lastname'=>$request->lastname,
              'email'=>$request->email,
              'password'=>Hash::make($request->password),
              'phone'=>$request->phone,
-             'cityid'=>$request->cityid,
-             'roleid'=>$request->roleid,
+             'city_id'=>$request->city,
+            // 'roleid'=>$request->roleid,
+            //  'what_you_do'=>$request->what_you_do,
+              'address'=>$request->adress,
+            //  'bank'=>$request->bank,
+            //  'account_number'=>$request->account_number,
+            //  'gaurantors_name'=>$request->gaurantors_name,
+            //  'gaurantors_number'=>$request->gaurantors_number,
+            //  'why_you_love_what_you_do'=>$request->why_you_love_what_you_do,
+              //'country_id'=>$request->country_id,
+              'state_id'=>$request->residence,
+            //   'facebook_handle'=>$request->facebook_handle,
+            //   'instagram_handle'=>$request->twitter_handle
             ]);
            
         if ($this->loginAfterSignUp) {
             return $this->login($request);
         }
  
+
         return response()->json([
             'success' => true,
             'data' => $user,
@@ -173,12 +198,24 @@ class UserAuthController extends Controller
     }
      
     $validator = Validator::make($request->all(),
-    ['firstname' => 'required|string',
-    'lastname'=>'required|string',
-    'password' => 'required|string|min:6',
-    'phone'=>'required|string',
-    'cityid'=>'required|string',
-    'roleid' =>'required|string'
+    [
+
+        'firstname' => 'required|string',
+        'lastname'=>'required|string',
+        'password' => 'required|string|min:6',
+        'phone'=>'required|string',
+        'roleid'=>'required|string',
+        'country_id'=>'required|string',
+        'state_id'=>'required|string',
+        'city_id'=>'required|string',
+        'what_you_do'=>'required|string',
+        'address'=>'required|string',
+        'bank'=>'required|string',
+        'account_number'=>'required|string',
+        'gaurantors_name'=>'required|string',
+        'gaurantors_number'=>'required|string',
+        'why_you_love_what_you_do'=>'required|string',
+
             ]
 );
 if($validator->fails()){
@@ -189,12 +226,24 @@ if($validator->fails()){
   }
         
             $update = $this->user::where(["id"=>$id])->update(
-            ['firstname'=>$request->firstname,
+            [
+                'firstname'=>$request->firstname,
              'lastname'=>$request->lastname,
              'password'=>Hash::make($request->password),
              'phone'=>$request->phone,
              'cityid'=>$request->cityid,
-             'roleid'=>$request->roleid
+             'roleid'=>$request->roleid,
+             'what_you_do'=>$request->what_you_do,
+             'address'=>$request->address,
+             'bank'=>$request->bank,
+             'account_number'=>$request->account_number,
+             'gaurantors_name'=>$request->gaurantors_name,
+             'gaurantors_number'=>$request->gaurantors_number,
+             'why_you_love_what_you_do'=>$request->why_you_love_what_you_do,
+              'country_id'=>$request->country_id,
+              'state_id'=>$request->state_id,
+              'facebook_handle'=>$request->facebook_handle,
+              'instagram_handle'=>$request->twitter_handle
             ]);
 
     if ($update) {

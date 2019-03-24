@@ -19,18 +19,18 @@ class ServiceFormOptionsController extends Controller
         $this->ServiceFormOptions = new ServiceFormOptions;
     }
 
-    public function index($service_id,Request $request)
+    public function index($service_id)
     {   
     //laravel automatically converts it to json and sends a response text too
     //$auth = auth("admins")->authenticate($request->token);
-    $ServiceFormOptions = $this->ServiceFormOptons->where(["service_id"=>0,"service_id"=>$service_id])->get();
+    $ServiceFormOptions = $this->ServiceFormOptions->where(["service_id"=>0,"service_id"=>$service_id])->get();
     return ServiceFormOptionsCollection::collection($ServiceFormOptions);
 }
 
 public function getServiceOptionsForParticularService(Request $request, $id,$pagination=null)
 {
 
-    $ServiceFormOptions = $this->ServiceFormOptons->where(["service_id"=>0,"service_id"=>$id])->get(["options"]);
+    $ServiceFormOptions = $this->ServiceFormOptions->where(["service_id"=>0,"service_id"=>$id])->get(["options"]);
     return ServiceFormOptionsCollection::collection($ServiceFormOptions);
 
 }
