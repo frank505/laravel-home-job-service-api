@@ -13,6 +13,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('firstname');
@@ -22,10 +23,24 @@ class CreateUsersTable extends Migration
             $table->string("phone");
             $table->string("cityid");
             $table->string("roleid");
+            $table->string("stateid");
+            $table->string("country_id")->nullable()->default(NULL);
+            $table->string("what_you_do")->nullable()->default(NULL);
+            $table->string("address")->nullable()->default(NULL);
+            $table->string("bank")->nullable()->default(NULL);
+            $table->string("account_number")->nullable()->default(NULL);
+            $table->string("gaurantors_name")->nullable()->default(NULL);
+            $table->string("gaurantors_number")->nullable()->default(NULL);
+            $table->string("why_you_love_what_you_do")->nullable()->default(NULL);
+            $table->string("facebook_handle")->nullable()->default(NULL);
+            $table->string("instagram_handle")->nullable()->default(NULL);
+            $table->string("last_location")->nullable()->default(NULL);
+            $table->string("isOnline")->nullable()->default(NULL);
             $table->string("profilephoto")->nullable()->default(NULL);
             $table->string("status");
             $table->rememberToken();
             $table->timestamps();
+
             });
     }
 

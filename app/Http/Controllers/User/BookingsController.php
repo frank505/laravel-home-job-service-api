@@ -7,15 +7,21 @@ use App\Http\Controllers\Controller;
 use JWTAuth;
 use App\Bookings;
 use Validator;
+use App\Services;
+use Illuminate\Routing\UrlGenerator;
 
 class BookingsController extends Controller
 {
     //
     protected $Bookings;
-    public function __construct()
+    protected $service;
+    public $base_url;
+    public function __construct(UrlGenerator $url)
     {
         $this->middleware("auth:users");
         $this->Bookings = new Bookings;
+        $this->service = new Services;
+        $this->base_url = $url->to("/");  //this is to make the baseurl available in this controller
     }
 
     public function store(Request $request)
@@ -40,6 +46,15 @@ if($validator->fails()){
      "success"=>false,
      "message"=>$validator->messages()->toArray(),
     ],400);    
+  }
+
+  $checkIfArtisanOccupied = $this->Bookings::where(["artisan_id"=>$request->artisan,"status"=>0])->count();
+  if($checkIfArtisanOccupied > 2)
+  {
+    return response()->json([
+        'success' => true,
+        'message' => 'new booking failed as you are too occupied there is a maximum of 3 jobs at a time'
+    ], 400);
   }
     $created =  $this->Bookings::create(
     ['user_id'=>$request->user_id,
@@ -185,24 +200,46 @@ public function BookingForParticularUser(Request $request,$pagination=null)
             ]);
     }
 }
-public function BookingForParticularArtisan(Request $request, $id,$pagination=null)
-{
-
-    if($pagination==null || $pagination==""){
-        $Bookings =  $this->Bookings->where(["artisan_id"=>$id])->get()->toArray();
+public function BookingForParticularArtisan(Request $request, $id)
+{       $data = array();
+        $Bookings =  $this->Bookings->where(["artisan_id"=>$id,"status"=>0])->orderBy("id","DESC")->get();
+        foreach ($Bookings as $key => $value) {
+            $service_id = $value->service_id;
+        $getService = $this->service::find($service_id);
+        $service_name = $getService->service;
+        $image = $getService->image;
+        $data[] = array("bookings_id"=>$value->id,"service_id"=>$service_id,"user_id"=>$value->user_id,
+        "service_name"=>$service_name,"service_image"=>$image,"created_at"=>$value->scheduledate,"total_cost"=>$value->total_cost);
+            # code...
+        }
+        $final_data = array("data"=>$data,"file_path"=>$this->base_url."/images/services_images");
         return response()->json([
             'success'=>true,
-            'data'=>$Bookings,
+            'data'=>$final_data,
         ]);          
-    }else{
-        $Bookings = $this->Bookings->where(["artisan_id"=>$id])->paginate($pagination);
-        return response()->json([
-            'success'=>true,
-            'data'=>$Bookings,    
-            ]);
     }
 
-}
+
+    public function BookingDetailsForParticularArtisan(Request $request ,$id)
+    {
+        $data = array();
+        $Bookings =  $this->Bookings->where(["id"=>$id,"status"=>0])->orderBy("id","DESC")->get();
+        foreach ($Bookings as $key => $value) {
+            $service_id = $value->service_id;
+        $getService = $this->service::find($service_id);
+        $service_name = $getService->service;
+        $image = $getService->image;
+        $data[] = array("bookings_id"=>$value->id,"service_id"=>$service_id,"user_id"=>$value->user_id,
+        "service_name"=>$service_name,"service_image"=>$image,"location"=>$value->location,
+        "created_at"=>$value->scheduledate,"total_cost"=>$value->total_cost,"address"=>$value->address);
+            # code...
+        }
+        $final_data = array("data"=>$data,"file_path"=>$this->base_url."/images/services_images");
+        return response()->json([
+            'success'=>true,
+            'data'=>$final_data,
+        ]);  
+    }
 
 public function getBooking(Request $request, $id)
 {

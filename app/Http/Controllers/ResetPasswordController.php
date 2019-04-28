@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use Validator;
+use Illuminate\Support\Facades\Hash;
+
 class ResetPasswordController extends Controller
 {
     //
@@ -33,7 +35,10 @@ class ResetPasswordController extends Controller
            
           $token =  DB::table("password-resets")->where("token",$token)->first();
           if($token){
-              return redirect("/reset-password")->with("success","ready to go");
+              DB::table("users")->where(["email"=>$request->email])->update([
+                  "password"=>Hash::make($request->password)
+              ]);
+              return redirect("/reset-password")->with("success","password reset successfully");
           }
        }
          

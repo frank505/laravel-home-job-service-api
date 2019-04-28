@@ -169,7 +169,8 @@ Route::group(["prefix"=>"user",
     //bookings route
     Route::get('bookings/all-content/{pagination?}', 'BookingsController@index');
     Route::post('bookings/user/{pagination?}','BookingsController@BookingForParticularUser');
-    Route::get("bookings/artisan/{id}/{pagination?}","BookingsController@BookingForParticularArtisan");
+    Route::get("bookings/artisan/{id}","BookingsController@BookingForParticularArtisan");
+    Route::get("bookings/artisan/full-details/{id}","BookingsController@BookingDetailsForParticularArtisan");
     Route::get("bookings/single-bookings/{id}","BookingsController@getBooking");
      //this routes are for the sub categories section 
      Route::get('sub-categories/all-content/{pagination?}', 'SubCategoriesController@index');
@@ -200,6 +201,10 @@ Route::group(["prefix"=>"user",
    Route::post("booking-options/update/{id}","BookingOptionsController@update");
    Route::post("booking-options/delete/{id}","BookingOptionsController@delete");
    Route::get("booking-options/get","BookingOptionsController@index");   
+   Route::post("last-location","UserAuthController@saveLastLocation");
+   Route::post("currently-logged-in","UserAuthController@currentlyLoggedInArtisans");
+   Route::post("online","UserAuthController@LoggedIn");
+   Route::post("offline","UserAuthController@LoggedOut");
 });
 
 

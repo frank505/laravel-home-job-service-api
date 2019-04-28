@@ -20,7 +20,7 @@ class User extends Authenticatable implements JWTSubject
         'firstname','lastname','email', 'password','phone','state_id','city_id','country_id',
         'what_you_do','address','bank','account_number',
         'gaurantors_name','gaurantors_numbers','why_you_love_what_you_do','profilephoto',
-        'facebook_handle','instagram_handle'
+        'facebook_handle','instagram_handle','last_location','isOnline'
     ];
 
 

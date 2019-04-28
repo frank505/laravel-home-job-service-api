@@ -180,10 +180,13 @@ class UserAuthController extends Controller
       
         $token_time_frame = auth("users")->factory()->setTTL(NULL);
 
+          $user = auth("users")->authenticate($request->token);
+          $id = $user->id;
           return response()->json([
             'success' => true,
             'token' => $jwt_token,
             'expires_in'=>auth("users")->factory()->getTTL(),
+            'id'=>$id
         ]);
        }
        
@@ -366,6 +369,7 @@ if($validator->fails()){
 
     $validator = Validator::make($request->all(), 
     ['password' => 'required','token'=>'required']);
+
     if($validator->fails()){
         return response()->json([
          "success"=>false,
@@ -385,6 +389,111 @@ $user = auth("users")->authenticate($request->token);
    }
   }
 
+ public function saveLastLocation(Request $request)
+ {
+
+  $validator = Validator::make($request->all(),
+  [
+      "id"=>"required|integer",
+      "last_location"=>"required"
+  ]);
 
 
+  if($validator->fails()){
+    return response()->json([
+     "success"=>false,
+     "message"=>$validator->messages()->toArray(),
+    ],400);    
 }
+
+$user = $this->user->find($id);
+if (!$user) {
+    return response()->json([
+        'success' => false,
+        'message' => 'Sorry, user with id ' . $id . ' cannot be found'
+    ], 400);
+}
+ $user->last_location = $request->last_location;
+ if($user->save()){
+    return response()->json([
+        'success' => true,
+        "message"=>"user last location updated successfully"
+    ],200);
+   }
+ }
+
+
+ public function currentlyLoggedInArtisans()
+ {
+  $getCurrentlyLoggedIn = $this->user::where(["isOnline"=>1,"status"=>0])->get(["firstname","lastname","email","id","isOnline"]);
+  return response()->json([
+    'success' => true,
+    "data"=>$getCurrentlyLoggedIn
+],200);
+}
+
+public function loggedIn(Request $request)
+{ 
+    $validator = Validator::make($request->all(),
+    [
+        "id"=>"required|integer",
+    ]);
+  
+  
+    if($validator->fails()){
+      return response()->json([
+       "success"=>false,
+       "message"=>$validator->messages()->toArray(),
+      ],400);    
+  }
+  
+  $user = $this->user->find($id);
+  if (!$user) {
+      return response()->json([
+          'success' => false,
+          'message' => 'Sorry, user with id ' . $id . ' cannot be found'
+      ], 400);
+  }
+   $user->isOnline = 1;
+   if($user->save()){
+      return response()->json([
+          'success' => true,
+          "message"=>"user last location updated successfully"
+      ],200);
+     }
+}
+
+public function loggedOut()
+{
+    $validator = Validator::make($request->all(),
+    [
+        "id"=>"required|integer"
+    ]);
+  
+  
+    if($validator->fails()){
+      return response()->json([
+       "success"=>false,
+       "message"=>$validator->messages()->toArray(),
+      ],400);    
+  }
+  
+  $user = $this->user->find($id);
+  if (!$user) {
+      return response()->json([
+          'success' => false,
+          'message' => 'Sorry, user with id ' . $id . ' cannot be found'
+      ], 400);
+  }
+   $user->isOnline = 0;
+   if($user->save()){
+      return response()->json([
+          'success' => true,
+          "message"=>"user last location updated successfully"
+      ],200);
+     }
+}
+
+ }
+
+
