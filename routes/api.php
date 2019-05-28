@@ -156,6 +156,10 @@ Route::group(["prefix"=>"user",
     Route::post("logout","UserAuthController@logout");
     Route::post("change-password","UserAuthController@ChangePassword");
     Route::post("/profilephoto/add","UserAuthController@AddProfilePicture");
+    Route::post("/add-social-media-account/{id}","UserAuthController@AddSocialMediaAccount");
+    Route::get("/get-social-media-account/{id}","UserAuthController@GetSocialMediaAccount");
+    Route::post("/add-bank-details/{id}","UserAuthController@AddBankDetails");
+    Route::get("/get-bank-details/{id}","UserAuthController@GetBankDetails");
     //here we pass the post data which is the token through the body
     Route::post("/profile","UserAuthController@getAuthUser");
     Route::post("/reset-password-link","UserAuthController@sendResetPasswordLink");
@@ -205,6 +209,10 @@ Route::group(["prefix"=>"user",
    Route::post("currently-logged-in","UserAuthController@currentlyLoggedInArtisans");
    Route::post("online","UserAuthController@LoggedIn");
    Route::post("offline","UserAuthController@LoggedOut");
+
+   Route::post("load-current-status","GeolocationController@loadArtisanCurrentStatus");
+   Route::post("update-current-status","GeolocationController@updateArtisanCurrentStatus");
+   Route::post("current-geolocation","GeolocationController@ArtisanGeoLocationUpdate");
 });
 
 

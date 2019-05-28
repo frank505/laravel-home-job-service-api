@@ -85,8 +85,8 @@ class UserAuthController extends Controller
             //  'why_you_love_what_you_do'=>$request->why_you_love_what_you_do,
               //'country_id'=>$request->country_id,
               'state_id'=>$request->residence,
-            //   'facebook_handle'=>$request->facebook_handle,
-            //   'instagram_handle'=>$request->twitter_handle
+            //   'bank'=>$request->bank,
+            //   'account_number'=>$request->twitter_handle
             ]);
            
         if ($this->loginAfterSignUp) {
@@ -245,8 +245,8 @@ if($validator->fails()){
              'why_you_love_what_you_do'=>$request->why_you_love_what_you_do,
               'country_id'=>$request->country_id,
               'state_id'=>$request->state_id,
-              'facebook_handle'=>$request->facebook_handle,
-              'instagram_handle'=>$request->twitter_handle
+              'bank'=>$request->bank,
+              'account_number'=>$request->twitter_handle
             ]);
 
     if ($update) {
@@ -306,6 +306,9 @@ if($validator->fails()){
             'image_directory'=>$this->base_url."/images/users",
             ]);
     }
+
+
+
 
 
   public function sendEmailData($user_email)
@@ -493,6 +496,125 @@ public function loggedOut()
       ],200);
      }
 }
+
+
+
+public function AddSocialMediaAccount(Request $request,$id)
+{
+    $validator = Validator::make($request->all(),
+    [
+        "facebook_handle"=>"required|string",
+        "instagram_handle"=>"required|string"
+    ]);
+  
+  
+    if($validator->fails()){
+      return response()->json([
+       "success"=>false,
+       "message"=>$validator->messages()->toArray(),
+      ],400);    
+  }
+  
+  $user = $this->user->find($id);
+  if (!$user) {
+      return response()->json([
+          'success' => false,
+          'message' => 'Sorry, user with id ' . $id . ' cannot be found'
+      ], 400);
+  }
+
+
+ $user->facebook_handle = $request->facebook_handle;
+ $user->instagram_handle = $request->instagram_handle;
+ if($user->save()){
+    return response()->json([
+        'success' => true,
+        "message"=>"social media account updated"
+    ],200);
+   }    
+}
+
+
+public function GetSocialMediaAccount($id)
+{
+    $user = $this->user->find($id);
+    if (!$user) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Sorry, user with id ' . $id . ' cannot be found'
+        ], 400);
+    }
+
+ $facebook_handle = $user->facebook_handle;
+ $instagram_handle = $user->instagram_handle;
+ $data = array("facebook_handle"=>$facebook_handle,"instagram_handle"=>$instagram_handle);
+    return response()->json([
+        'success' => true,
+        "data"=>$data
+    ],200);
+}
+
+
+
+public function AddBankDetails(Request $request,$id)
+{
+    $validator = Validator::make($request->all(),
+    [
+        "account_number"=>"required|integer",
+        "gaurantors_name"=>"required|string",
+        "bank_name"=>"required|string"
+    ]);
+  
+  
+    if($validator->fails()){
+      return response()->json([
+       "success"=>false,
+       "message"=>$validator->messages()->toArray(),
+      ],400);    
+  }
+  
+  $user = $this->user->find($id);
+  if (!$user) {
+      return response()->json([
+          'success' => false,
+          'message' => 'Sorry, user with id ' . $id . ' cannot be found'
+      ], 400);
+  }
+
+
+ $user->gaurantors_name = $request->gaurantors_name;
+ $user->bank = $request->bank_name;
+$user->account_number = $request->account_number; 
+ if($user->save()){
+    return response()->json([
+        'success' => true,
+        "message"=>"social media account updated"
+    ],200);
+   } 
+}
+
+public function GetBankDetails($id)
+{
+    $user = $this->user->find($id);
+    if (!$user) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Sorry, user with id ' . $id . ' cannot be found'
+        ], 400);
+    }
+
+ $bank = $user->bank;
+ $account_number = $user->account_number;
+ $gaurantors_name = $user->gaurantors_name;
+ $data = array("bank"=>$bank,"account_number"=>$account_number,"gaurantors_name"=>$gaurantors_name);
+    return response()->json([
+        'success' => true,
+        "data"=>$data
+    ],200);
+}
+
+
+
 
  }
 
